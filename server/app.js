@@ -9,14 +9,13 @@ app.use(express.json());
 app.use(cors());
 
 //Routers 
-// const postRouter = require("./routes/Posts");
-// const loginRouter = require("./routes/Login");
-// const registerRouter = require("./routes/Register");
+const registerRouter = require("./routes/Register");
+const loginRouter = require("./routes/Login");
 
 
 //api routes
-// app.use("/posts",postRouter);
-// app.use("/register",registerRouter);
+app.use("/register",registerRouter);
+app.use("/login",loginRouter);
 
 db.sequelize.sync().then(() =>{
 

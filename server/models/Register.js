@@ -1,18 +1,9 @@
 module.exports = (sequelize,DataTypes) => {
 
-
-    //Postschema
-        const RegisterSchema = sequelize.define("Register" , {   
+    //schema
+        const RegisterSchema = sequelize.define("Register2" , {   
     
-            Fname: {
-                type: DataTypes.STRING,
-                allowNull: false,
-            },
             
-            Lname: {
-                type: DataTypes.STRING,
-                allowNull: false,
-            },
 
             email: {
                 type: DataTypes.STRING,
@@ -24,25 +15,7 @@ module.exports = (sequelize,DataTypes) => {
                 allowNull: false,
             },
 
-            confirmPassword: {
-                type: DataTypes.STRING,
-                allowNull: false,
-            },  
-
-            address: {
-                type: DataTypes.STRING,
-                allowNull: false,
-            },
-
-            Bdate: {
-                type: DataTypes.STRING,
-                allowNull: false,
-            },
-
-            Grade: {            
-                type: DataTypes.STRING,
-                allowNull: false,   
-            },
+            
            
     
         });
