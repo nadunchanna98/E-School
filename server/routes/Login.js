@@ -1,4 +1,4 @@
-const express = require('express');
+/*const express = require('express');
 const db = require('../models');
 const {Register2} = require('../models');
 const router = express.Router();
@@ -32,3 +32,4 @@ router.post("/",async (req,res) =>{
 
 
 module.exports = router
+*/

@@ -1,24 +1,22 @@
-module.exports = (sequelize,DataTypes) => {
+// module.exports = (sequelize,DataTypes) => {
 
-    //schema
-        const RegisterSchema = sequelize.define("Register2" , {   
+//     //schema
+//         const RegisterSchema = sequelize.define("Register2" , {   
     
             
 
-            email: {
-                type: DataTypes.STRING,
-                allowNull: false,
-            },
+//             email: {
+//                 type: DataTypes.STRING,
+//                 allowNull: false,
+//             },
 
-            password: {
-                type: DataTypes.STRING,
-                allowNull: false,
-            },
+//             password: {
+//                 type: DataTypes.STRING,
+//                 allowNull: false,
+//             },
 
-            
-           
     
-        });
+//         });
     
-        return RegisterSchema;
-     };
+//         return RegisterSchema;
+//      };
