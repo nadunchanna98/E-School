@@ -1,3 +1,62 @@
+const express = require('express');
+const router = express.Router();
+const db = require("../Db");
+
+
+//post route
+router.post("/", (req,res) =>{
+
+    const email = req.body.email;
+    const password = req.body.password;
+
+
+   db.query(
+    "SELECT * FROM user WHERE email = ? AND password = ?",
+   (err,result) => {
+       if(err){
+            console.log(err);
+            console.log({message : "Wrong email or password !"} );
+       }else{
+           res.send({message : "logged in"});
+       }
+   }
+   )
+});
+
+
+module.exports = router
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*const express = require('express');
 const db = require('../models');
 const {Register2} = require('../models');
