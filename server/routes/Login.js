@@ -4,7 +4,7 @@ const db = require("../Db");
 
 
 //post route
-router.post("/", (req,res) =>{
+router.get("/", (req,res) =>{
 
     const email = req.body.email;
     const password = req.body.password;
