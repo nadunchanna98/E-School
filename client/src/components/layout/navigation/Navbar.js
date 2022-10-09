@@ -14,14 +14,12 @@ const Navbar = () => {
     <ul className="navbar-nav ms-auto">
 
       <li className="nav-item active">
-        <a className="nav-link" href="#">Home </a>
+        <a className="nav-link" href="/home">Home </a>
       </li>
-
 
       <li className="nav-item">
-        <a className="nav-link" href="#">Assignments</a>
+        <a className="nav-link" href="#">Contact</a>
       </li>
-
 
       <li className="nav-item">
         <a className="nav-link" href="#">Notifications</a>
@@ -34,10 +32,12 @@ const Navbar = () => {
         <div className="dropdown-menu" aria-labelledby="navbarDropdown">
 
           <a className="dropdown-item" href="#">My Profile</a>
+          <a className="dropdown-item" href="#">Assignments</a>
           <a className="dropdown-item" href="#">Students</a>
           <a className="dropdown-item" href="#">Teachers</a>
-          <a className="dropdown-item" href="#">Login</a>
-          <a className="dropdown-item" href="#">Register</a>
+          <a className="dropdown-item" href="/login">Login</a>
+          <a className="dropdown-item" href="/register">Register</a>
+          <a className="dropdown-item" href="#">About</a>
 
           <div className="dropdown-divider"></div>
           <a className="dropdown-item" href="#">Logout</a>

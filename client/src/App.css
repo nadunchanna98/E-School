@@ -94,6 +94,8 @@ login {
   color: red;
 }
 
+/********************        Navbar       ***********************/
+
 .navbar-nav >li>a.active , navbar-nav > li> a:focus {
   color: #ffffff;
   border-top: 0.1875rem solid rgb(255, 255, 255);
@@ -113,4 +115,33 @@ login {
   font-family: 'Comfortaa', cursive;
   margin-right: 20px;
 
+}
+
+
+/********************        Header       ***********************/
+
+.header-wraper {
+  background: url(./img/header.gif) no-repeat center center;
+  background-size: cover;
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  
+}
+
+.main-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+}
+
+.main-info h1 {
+  font-size: 5em;
+  font-family: asap; ;
+  color: rgb(32, 30, 30);
+  text-transform: uppercase;
+  margin-bottom: 20px;
 }

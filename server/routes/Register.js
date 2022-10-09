@@ -5,9 +5,16 @@ const db = require("../Db");
 
 //get route
 router.get("/", async (req,res)=>{
-       const details = await Register2.findAll();
-       res.json(details); 
+       db.query("SELECT * FROM user", (err,result) => {
+    if(err){
+        console.log(err);
+    }else{
+        res.send(result);           
+    }
+    });   
+    
 });
+
 
 //post route
 router.post("/", (req,res) =>{
@@ -61,5 +68,3 @@ module.exports = router
 //     res.json(new_student);
 // });
 
-
-// module.exports = router

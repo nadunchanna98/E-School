@@ -4,22 +4,23 @@ import Homepage from './pages/Homepage';
 import Register from './pages/Register';
 import Login from './pages/Login';
 
-
-import 'bootstrap/dist/css/bootstrap.min.css';
-import Navbar from './components/layout/navigation/Navbar/Navbar';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Navbar from './components/layout/navigation/Navbar';
+import Header from './components/layout/Header';
 
 function App() {
 
 return (
     <div className="App">
         <Router>
-          <Navbar/>
-         
+           <Navbar/>
+           <Header/>
+
+
           <Link to="/home">Home Page</Link>
           <Link to="/login">Login</Link>
           <Link to="/register">Register</Link>
-
 
           <Routes>
           <Route path="/" exact element={<Homepage/>} />
