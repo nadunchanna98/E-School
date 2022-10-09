@@ -4,23 +4,55 @@ const db = require("../Db");
 
 
 //post route
-router.get("/", (req,res) =>{
+router.post("/", (req,res) =>{
 
     const email = req.body.email;
     const password = req.body.password;
 
 
-   db.query(
-    "SELECT * FROM user WHERE email = ? AND password = ?",
-   (err,result) => {
-       if(err){
-            console.log(err);
-            console.log({message : "Wrong email or password !"} );
-       }else{
-           res.send({message : "logged in"});
-       }
-   }
-   )
+//    db.query(
+//     "SELECT * FROM user WHERE email = ? AND password = ?",
+//    (err,result) => {
+//        if(err){
+//             console.log(err);
+//             console.log({message : "Wrong email or password !"} );
+//        }else{
+//            res.send({message : "logged in"});
+//        }
+//    }
+//    )
+
+// Ensure the input fields exists and are not empty
+if (email && password) {
+
+    // Execute SQL query that'll select the account from the database based on the specified email and password
+    db.query('SELECT * FROM user WHERE email = ? AND password = ?', [email, password], (error, results) => {
+       
+        // If there is an issue with the query, output the error
+        if (error) throw error;
+
+        // If the account exists
+        if (results.length > 0) {
+
+            // Authenticate the user
+            req.session.loggedin = true;
+            req.session.email = email;
+
+            // Redirect to home page
+           
+            res.send({message : "logged in"});
+
+        } else {
+            res.send({message : 'Incorrect email and/or Password!'});
+        }			
+        res.end();
+    });
+} else {
+    res.send({message : 'Please enter email and Password!'});
+    res.end();
+}
+
+
 });
 
 

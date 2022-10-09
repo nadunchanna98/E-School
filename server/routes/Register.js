@@ -3,6 +3,14 @@ const router = express.Router();
 const db = require("../Db");
 
 
+const path = require('path');
+
+router.get('/', async (req, res) => {
+	res.sendFile(path.join(__dirname ));
+});
+
+
+
 //get route
 router.get("/", async (req,res)=>{
        db.query("SELECT * FROM user", (err,result) => {
@@ -23,6 +31,7 @@ router.post("/", (req,res) =>{
     const password = req.body.password;
 
 
+
    db.query("INSERT INTO user(email,password) VALUES (?,?)",[email,password],
    (err,result) => {
        if(err){
@@ -32,6 +41,9 @@ router.post("/", (req,res) =>{
        }
    }
    )
+
+	
+
 });
 
 

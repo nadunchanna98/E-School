@@ -42,3 +42,5 @@ export default App;
 //version 6 is deference
 //for get input use library formik
 //for vallidation -> npm i yup
+
+//npm install react-bootstrap bootstrap

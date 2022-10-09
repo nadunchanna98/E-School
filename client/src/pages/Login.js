@@ -16,7 +16,7 @@ const [loginStatus,setLoginStatus] = useState('ENTER YOUR CREDENTIALS');
   const Login = async (e) => {
     e.preventDefault();
     try {
-        await axios.get('http://localhost:3001/login', {  
+        await axios.post('http://localhost:3001/login', {  
           email: email,
           password: password,
         })
@@ -27,8 +27,6 @@ const [loginStatus,setLoginStatus] = useState('ENTER YOUR CREDENTIALS');
           else{
             setLoginStatus(response.data[0].email);
           }
-
-          console.log(response);
         })
         
     } catch (error) {
