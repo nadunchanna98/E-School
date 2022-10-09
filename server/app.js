@@ -4,6 +4,7 @@ const cors = require('cors');
 const app = express();
 
 
+
 //middleware
 app.use(express.json());
 app.use(cors());
@@ -11,11 +12,13 @@ app.use(cors());
 //Routers 
 const registerRouter = require("./routes/Register");
 const loginRouter = require("./routes/Login");
+//const HomepageRouter = require("./routes/Homepage");
 
 
 // api routes
 app.use("/register",registerRouter);
 app.use("/login",loginRouter);
+//app.use("/",HomepageRouter);
 
 
 
@@ -23,33 +26,8 @@ app.listen(3001, () => {
     console.log("Server has started on port 3001");
 });
 
+//login make but not working yet
+// login status also not working yet
 
 
-
-
-/*
-const db = require("./models");
-
-//middleware
-app.use(express.json());
-app.use(cors());
-
-//Routers 
-const registerRouter = require("./routes/Register");
-const loginRouter = require("./routes/Login");
-
-
-//api routes
-app.use("/register",registerRouter);
-app.use("/login",loginRouter);
-
-db.sequelize.sync().then(() =>{
-
-    app.listen(3001, ()=>{
-        console.log("Server is running on port 3001 ");
-    });    
-    
-})
-
-
-*/
+//npm install react-bootstrap bootstrap

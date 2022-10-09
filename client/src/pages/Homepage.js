@@ -4,7 +4,8 @@ import axios from "axios";
 import { useEffect,useState } from "react";
 
 
-function Home() {
+
+function Homepage() {
 
     const [listOfPosts, setListOfPosts] = useState([]);
 
@@ -24,7 +25,7 @@ function Home() {
                         <div className='title'>
                              {value.title}
                                   <div className='body'>
-                                 
+                                  
                                   </div>)
 
                         </div>)
@@ -35,4 +36,4 @@ function Home() {
   )
 }
 
-export default Home
+export default Homepage
