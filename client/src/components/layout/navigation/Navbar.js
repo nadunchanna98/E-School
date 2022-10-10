@@ -18,6 +18,10 @@ const Navbar = () => {
       </li>
 
       <li className="nav-item">
+        <a className="nav-link" href="#">FAQs</a>
+      </li>
+
+      <li className="nav-item">
         <a className="nav-link" href="#">Contact</a>
       </li>
 

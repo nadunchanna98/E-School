@@ -40,8 +40,8 @@ app.listen(3001, () => {
 
 //npm install express-session --save
 
-//login make but not working yet
-// login status also not working yet
+
+//register form - add phone no
 
 
 
