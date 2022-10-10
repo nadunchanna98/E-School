@@ -8,6 +8,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from './components/layout/navigation/Navbar';
 import Header from './components/layout/Header';
+import SlideShare from './pages/SlideShare';
 
 function App() {
 
@@ -16,7 +17,7 @@ return (
         <Router>
            <Navbar/>
            <Header/>
-
+           <SlideShare/>
 
           <Link to="/home">Home Page</Link>
           <Link to="/login">Login</Link>

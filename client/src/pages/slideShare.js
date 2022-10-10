@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 
-const slideShare = () => {
+const SlideShare = () => {
 
     const [index, setIndex] = useState(0);
 
@@ -14,8 +14,7 @@ const slideShare = () => {
       <Carousel.Item>
         <img
           className="d-block w-100"
-          src="holder.js/800x400?text=First slide&bg=373940"
-          alt="First slide"
+          src="https://expertshare.live/wp-content/uploads/2022/03/Virtual-E-learning-Event-7-Ideas-for-organizing-one-2.jpg"
         />
         <Carousel.Caption>
           <h3>First slide label</h3>
@@ -25,7 +24,7 @@ const slideShare = () => {
       <Carousel.Item>
         <img
           className="d-block w-100"
-          src="holder.js/800x400?text=Second slide&bg=282c34"
+          src="https://blog.commlabindia.com/wp-content/uploads/2019/08/elearning-promotion-creative-ways.jpg"
           alt="Second slide"
         />
 
@@ -37,7 +36,7 @@ const slideShare = () => {
       <Carousel.Item>
         <img
           className="d-block w-100"
-          src="holder.js/800x400?text=Third slide&bg=20232a"
+          src="https://elearningindustry.com/wp-content/uploads/2016/10/4-ways-habit-change-elearning.png"
           alt="Third slide"
         />
 
@@ -53,4 +52,4 @@ const slideShare = () => {
   )
 }
 
-export default slideShare
+export default SlideShare
