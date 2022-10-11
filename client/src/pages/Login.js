@@ -9,7 +9,7 @@ function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-const [loginStatus,setLoginStatus] = useState('ENTER YOUR CREDENTIALS');
+  const [loginStatus,setLoginStatus] = useState('ENTER YOUR CREDENTIALS');
 
 
 
@@ -51,6 +51,7 @@ const [loginStatus,setLoginStatus] = useState('ENTER YOUR CREDENTIALS');
       <div className="login" >
         <h1>Login</h1>
         <label>Email</label>
+        
           <input type="text" placeholder="Enter Email" name="email" required  
           value={email}  onChange={(e) => setEmail(e.target.value)} 
           />

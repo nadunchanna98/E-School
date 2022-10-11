@@ -3,6 +3,7 @@ import { BrowserRouter as Router,Routes,Route, Link} from "react-router-dom";
 import Homepage from './pages/Homepage';
 import Register from './pages/Register';
 import Login from './pages/Login';
+import StudentDetails from './pages/StudentDetails';
 
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -27,6 +28,7 @@ return (
           <Route path="/" exact element={<Homepage/>} />
           <Route path="/register" exact element={<Register/>} />
           <Route path="/login" exact element={<Login/>} />
+          <Route path="/students" exact element={<StudentDetails/>} />
           </Routes>
           
           
@@ -37,6 +39,8 @@ return (
 
 export default App;
 
+
+//npx create-react-app client
 
 //npm i axios 
 //npm i react-router-dom 

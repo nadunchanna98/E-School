@@ -24,12 +24,14 @@ app.use(cors());
 //Routers 
 const registerRouter = require("./routes/Register");
 const loginRouter = require("./routes/Login");
+const studentRouter = require("./routes/StudentDetails");
 //const HomepageRouter = require("./routes/Homepage");
 
 
 // api routes
 app.use("/register",registerRouter);
 app.use("/login",loginRouter);
+app.use("/students",studentRouter);
 //app.use("/",HomepageRouter);
 
 
@@ -37,6 +39,9 @@ app.use("/login",loginRouter);
 app.listen(3001, () => {
     console.log("Server has started on port 3001");
 });
+
+
+//npm inite
 
 //npm install express-session --save
 
