@@ -5,50 +5,36 @@ import "../App.css";
 
 const StudentDetails = () => {
 
-    const [listOfStudents, setListOfStudents] = useState([]);
-    const [aboutStudentDetails,setStudentDetails] = useState('Student Details');
+    const [listOfStudents, setStudents] = useState([]);
 
     useEffect(()=>{
         axios.get("http://localhost:3001/students").then((response) => {
-          setListOfStudents(response.data);
-          console.log(response.data);
+          setStudents(response.data);
         })
-        caches((error) => {
-            if(error.response.data.message){
-                setStudentDetails(error.response.data.message);
-             }
-        })
-        ;
     },[]);
 
 
     return (
-        <div className='App'>
-                {listOfStudents.map((value,key)=>{
-                    
+        <div >
+                
                     <div className='studentTable'>
-
 
                         <table>
                                 <tr>
-                                    <td>email</td>
-                                    <td>password</td>
+                                    <td><h3>email</h3></td>
+                                    <td><h3>password</h3></td>
                                 </tr>
 
-                                {
-                                <tr key={0}>
+                                {listOfStudents.map((value,key)=>(
+                                <tr key={key}>
                                     <td>{value.email}</td>
                                     <td>{value.password}</td>
                                 </tr>
-                                }
+                                 ))}
 
                         </table>
-                                <div className='massageLine'>
-                                     <h1>{aboutStudentDetails}</h1>
-                                </div>)
-                    
                     </div>
-            })}
+           
 
         </div>
       )
@@ -56,3 +42,6 @@ const StudentDetails = () => {
     }
 
 export default StudentDetails
+
+
+//

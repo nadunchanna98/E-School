@@ -1,10 +1,10 @@
 import React from 'react'
 import SlideShare from './SlideShare'
 
-const T_Dashboard = () => {
+const Teacher_Dashboard = () => {
   return (
     <SlideShare/>
   )
 }
 
-export default T_Dashboard
+export default Teacher_Dashboard
