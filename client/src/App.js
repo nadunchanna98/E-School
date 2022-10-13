@@ -1,6 +1,7 @@
 import './App.css';
 import { BrowserRouter as Router,Routes,Route, Link} from "react-router-dom";
 import Register from './pages/Register';
+import TeacherRegister from './pages/TeacherRegister';
 import Login from './pages/Login';
 import StudentDetails from './pages/StudentDetail_List';
 
@@ -20,6 +21,7 @@ return (
            <Header/>
            <SlideShare/>
 
+
           <Link to="/home">Home Page</Link>
           <Link to="/login">Login</Link>
           <Link to="/register">Register</Link>
@@ -27,6 +29,7 @@ return (
           <Routes>
           <Route path="/" exact element={<Teacher_Dashboard/>} />
           <Route path="/register" exact element={<Register/>} />
+          <Route path="/register/teacher" exact element={<TeacherRegister/>} />
           <Route path="/login" exact element={<Login/>} />
           <Route path="/students" exact element={<StudentDetails/>} />
           </Routes>
