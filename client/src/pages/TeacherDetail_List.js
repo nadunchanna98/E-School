@@ -3,13 +3,13 @@ import axios from "axios";
 import { useEffect,useState } from "react";
 import "../App.css";
 
-const StudentDetails = () => {
+const TeacherDetails = () => {
 
-    const [listOfStudents, setStudents] = useState([]);
+    const [listOfTeacher, setTeacher] = useState([]);
 
     useEffect(()=>{
-        axios.get("http://localhost:3001/students").then((response) => {
-          setStudents(response.data);
+        axios.get("http://localhost:3001/teachers").then((response) => {
+          setTeacher(response.data);
         })
     },[]);
 
@@ -17,7 +17,7 @@ const StudentDetails = () => {
     return (
         <div >
                 
-                    <div className='studentTable'>
+                    <div className='TeacherTable'>
 
                         <table>
                                 <tr>
@@ -25,7 +25,7 @@ const StudentDetails = () => {
                                     <td><h3>password</h3></td>
                                 </tr>
 
-                                {listOfStudents.map((value,key)=>(
+                                {listOfTeacher.map((value,key)=>(
                                 <tr key={key}>
                                     <td>{value.email}</td>
                                     <td>{value.password}</td>
@@ -41,7 +41,6 @@ const StudentDetails = () => {
     
     }
 
-export default StudentDetails
+export default TeacherDetails
 
 
-//

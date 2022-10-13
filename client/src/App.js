@@ -1,15 +1,15 @@
 import './App.css';
 import { BrowserRouter as Router,Routes,Route, Link} from "react-router-dom";
-import Homepage from './pages/Homepage';
 import Register from './pages/Register';
 import Login from './pages/Login';
-import StudentDetails from './pages/StudentDetails';
+import StudentDetails from './pages/StudentDetail_List';
 
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from './components/layout/navigation/Navbar';
 import Header from './components/layout/Header';
 import SlideShare from './pages/SlideShare';
+import Teacher_Dashboard from './pages/Teacher_Dashboard';
 
 function App() {
 
@@ -25,7 +25,7 @@ return (
           <Link to="/register">Register</Link>
 
           <Routes>
-          <Route path="/" exact element={<Homepage/>} />
+          <Route path="/" exact element={<Teacher_Dashboard/>} />
           <Route path="/register" exact element={<Register/>} />
           <Route path="/login" exact element={<Login/>} />
           <Route path="/students" exact element={<StudentDetails/>} />
