@@ -30,8 +30,6 @@ router.post("/", (req,res) =>{
     const email = req.body.email;
     const password = req.body.password;
 
-
-
    db.query("INSERT INTO user(email,password) VALUES (?,?)",[email,password],
    (err,result) => {
        if(err){
@@ -41,8 +39,6 @@ router.post("/", (req,res) =>{
        }
    }
    )
-
-	
 
 });
 
