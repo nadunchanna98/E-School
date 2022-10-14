@@ -12,6 +12,7 @@ import Navbar from './components/layout/navigation/Navbar';
 import Header from './components/layout/Header';
 import SlideShare from './pages/SlideShare';
 import Teacher_Dashboard from './pages/Teacher_Dashboard';
+import Update from './pages/Update';
 
 function App() {
 
@@ -28,6 +29,7 @@ return (
           <Link to="/register">Register</Link>
 
           <Routes>
+            <Route path="/update" element={<Update/>}/>
           <Route path="/" exact element={<Teacher_Dashboard/>} />
           <Route path="/register" exact element={<Register/>} />
           <Route path="/register/teacher" exact element={<TeacherRegister/>} />

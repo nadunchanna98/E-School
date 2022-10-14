@@ -1,14 +1,12 @@
 import React from 'react';
 import axios from "axios";
-import { useEffect,useState ,button } from "react";
+import { useEffect,useState , props} from "react";
 import "../App.css";
+
 
 const StudentDetail_List = () => {
 
     const [listOfStudents, setStudents] = useState([]);
-
-    const [deleteStudent, setDeleteStudent] = useState(false);
-    const [updateStudent, setUpdateStudent] = useState(false);
 
     useEffect(()=>{
         axios.get("http://localhost:3001/students/details").then((response) => {
@@ -16,11 +14,30 @@ const StudentDetail_List = () => {
         })
     },[]);
 
-    function handleRemove(id) {
-        const newList = listOfStudents.filter((item) => item.id !== id);
-        setStudents(newList);
-      }
 
+
+    
+    const handleUpdate = (id) => {
+        props.history.push(`/Update/${id}`);
+    }
+
+
+   
+
+      const handleDelete = (id) => {
+
+        axios.delete(`http://localhost:3001/students/delete/${id}`).then((response) => {
+          
+          alert("Student Deleted Successfully");
+          console.log(response.data);
+        }
+        ).catch((err) => {
+          console.log(err);
+          alert("Student Not Deleted");
+        })
+        ;
+      };
+      
 
 
     return (
@@ -52,8 +69,8 @@ const StudentDetail_List = () => {
                                     <td className='columnData'>{value.Phone_NO}</td>
                                     <td className='columnData'>{value.Email}</td>
 
-                                    <td><button onClick={(e) => setUpdateStudent(value)}>Edit</button></td>
-                                    <td><button onClick={() => handleRemove(value.id)}>Remove</button></td>
+                                    <td><button onClick={(e) => handleUpdate(value.Student_ID)}>Edit</button></td>
+                                    <td><button onClick={() => handleDelete(value.Student_ID)}>Remove</button></td>
                                 </tr>
   
                                  ))}
