@@ -21,12 +21,12 @@ const Navbar = () => {
         <a className="nav-link" href="#">FAQs</a>
       </li>
 
-      <li className="nav-item">
-        <a className="nav-link" href="#">Contact</a>
-      </li>
+      {/* <li className="nav-item">
+        <a className="nav-link" href="#">Notifications</a>
+      </li> */}
 
       <li className="nav-item">
-        <a className="nav-link" href="#">Notifications</a>
+        <a className="nav-link" href="/register/student">Register As a Student</a>
       </li>
 
       <li className="nav-item">

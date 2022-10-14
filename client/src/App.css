@@ -130,7 +130,7 @@ login {
 .header-wraper {
   background: url(./img/header.gif) no-repeat center center;
   background-size: cover;
-  height: 160vh;
+  height: 180vh;
   width: 100%;
   position: relative;
   
@@ -176,7 +176,7 @@ login {
   margin-top: 0px;
 }
 
-.TeacherRegistration{
+.Registration{
  
   width: 360px;
   padding: 20;
@@ -192,7 +192,7 @@ login {
   text-align: center;
 }
 
-.TeacherRegistration input {
+.Registration input {
   outline: 0;
   background: #f2f2f2;
   width: 100%;
@@ -206,7 +206,7 @@ login {
   font-family: 'Comfortaa', cursive;
 }
 
-.TeacherRegistration select {
+.Registration select {
   outline: 0;
   background: #f2f2f2;
   width: 100%;
@@ -221,12 +221,12 @@ login {
 }
 
 
-.TeacherRegistration input:focus {
+.Registration input:focus {
   background: #dbdbdb;
   
 }
 
-.TeacherRegistration button {
+.Registration button {
   font-family: 'Comfortaa', cursive;
   text-transform: uppercase;
   outline: 0;
@@ -242,18 +242,18 @@ login {
   cursor: pointer;
 }
 
-.TeacherRegistration button:active {
+.Registration button:active {
   background: #395591;
 }
 
-.TeacherRegistration span {
+.Registration span {
   font-size: 40px;
   color: #4b6cb7;
   margin-bottom: 25px;
   display: block;
 }
 
-.TeacherRegistration p.error {
+.Registration p.error {
   margin: 0 0 10px 10px;
   text-align: left;
   font-size: 10px;
