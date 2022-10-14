@@ -46,6 +46,35 @@ router.post("/", (req,res) =>{
 
 });
 
+//post route
+router.post("/teacher", (req,res) =>{
+
+    const Teacher_ID = req.body.Teacher_ID;
+    const Fname = req.body.Fname;
+    const Lname = req.body.Lname;
+    const Gender = req.body.Gender;
+    const PhoneNO = req.body.PhoneNO;
+    const Grade = req.body.Grade;
+    const Subject_ID = req.body.SubjectID;
+    const Email = req.body.Email;
+    const Password = req.body.Password;
+
+   db.query("INSERT INTO TEACHER(Teacher_ID,Subject_ID,Fname,Lname,Grade,Phone_NO,Gender,Email,Password) VALUES (?,?,?,?,?,?,?,?,?)",
+   [Teacher_ID,Subject_ID,Fname,Lname,Grade,PhoneNO,Gender,Email,Password],
+   (err,result) => {
+       if(err){
+           console.log(err);
+           res.send(err);
+       }else{
+           res.send("Values inserted");
+       }
+   }
+   )
+
+	
+
+});
+
 
 module.exports = router
 

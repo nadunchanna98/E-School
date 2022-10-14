@@ -10,6 +10,7 @@ const SlideShare = () => {
     };
 
   return (
+    <div className='slide'>
     <Carousel activeIndex={index} onSelect={handleSelect}>
       <Carousel.Item>
         <img
@@ -48,7 +49,7 @@ const SlideShare = () => {
         </Carousel.Caption>
       </Carousel.Item>
     </Carousel>
-    
+    </div>
   )
 }
 

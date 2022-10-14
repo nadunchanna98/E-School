@@ -2,10 +2,12 @@ import React from 'react';
 import axios from "axios";
 import {useState } from "react";
 import "../App.css";
+import { v4 as uuid } from 'uuid';
 
 
 function TeacherRegister() {
 
+  const [Teacher_ID, setTeacher_ID] = useState("");
   const [Fname , setFname ] = useState('');
   const [Lname , setLname ] = useState('');
   const [Gender , setGender ] = useState('');
@@ -14,25 +16,54 @@ function TeacherRegister() {
   const [SubjectID, setSubjectID  ] = useState('');
   const [Email , setEmail ] = useState('');
   const [Password, setPassword] = useState('');
-//teacher ID did not take.IT want to make auto generate
+
+
 
   const Register = async (e) => {
     e.preventDefault();
-    try {
-        await axios.post('http://localhost:3001/register/teacher', {  
-            Fname: Fname,
-            Lname: Lname,
-            Gender: Gender,
-            PhoneNO: PhoneNO,
-            Grade: Grade,
-            SubjectID: SubjectID,
-            Email: Email,
-            Password: Password,
-        })
-        
-    } catch (error) {
-   console.log(error);
+
+    const newTeacher = {  
+        Teacher_ID: uuid(),
+        Fname: Fname,
+        Lname: Lname,
+        Gender: Gender,
+        PhoneNO: PhoneNO,
+        Grade: Grade,
+        SubjectID: SubjectID,
+        Email: Email,
+        Password: Password,
     }
+    
+    try {
+        await axios.post('http://localhost:3001/register/teacher', newTeacher); 
+        
+    } catch (error ) {
+
+   console.log(error);
+
+            if( SubjectID == '' ){
+                alert("Please Select The Subject ");
+            }
+            else if( Grade == '' ){
+                alert("Please Select The Grade ");
+            }
+            else{
+                alert("Unsuccessful Registration");
+            }
+
+    }
+    finally{
+        alert("Register Success");
+    }
+    
+    setFname("");
+    setLname("");
+    setGender("");
+    setSubjectID("");
+    setPhoneNO("");
+    setGrade("");
+    setEmail("");
+    setPassword("");
 }
   
   return (
@@ -43,10 +74,13 @@ function TeacherRegister() {
     <div className="header-wraper">
       <div className="TeacherRegistration" >
 
-        <h1>Registration</h1>
+        <h1 className='Topic' >Registration</h1>
                 <div className="form-group"></div>
+
+                
+
                  <label>First Name</label>
-                <input type="text" placeholder="Ruvindya" name="Fname" required  
+                <input type="text" placeholder="Ruvindya"  name="Fname" required  
                 value={Fname}  onChange={(e) => setFname(e.target.value)} 
                 />
                 
@@ -66,14 +100,36 @@ function TeacherRegister() {
                 />
 
                 <label>Grade</label>
-                <input type="text" placeholder="Grade 5" name="Grade" required    
-                value={Grade}  onChange={(e) => setGrade(e.target.value)}   
-                />
+                <select name="Grade"  required value={Grade}  onChange={(e) => setGrade(e.target.value)}>
+                    <option value="">Select Grade</option>
+                    <option value="1">Grade 1</option>
+                    <option value="2">Grade 2</option>
+                    <option value="3">Grade 3</option>
+                    <option value="4">Grade 4</option>
+                    <option value="5">Grade 5</option>
+                    <option value="6">Grade 6</option>
+                    <option value="7">Grade 7</option>
+                    <option value="8">Grade 8</option>
+                    <option value="9">Grade 9</option>
+                    <option value="10">Grade 10</option>
+                    <option value="11">Grade 11</option>
+                    
+                </select>
 
                 <label>Subject</label>
-                <input type="text" placeholder="English" name="SubjectID" required
-                value={SubjectID} onChange={(e) => setSubjectID(e.target.value)}
-                />
+                <select name="SubjectID"  required value={SubjectID}  onChange={(e) => setSubjectID(e.target.value)}>
+                    <option value="">Select Subject</option>
+                    <option  value="1001">Mathematics</option>
+                    <option value="1002">Science</option>
+                    <option value="1003">English</option>
+                    <option value="1004">Sinhala</option>
+                    <option value="1005">Tamil</option>
+                    <option value="1006">History</option>
+                    <option value="1007">Geography</option>
+                    <option value="1008">Buddhism</option>
+                    
+                </select>
+                
                                         
                 <label>Email</label>
                 <input type="text" placeholder="Enter Email" name="Email" required  
