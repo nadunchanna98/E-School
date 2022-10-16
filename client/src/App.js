@@ -5,14 +5,15 @@ import TeacherRegister from './pages/TeacherRegister';
 import StudentRegister from './pages/StudentRegister';
 import Login from './pages/Login';
 import StudentDetails from './pages/StudentDetail_List';
-
+import TeacherDetail_List from './pages/TeacherDetail_List';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from './components/layout/navigation/Navbar';
 import Header from './components/layout/Header';
 import SlideShare from './pages/SlideShare';
 import Teacher_Dashboard from './pages/Teacher_Dashboard';
-import Update from './pages/Update';
+import Update from './pages/Update'; 
+
 
 function App() {
 
@@ -36,6 +37,7 @@ return (
           <Route path="/register/student" exact element={<StudentRegister/>} />
           <Route path="/login" exact element={<Login/>} />
           <Route path="/students" exact element={<StudentDetails/>} />
+          <Route path="/teachers" exact element={<TeacherDetail_List/>} />
           </Routes>
           
           
@@ -58,4 +60,8 @@ export default App;
 //npm install react-bootstrap bootstrap
 //npm install uuidv4 - for create unique id -see  teacher  register 
 
+
+//update by id note working
+//update teacher page not showing
+//delete by id not working
 

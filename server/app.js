@@ -12,9 +12,6 @@ app.use(session({
 }));
 
 
-
-
-
 //middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -25,6 +22,7 @@ app.use(cors());
 const registerRouter = require("./routes/Register");
 const loginRouter = require("./routes/Login");
 const studentRouter = require("./routes/StudentDetails");
+const teacherRouter = require("./routes/TeacherDetails");
 //const HomepageRouter = require("./routes/Homepage");
 
 
@@ -32,6 +30,7 @@ const studentRouter = require("./routes/StudentDetails");
 app.use("/register",registerRouter);
 app.use("/login",loginRouter);
 app.use("/students",studentRouter);
+app.use("/teachers",teacherRouter);
 //app.use("/",HomepageRouter);
 
 
@@ -44,9 +43,6 @@ app.listen(3001, () => {
 //npm inite
 
 //npm install express-session --save
-
-
-//register form - add phone no
 
 
 

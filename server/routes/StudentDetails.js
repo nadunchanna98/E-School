@@ -40,7 +40,7 @@ router.get("/details/:id", async (req,res)=>{
 
 
 
-//update
+//update student by id
 router.put("/update/:id", (req,res) =>{
     const Student_ID = req.params.id;
     const Fname = req.body.Fname;
@@ -59,6 +59,7 @@ router.put("/update/:id", (req,res) =>{
            res.send(err);
        }else{
            res.send(result);
+           
        }
    }
    )
@@ -66,7 +67,7 @@ router.put("/update/:id", (req,res) =>{
 }
 );
 
-//delete
+//delete by id
 router.delete("/delete/:Student_ID", (req,res) =>{
     const Student_ID = req.body.Student_ID;
     

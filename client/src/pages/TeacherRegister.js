@@ -131,6 +131,11 @@ function TeacherRegister() {
                     <option value="1006">History</option>
                     <option value="1007">Geography</option>
                     <option value="1008">Buddhism</option>
+                    <option value="1009">Music</option>
+                    <option value="1010">Drama</option>
+                    <option value="1011">Art</option>
+                    <option value="1012">Dancing</option>
+
                     
                 </select>
                 

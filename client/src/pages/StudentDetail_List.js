@@ -18,7 +18,7 @@ const StudentDetail_List = () => {
 
       const navigate = useNavigate();
     
-      const toComponentB = (id) => {
+      const toUpdateStudent = (id) => {
         navigate("/Update", { state: { id: id } });
       };
     
@@ -70,7 +70,7 @@ const StudentDetail_List = () => {
                                     <td className='columnData'>{value.Phone_NO}</td>
                                     <td className='columnData'>{value.Email}</td>
 
-                                    <td><button onClick={() => toComponentB(value.Student_ID)}>Edit</button></td>
+                                    <td><button onClick={() => toUpdateStudent(value.Student_ID)}>Edit</button></td>
                                     <td><button onClick={() => handleDelete(value.Student_ID)}>Remove</button></td>
                                 </tr>
   

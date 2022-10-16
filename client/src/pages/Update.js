@@ -42,8 +42,7 @@ const Update = () => {
 
     const Register = async (e) => {
         e.preventDefault();
-        console.log(Bdate);
-        console.log(Fname);
+
 
         const updateStudent = {  
             Student_ID: Student_ID,
@@ -59,14 +58,17 @@ const Update = () => {
         }
     
         try {
-            await axios.put(`http://localhost:3001/students/update/${Student_ID}`,updateStudent); 
-            
+            await axios.put(`http://localhost:3001/students/update/${Student_ID}`,updateStudent).then
+            (response => {
+                console.log(response);}
+                ); 
+                navigate("/students");
         } catch (error) {
                  console.log(error);
         }
 
 
-        navigate("/students");
+        
     }
    
 
@@ -139,7 +141,7 @@ const Update = () => {
                 value={Password} onChange={(e) => setPassword(e.target.value)}
                 />
 
-        <button   type="submit">update</button>
+        <button   type="submit">Save Update</button>
       </div>
 
     </div> 
