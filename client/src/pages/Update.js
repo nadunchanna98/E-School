@@ -1,103 +1,88 @@
 import React from 'react';
 import axios from "axios";
 import { useEffect,useState } from "react";
+import "../App.css";
+import { useLocation } from "react-router-dom";
+import {useNavigate} from 'react-router-dom';
+
+const Update = () => {
+
+    const navigate = useNavigate();
+    const location = useLocation();
+    const Student_ID = location.state.id;
 
 
-const Update = (props) => {
+    const [Fname , setFname ] = useState('');
+    const [Lname , setLname ] = useState('');
+    const [Gender , setGender ] = useState('');
+    const [PhoneNO , setPhoneNO ] = useState('');
+    const [Grade, setGrade  ] = useState('');
+    const [Bdate, setBdate  ] = useState('');
+    const [Address, setAddress  ] = useState('');
+    const [Email , setEmail ] = useState('');
+    const [Password, setPassword] = useState('');
 
-    const id = props.match.params.id;
-
-    const [listOfStudents, setStudents] = useState([]);
 
     useEffect(()=>{
-        axios.get(`http://localhost:3001/students/student/${id}`).then((response) => {
-          setStudents(response.data);
-        }).catch((err) => {
-            console.log(err);
+        axios.get( `http://localhost:3001/students/details/${Student_ID}`).then((response) => {
+            setFname(response.data[0].Fname);
+            setLname(response.data[0].Lname);
+            setGender(response.data[0].Gender);
+            setPhoneNO(response.data.PhoneNO);
+            setGrade(response.data[0].Grade);
+            setBdate(response.data.Bdate);
+            setAddress(response.data[0].Address);
+            setEmail(response.data[0].Email);
+
         })
     },[]);
+    
+
+    
+
+    const Register = async (e) => {
+        e.preventDefault();
+        console.log(Bdate);
+        console.log(Fname);
+
+        const updateStudent = {  
+            Student_ID: Student_ID,
+            Fname: Fname,
+            Lname: Lname,
+            Gender: Gender,
+            PhoneNO: PhoneNO,
+            Grade: Grade,
+            Bdate: Bdate,
+            Address: Address,
+            Email: Email,
+            Password: Password,
+        }
+    
+        try {
+            await axios.put(`http://localhost:3001/students/update/${Student_ID}`,updateStudent); 
+            
+        } catch (error) {
+                 console.log(error);
+        }
 
 
-    function StudentRegister() {
-
-        const [Fname , setFname ] = useState('');
-        const [Lname , setLname ] = useState('');
-        const [Gender , setGender ] = useState('');
-        const [PhoneNO , setPhoneNO ] = useState('');
-        const [Grade, setGrade  ] = useState('');
-        const [Bdate, setBdate  ] = useState('');
-        const [Address, setAddress  ] = useState('');
-        const [Email , setEmail ] = useState('');
-        const [Password, setPassword] = useState('');
-      
-      
-      
-        const Register = async (e) => {
-          e.preventDefault();
-      
-          var err = false;
-      
-          const newStudent = {  
-              
-              Fname: Fname,
-              Lname: Lname,
-              Gender: Gender,
-              PhoneNO: PhoneNO,
-              Grade: Grade,
-              Bdate: Bdate,
-              Address: Address,
-              Email: Email,
-              Password: Password,
-          }
-          
-          try {
-              await axios.post('http://localhost:3001/register/student', newStudent); 
-              
-          } catch (error) {
-      
-         console.log(error);
-      
-                   err = true;
-      
-                 if( Grade === '' ){
-                      alert("Please Select The Grade ");
-                  }
-                  else{
-                      alert("Unsuccessful Registration");
-                  }
-          }
-          
-              if(err === false)
-              {  alert("Successful Registration");}
-             
-          
-          
-          setFname("");
-          setLname("");
-          setGender("");
-          setAddress("");
-          setBdate("");
-          setPhoneNO("");
-          setGrade("");
-          setEmail("");
-          setPassword("");
-      }
-
-
-
+        navigate("/students");
+    }
+   
 
   return (
+   
     <form   onSubmit={Register} >
 
     <div className="header-wraper">
       <div className="Registration" >
 
-        <h1 className='Topic' >Registration</h1>
+        <h1 className='Topic' >Update Details</h1>
                 <div className="form-group"></div>
 
                 
                  <label>First Name</label>
-                <input type="text" placeholder="Ruvindya"  name="Fname" required  
+                <input type="text" placeholder={"Change The name"}  name="Fname" required  
                 value={Fname}  onChange={(e) => setFname(e.target.value)} 
                 />
                 
@@ -154,13 +139,13 @@ const Update = (props) => {
                 value={Password} onChange={(e) => setPassword(e.target.value)}
                 />
 
-        <button   type="submit">Register</button>
+        <button   type="submit">update</button>
       </div>
 
     </div> 
     </form>
   )
 }
-}
-export default Update    
+
+export default Update
             

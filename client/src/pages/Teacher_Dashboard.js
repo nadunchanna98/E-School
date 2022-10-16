@@ -3,7 +3,7 @@ import SlideShare from './SlideShare'
 
 const Teacher_Dashboard = () => {
   return (
-    <SlideShare/>
+    <div>Hi</div>
   )
 }
 

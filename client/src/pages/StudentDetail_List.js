@@ -1,7 +1,8 @@
 import React from 'react';
 import axios from "axios";
-import { useEffect,useState , props} from "react";
+import { useEffect,useState } from "react";
 import "../App.css";
+import {useNavigate} from 'react-router-dom';
 
 
 const StudentDetail_List = () => {
@@ -15,14 +16,14 @@ const StudentDetail_List = () => {
     },[]);
 
 
-
+      const navigate = useNavigate();
     
-    const handleUpdate = (id) => {
-        props.history.push(`/Update/${id}`);
-    }
+      const toComponentB = (id) => {
+        navigate("/Update", { state: { id: id } });
+      };
+    
 
 
-   
 
       const handleDelete = (id) => {
 
@@ -69,7 +70,7 @@ const StudentDetail_List = () => {
                                     <td className='columnData'>{value.Phone_NO}</td>
                                     <td className='columnData'>{value.Email}</td>
 
-                                    <td><button onClick={(e) => handleUpdate(value.Student_ID)}>Edit</button></td>
+                                    <td><button onClick={() => toComponentB(value.Student_ID)}>Edit</button></td>
                                     <td><button onClick={() => handleDelete(value.Student_ID)}>Remove</button></td>
                                 </tr>
   

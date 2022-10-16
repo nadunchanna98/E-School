@@ -24,7 +24,7 @@ return (
            <SlideShare/>
 
 
-          <Link to="/home">Home Page</Link>
+          <Link to="/update">Home Page</Link>
           <Link to="/login">Login</Link>
           <Link to="/register">Register</Link>
 

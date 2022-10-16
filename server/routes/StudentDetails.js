@@ -10,11 +10,26 @@ router.get('/', async (req, res) => {
 });
 
 
-//get route
+//get all students details 
 router.get("/details", async (req,res)=>{
        db.query("SELECT * FROM student", (err,result) => {
     if(err){
-        res.send(err);  
+        res.send(err);
+        console.log(err);  
+    }else{
+        res.send(result);              
+    }
+    });   
+    
+});
+
+//get student details by id
+router.get("/details/:id", async (req,res)=>{
+    const Student_ID = req.params.id;
+    db.query("SELECT * FROM student WHERE Student_ID = ?", Student_ID, (err,result) => {
+    if(err){
+        res.send(err);
+        console.log(err);  
     }else{
         res.send(result);              
     }
@@ -23,9 +38,11 @@ router.get("/details", async (req,res)=>{
 });
 
 
+
+
 //update
-router.put("/update/:id ", (req,res) =>{
-    const Student_ID = req.body.id;
+router.put("/update/:id", (req,res) =>{
+    const Student_ID = req.params.id;
     const Fname = req.body.Fname;
     const Lname = req.body.Lname;
     const Address = req.body.Address;
@@ -35,7 +52,7 @@ router.put("/update/:id ", (req,res) =>{
     const Email = req.body.Email;
     const Grade = req.body.Grade;
 
-   db.query("UPDATE  SET  student Fname = ?, Lname = ?, Address = ? , Gender = ?, Bdate = ?, Phone_NO = ?, Email = ?, Grade = ? WHERE Student_ID = ?",
+   db.query("UPDATE student SET Fname = ?, Lname = ?, Address = ? , Gender = ?, Bdate = ?, Phone_NO = ?, Email = ?, Grade = ? WHERE Student_ID = ?",
    [Fname,Lname,Address,Gender,Bdate,Phone_NO,Email,Grade,Student_ID],
    (err,result) => {
        if(err){

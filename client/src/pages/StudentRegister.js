@@ -4,8 +4,8 @@ import {useState } from "react";
 import "../App.css";
 import { v4 as uuid } from 'uuid';
 
-
 function StudentRegister() {
+
 
   const [Fname , setFname ] = useState('');
   const [Lname , setLname ] = useState('');
@@ -57,8 +57,7 @@ function StudentRegister() {
         if(err === false)
         {  alert("Successful Registration");}
        
-    
-    
+  
     setFname("");
     setLname("");
     setGender("");
