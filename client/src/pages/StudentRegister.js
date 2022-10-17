@@ -6,11 +6,10 @@ import { v4 as uuid } from 'uuid';
 
 function StudentRegister() {
 
-
   const [Fname , setFname ] = useState('');
   const [Lname , setLname ] = useState('');
   const [Gender , setGender ] = useState('');
-  const [PhoneNO , setPhoneNO ] = useState('');
+  const [Phone_NO , setPhoneNO ] = useState('');
   const [Grade, setGrade  ] = useState('');
   const [Bdate, setBdate  ] = useState('');
   const [Address, setAddress  ] = useState('');
@@ -19,8 +18,10 @@ function StudentRegister() {
 
 
 
-  const Register = async (e) => {
+  const Register =  (e) => {
     e.preventDefault();
+
+    console.log(Fname)
 
     var err = false;
 
@@ -29,7 +30,7 @@ function StudentRegister() {
         Fname: Fname,
         Lname: Lname,
         Gender: Gender,
-        PhoneNO: PhoneNO,
+        Phone_NO: Phone_NO,
         Grade: Grade,
         Bdate: Bdate,
         Address: Address,
@@ -38,8 +39,8 @@ function StudentRegister() {
     }
     
     try {
-        await axios.post('http://localhost:3001/register/student', newStudent); 
-        
+         axios.post('http://localhost:3001/students/register', newStudent);    
+
     } catch (error) {
 
    console.log(error);
@@ -48,6 +49,7 @@ function StudentRegister() {
 
            if( Grade === '' ){
                 alert("Please Select The Grade ");
+                
             }
             else{
                 alert("Unsuccessful Registration");
@@ -55,7 +57,8 @@ function StudentRegister() {
     }
     
         if(err === false)
-        {  alert("Successful Registration");}
+        {  //alert("Successful Registration");
+        }
        
   
     setFname("");
@@ -71,7 +74,6 @@ function StudentRegister() {
   
   return (
    
-
   <form   onSubmit={Register} >
 
     <div className="header-wraper">
@@ -97,8 +99,8 @@ function StudentRegister() {
                 />
                 
                 <label>Phone Number</label>
-                <input type="text" placeholder="0701111111" name="PhoneNO" required
-                value={PhoneNO} onChange={(e) => setPhoneNO(e.target.value)}
+                <input type="text" placeholder="0701111111" name="Phone_NO" required
+                value={Phone_NO} onChange={(e) => setPhoneNO(e.target.value)}
                 />
 
                 <label>Grade</label>
@@ -139,7 +141,7 @@ function StudentRegister() {
                 value={Password} onChange={(e) => setPassword(e.target.value)}
                 />
 
-        <button   type="submit">Register</button>
+        <button type="submit">Register</button>
       </div>
 
     </div> 

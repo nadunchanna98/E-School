@@ -168,10 +168,6 @@ login {
 
 /********************        Registaion     ***********************/
 
-.form-group {
- 
-}
-
 .Topic{
   margin-top: 0px;
 }
@@ -283,3 +279,111 @@ margin-left: 10px;
 
 /********************        details     ***********************/
 
+/********************        Assignment Upload     ***********************/
+
+
+
+.Topic{
+  margin-top: 0px;
+}
+
+.assignment{
+  min-width: 100%;
+  height: 100vh;
+  /* border: 1px solid red; */
+  margin: 0vw;
+  padding: 5vw ;
+  position:relative; 
+
+ 
+}
+.header {
+  background: url(./img/header.gif) no-repeat center center;
+  background-size: cover;
+  height: 180vh;
+  width: 100%;
+  position: relative;
+
+}
+
+
+.assignment input {
+  display: block;
+  width: 50%;
+  margin-left: 25%;
+  padding: .5rem .8rem .5rem .8rem;
+  margin: .9vw 4 ;
+  border:0;
+  border-radius: 5px;
+  font-size: 20px;
+  font-family: 'Comfortaa', cursive;
+}
+
+.assignment label {
+  display: block;
+  width: 50%;
+  margin-left: 25%;
+  padding: .5rem .8rem .5rem .8rem;
+  margin: .9vw 4 ;
+  border:0;
+  border-radius: 5px;
+  font-size: 20px;
+  font-family: 'Comfortaa', cursive;
+}
+
+.assignment select {
+  display: block;
+  width: 50%;
+  margin-left: 25%;
+  padding: .5rem .8rem .5rem .8rem;
+  margin: .9vw 4 ;
+  border:0;
+  border-radius: 5px;
+  font-size: 20px;
+  font-family: 'Comfortaa', cursive;
+}
+
+.description  {
+height: 15vh;
+font-size: 20px;
+  font-family: 'Comfortaa', cursive;
+}
+
+.assignment input:focus {
+  background: #dbdbdb;
+  
+}
+
+.assignment button.uplpadbtn {
+  font-family: 'Comfortaa', cursive;
+  text-transform: uppercase;
+  outline: 0;
+  background: #4b6cb7;
+  width: 100%;
+  border: 0;
+  border-radius: 5px;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 20px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+
+.assignment button:active {
+  background: #395591;
+}
+
+.Registration span {
+  font-size: 40px;
+  color: #4b6cb7;
+  margin-bottom: 25px;
+  display: block;
+}
+
+.Registration p.error {
+  margin: 0 0 10px 10px;
+  text-align: left;
+  font-size: 10px;
+  color: red;
+}

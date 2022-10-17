@@ -36,7 +36,7 @@ function TeacherRegister() {
     }
     
     try {
-        await axios.post('http://localhost:3001/register/teacher', newTeacher); 
+        await axios.post('http://localhost:3001/teachers/register', newTeacher); 
         
     } catch (error) {
 
@@ -56,7 +56,8 @@ function TeacherRegister() {
     }
     
         if(err === false)
-        {  alert("Successful Registration");}
+        {  alert("Successful Registration");
+      }
        
     
     
@@ -135,7 +136,6 @@ function TeacherRegister() {
                     <option value="1010">Drama</option>
                     <option value="1011">Art</option>
                     <option value="1012">Dancing</option>
-
                     
                 </select>
                 

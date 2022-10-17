@@ -3,6 +3,7 @@ const express = require('express');
 const cors = require('cors');
 const app = express();                // initialize express
 const session = require('express-session');
+
 const path = require('path');
 
 app.use(session({
@@ -23,14 +24,16 @@ const registerRouter = require("./routes/Register");
 const loginRouter = require("./routes/Login");
 const studentRouter = require("./routes/StudentDetails");
 const teacherRouter = require("./routes/TeacherDetails");
+const assignmentRouter = require("./routes/Assignment");
 //const HomepageRouter = require("./routes/Homepage");
 
 
 // api routes
-app.use("/register",registerRouter);
+//app.use("/",registerRouter);
 app.use("/login",loginRouter);
 app.use("/students",studentRouter);
 app.use("/teachers",teacherRouter);
+app.use("/assignment",assignmentRouter);
 //app.use("/",HomepageRouter);
 
 

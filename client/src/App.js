@@ -13,6 +13,7 @@ import Header from './components/layout/Header';
 import SlideShare from './pages/SlideShare';
 import Teacher_Dashboard from './pages/Teacher_Dashboard';
 import Update from './pages/Update'; 
+import AssignmentFormTeacher from './pages/Assignment/AssignmentFormTeacher';
 
 
 function App() {
@@ -28,6 +29,7 @@ return (
           <Link to="/update">Home Page</Link>
           <Link to="/login">Login</Link>
           <Link to="/register">Register</Link>
+          <Link to="/assignmentByTeacher">Assignment</Link>
 
           <Routes>
             <Route path="/update" element={<Update/>}/>
@@ -38,6 +40,7 @@ return (
           <Route path="/login" exact element={<Login/>} />
           <Route path="/students" exact element={<StudentDetails/>} />
           <Route path="/teachers" exact element={<TeacherDetail_List/>} />
+          <Route path="/assignmentByTeacher" exact element={<AssignmentFormTeacher/>} />
           </Routes>
           
           
@@ -56,6 +59,7 @@ export default App;
 //version 6 is deference
 //for get input use library formik
 //for vallidation -> npm i yup
+//npm i react-use-file-upload   
 
 //npm install react-bootstrap bootstrap
 //npm install uuidv4 - for create unique id -see  teacher  register 

@@ -35,7 +35,7 @@ const UpdateTeacher = () => {
         })
     },[]);
 
-const Update = async (e) => {
+const Update =  (e) => {
         e.preventDefault();
 
         const updateTeacher1 = {
@@ -51,7 +51,7 @@ const Update = async (e) => {
         }
 
         try {
-            await axios.put(`http://localhost:3001/teachers/update/${Teacher_ID}`,updateTeacher)
+             axios.put(`http://localhost:3001/teachers/update/${Teacher_ID}`,updateTeacher)
             .then
             (response => {
                 console.log(response);
