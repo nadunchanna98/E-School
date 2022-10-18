@@ -12,7 +12,7 @@ const AssignmentFormTeacher = () => {
     const [DueTime, setDueTime ] = useState('');
     const [DueDate, setDueDate ] = useState('');
     const [TotalMarks, setTotalMarks ] = useState('');
-    const [file, setfile ] = useState('');
+    const [Doc, setDoc ] = useState('');
     
     
     const Application = async (e) => {
@@ -26,7 +26,7 @@ const AssignmentFormTeacher = () => {
         DueTime : DueTime,
         DueDate : DueDate,
         TotalMarks : TotalMarks,
-        file : file,
+        Doc : Doc,
       }
 
       try {
@@ -104,13 +104,13 @@ const AssignmentFormTeacher = () => {
                             accept=".jpg,.png,.jpeg .pdf"
                             label="Profile Image(s)"
                             multiple
-                            value={file}
-                            onChange={(e) => setfile(e.target.value)}
+                            value={Doc}
+                            onChange={(e) => setDoc(e.target.value)}
                             required
                             />
                             
                     
-  
+
           <button className='uplpadbtn'  type="submit">Upload the Assignment</button>
         </div>
   

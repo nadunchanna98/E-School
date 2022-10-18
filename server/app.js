@@ -24,7 +24,7 @@ const registerRouter = require("./routes/Register");
 const loginRouter = require("./routes/Login");
 const studentRouter = require("./routes/StudentDetails");
 const teacherRouter = require("./routes/TeacherDetails");
-const assignmentRouter = require("./routes/Assignment");
+const assignmentRouter = require("./routes/AssignmentRoute");
 //const HomepageRouter = require("./routes/Homepage");
 
 
