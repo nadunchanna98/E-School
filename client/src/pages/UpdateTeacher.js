@@ -22,20 +22,32 @@ const UpdateTeacher = () => {
     const [Password, setPassword] = useState('');
 
     useEffect(()=>{
-        axios.get("http://localhost:3001/teachers/details").then((response) => {
+
+        const  getTeacher = async () => {
+            const response = await axios.get( `http://localhost:3001/teachers/details/${Teacher_ID}`);
+            
+            console.log(response);
             setFname(response.data[0].Fname);
             setLname(response.data[0].Lname);
             setGender(response.data[0].Gender);
             setPhoneNO(response.data.Phone_NO);
             setSubjectID(response.data[0].Subject_ID);
             setGrade(response.data[0].Grade);
-            setEmail(response.data[0].Email);
+            setEmail(response.data[0].Email);  
+        
+        await getTeacher();
 
+        }
 
-        })
+      const result =   getTeacher().catch((err) => {
+            console.log(err);
+        });
+
+        console.log(result);
     },[]);
 
-const Update =  (e) => {
+
+const Updateteach =  (e) => {
         e.preventDefault();
 
         const updateTeacher1 = {
@@ -51,11 +63,11 @@ const Update =  (e) => {
         }
 
         try {
-             axios.put(`http://localhost:3001/teachers/update/${Teacher_ID}`,updateTeacher)
+             axios.put(`http://localhost:3001/teachers/update/${Teacher_ID}`,updateTeacher1)
             .then
             (response => {
                 console.log(response);
-            })
+            });
             navigate('/teachers');
         } catch (error) {
             console.log(error);
@@ -66,7 +78,7 @@ const Update =  (e) => {
   
 return (
     
-        <form   onSubmit={Update} >
+        <form   onSubmit={Updateteach} >
       
           <div className="header-wraper">
             <div className="Registration" >

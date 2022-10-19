@@ -26,7 +26,7 @@ router.post("/", (req,res) =>{
 if (email && password) {
 
     // Execute SQL query that'll select the account from the database based on the specified email and password
-    db.query('SELECT * FROM user WHERE email = ? AND password = ?', [email, password], (error, results) => {
+    db.query('SELECT * FROM student WHERE Email = ? AND Password = ?', [email, password], (error, results) => {
        
         // If there is an issue with the query, output the error
         if (error) throw error;

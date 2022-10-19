@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const db = require("../Db");
 
-//get all students details 
+//get all teacher details 
 router.get("/details", async (req,res)=>{
     db.query("SELECT * FROM teacher", (err,result) => {
  if(err){
@@ -14,6 +14,23 @@ router.get("/details", async (req,res)=>{
  });   
  
 });
+
+//get teacher details by id
+router.get("/details/:id", async (req,res)=>{
+    const Teacher_ID = req.params.id;
+    db.query("SELECT * FROM teacher WHERE Teacher_ID = ?", Teacher_ID, (err,result) => {
+    if(err){
+        res.send(err);
+        console.log(err);  
+    }else{
+        res.send(result);
+        console.log(result);              
+    }
+    });   
+    
+});
+
+
 
 //teacher registation
 router.post("/register", (req,res) =>{

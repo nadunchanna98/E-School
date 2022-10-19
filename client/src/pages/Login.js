@@ -1,16 +1,12 @@
-//rfce
 import React ,{useState } from 'react';
 import axios from "axios";
 import "../App.css";
-
 
 function Login() {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
   const [loginStatus,setLoginStatus] = useState('ENTER YOUR CREDENTIALS');
-
 
 
   const Login = async (e) => {
@@ -46,7 +42,7 @@ function Login() {
   return (
    
     
-  <form  onSubmit={Login} >
+  <form   >
     <div className="App">
       <div className="login" >
         <h1>Login</h1>
@@ -59,7 +55,8 @@ function Login() {
           <input type="password" placeholder="Enter Password" name="psw" required
           value={password} onChange={(e) => setPassword(e.target.value)}
           />
-        <button   type="submit">Login</button>
+
+        <button   type="submit" onSubmit={Login}  >Login</button>
       </div>
 
        <h1>{loginStatus}</h1>

@@ -18,7 +18,7 @@ const TeacherDetails = () => {
     const navigate = useNavigate();
 
     const toUpdateTeacher = (id) => {
-        navigate("/UpdateTeacher", { state: { id: id } });
+        navigate("/updateteacher", { state: { id: id } });
       };
 
       

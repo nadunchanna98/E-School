@@ -1,28 +1,32 @@
 import React from 'react';
 import axios from "axios";
 import { useEffect,useState } from "react";
-import "../App.css";
+import "../../App.css";
 import {useNavigate} from 'react-router-dom';
+import Time from 'react-time-format';
 
-
-const StudentDetail_List = () => {
+const AssignmentDetails = () => {
 
     const [Assignments, setAssignments] = useState([]);
 
+    // useEffect(()=>{
+    //     axios.get(`http://localhost:3001/assignment/details/${id}`).then((response) => {
+    //       setAssignments(response.data);
+    //     })
+    // },[]);
+
     useEffect(()=>{
-        axios.get(`http://localhost:3001/assignment/details/${id}`).then((response) => {
-          setAssignments(response.data);
-        })
-    },[]);
+          axios.get("http://localhost:3001/assignment/details").then((response) => {
+            setAssignments(response.data);
+          })
+      },[]);
 
 
-      const navigate = useNavigate();
-    
+      const navigate = useNavigate()
       const toUpdateAssignment = (id) => {
         navigate("/UpdateAssignment", { state: { id: id } });
       };
     
-
 
       const handleDeleteAssignment = (id) => {
 
@@ -38,51 +42,57 @@ const StudentDetail_List = () => {
       };
       
 
-
     return (
         <div >
-                
-                    <div className='studentTable'>
+            
+                  <table>
+                          <tr>
+                              
+                              <td className='columnName'><h3>Assignment Number</h3></td>
+                              <td className='columnName'><h3>Subject ID</h3></td>
+                              <td className='columnName'><h3>Chapter Number</h3></td>
+                              <td className='columnName'><h3>Special notice</h3></td>
+                              <td className='columnName'><h3>DueDate</h3></td>
+                              <td className='columnName'><h3>DueTime</h3></td>
+                              <td className='columnName'><h3>Created_on</h3></td>
+                              <td className='columnName'><h3>Edit</h3></td>
+                              <td className='columnName'><h3>Remove</h3></td>
+                                   
+                          </tr>
 
-                        <table>
-                                <tr>
-                                    <td className='columnName'><h3>Subject_ID</h3></td>
-                                    <td className='columnName'><h3>Assignment_No</h3></td>
-                                    <td className='columnName'> <h3>Chapter_No</h3></td>
-                                    <td className='columnName'><h3>Note</h3></td>
-                                    <td className='columnName'><h3>DueDate</h3></td>
-                                    <td className='columnName'><h3>DueTime</h3></td>
-                                    <td className='columnName'><h3>Remove</h3></td>
-                                    <td className='columnName'><h3>Edit</h3></td>
+                          {Assignments.map((value,key)=>(
+                          <tr key={key}>
+                            <td className='columnData'>{value.Assignment_No} {value.Lname}</td> 
+                              <td className='columnData' >{value.Subject_ID}</td>
+                              <td className='columnData' >{value.Chapter_No}</td>
+                              <td className='columnData' >{value.Note}</td>
+
+                              <td className='columnData' >
+                                <Time value={value.DueDate} format="YYYY-MM-DD" style={{color:'red'}}/>
+                                </td>
+
+                              <td className='columnData' >
+                                  <Time value={value.DueTime} format="hh:mm:ss" style={{color:'red'}} />
+                              </td>
+
+                              <td className='columnData' >
+                                  <Time value={value.Created_on} format="YYYY-MM-DD hh:mm:ss"  />
+                              </td>
+
+                              <td><button onClick={() => toUpdateAssignment(value.Student_ID)}>Edit</button></td>
+                               <td><button onClick={() => handleDeleteAssignment(value.Student_ID)}>Remove</button></td>
                                     
-                                </tr>
+                          </tr>
+                          ))}
 
-                                {setAssignments.map((value,key)=>(
-                                <tr key={key}>
-                                    <td className='columnData'>{value.Fname} {value.Lname}</td> 
-                                    <td className='columnData'>{value.Grade}</td>
-                                    <td className='columnData'>{value.Chapter_No}</td>
-                                    <td className='columnData'>{value.Note}</td>
-                                    <td className='columnData' >{value.Bdate}</td>
-                                    <td className='columnData'>{value.Phone_NO}</td>
-                                    <td className='columnData'>{value.Email}</td>
-
-                                    <td><button onClick={() => toUpdateAssignment(value.Student_ID)}>Edit</button></td>
-                                    <td><button onClick={() => handleDeleteAssignment(value.Student_ID)}>Remove</button></td>
-                                </tr>
-  
-                                 ))}
-                        </table>
-                        
-                    </div>
+                  </table>
            
-
         </div>
       )
     
     }
 
-export default StudentDetail_List
+export default AssignmentDetails
 
 
 //

@@ -12,7 +12,12 @@ import Navbar from './components/layout/navigation/Navbar';
 import Header from './components/layout/Header';
 import SlideShare from './pages/SlideShare';
 import Teacher_Dashboard from './pages/Teacher_Dashboard';
+import AssignmentDetails from './pages/Assignment/AssignmentDetails';
+
 import Update from './pages/Update'; 
+import UpdateTeacher from './pages/UpdateTeacher';
+
+
 import AssignmentFormTeacher from './pages/Assignment/AssignmentFormTeacher';
 
 
@@ -30,16 +35,22 @@ return (
           <Link to="/login">Login</Link>
           <Link to="/register">Register</Link>
           <Link to="/assignmentByTeacher">Assignment</Link>
+          <Link to="/assignmentDetails">Assignment details</Link>  {/* //only for teacher id*/ }
 
           <Routes>
-            <Route path="/update" element={<Update/>}/>
+
+          <Route path="/updateteacher" element={<UpdateTeacher/>}/>
+          <Route path="/update" element={<Update/>}/>
           <Route path="/" exact element={<Teacher_Dashboard/>} />
           <Route path="/register" exact element={<Register/>} />
           <Route path="/register/teacher" exact element={<TeacherRegister/>} />
           <Route path="/register/student" exact element={<StudentRegister/>} />
           <Route path="/login" exact element={<Login/>} />
+
           <Route path="/students" exact element={<StudentDetails/>} />
           <Route path="/teachers" exact element={<TeacherDetail_List/>} />
+          <Route path="/assignmentDetails" exact element={<AssignmentDetails/>} />
+          
           <Route path="/assignmentByTeacher" exact element={<AssignmentFormTeacher/>} />
           </Routes>
           

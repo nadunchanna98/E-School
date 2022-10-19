@@ -3,26 +3,32 @@ import axios from "axios";
 import FileUpload from './file-upload/file-upload.component';
 import  { useState } from 'react';
 
+
 const AssignmentFormTeacher = () => {
+
+  const [listOfStudents, setStudents] = useState([]);
+
+  
+
 
     const [Chapter_No , setChapter_No ] = useState('');
     const [Assignment_No, setAssignment_No ] = useState('');
     const [Subject_ID, setSubject_ID ] = useState('');
-    const [description, setdescription ] = useState('');
+    const [Note, setNote ] = useState('');
     const [DueTime, setDueTime ] = useState('');
     const [DueDate, setDueDate ] = useState('');
     const [TotalMarks, setTotalMarks ] = useState('');
     const [Doc, setDoc ] = useState('');
     
     
-    const Application = async (e) => {
+    const Application =  (e) => {
       e.preventDefault();
   
       const newApplication = {
         Chapter_No : Chapter_No, 
         Assignment_No : Assignment_No,
         Subject_ID : Subject_ID,
-        description : description,
+        Note : Note,
         DueTime : DueTime,
         DueDate : DueDate,
         TotalMarks : TotalMarks,
@@ -30,7 +36,7 @@ const AssignmentFormTeacher = () => {
       }
 
       try {
-        await axios.post(`http://localhost:3001/assignment/insert/${Subject_ID}`, newApplication)
+         axios.post(`http://localhost:3001/assignment/insert/${Subject_ID}`, newApplication)
         .then((response) => {
           console.log(response.data);
         })
@@ -51,6 +57,11 @@ const AssignmentFormTeacher = () => {
           <h1 className='Topic' >Assignment</h1>
           <h3 className='Topic' >Subject</h3>
                   <div className="form-group"></div>
+
+                  <label >Subject ID</label>
+                  <input className='Subject_ID ' type="text" placeholder="Subject_ID" name="Subject_ID" required  
+                  value={Subject_ID}  onChange={(e) => setSubject_ID(e.target.value)} 
+                  />
 
                   <label>Chapter number</label>
                    <select name="Chapter_No"  required value={Chapter_No}  onChange={(e) => setChapter_No(e.target.value)}>
@@ -79,14 +90,15 @@ const AssignmentFormTeacher = () => {
                   </select>
 
                                           
-                  <label >description</label>
-                  <input className='description ' type="text" placeholder="description" name="description" required  
-                  value={description}  onChange={(e) => setdescription(e.target.value)} 
+                  <label >Special Notice</label>
+                  <input className='Note ' type="text" placeholder="description" name="Note" required  
+                  value={Note}  onChange={(e) => setNote(e.target.value)} 
                   />
                   
                   <label>Due Time</label>
                   <input type="time" placeholder="12.00.PM" name="DueTime" required  
                   value={DueTime}  onChange={(e) => setDueTime(e.target.value)} 
+
                   />
 
                   <label>Due Date</label>
@@ -100,6 +112,7 @@ const AssignmentFormTeacher = () => {
                   />
 
                   <label>File</label>
+
                    <FileUpload
                             accept=".jpg,.png,.jpeg .pdf"
                             label="Profile Image(s)"
