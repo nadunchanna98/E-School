@@ -3,8 +3,8 @@ const router = express.Router();
 const db = require("../Db");
 
 
-//post route
-router.post("/", (req,res) =>{
+//login as student
+router.post("/student", (req,res) =>{
 
     const email = req.body.email;
     const password = req.body.password;
@@ -54,6 +54,44 @@ if (email && password) {
 
 
 });
+
+
+//login as Teacher
+router.post("/teacher", (req,res) =>{
+
+    const email = req.body.email;
+    const password = req.body.password;
+
+
+if (email && password) {
+
+    
+    db.query('SELECT * FROM teacher WHERE Email = ? AND Password = ?', [email, password], (error, results) => {
+       
+       
+        if (error) throw error;
+        if (results.length > 0) {
+
+            // Authenticate the user
+            req.session.loggedin = true;
+            req.session.email = email;
+           
+            res.send({message : "logged in"});
+
+        } else {
+            res.send({message : 'Incorrect email and/or Password!'});
+        }			
+        res.end();
+    });
+} else {
+    res.send({message : 'Please enter email and Password!'});
+    res.end();
+}
+
+
+});
+
+
 
 
 module.exports = router

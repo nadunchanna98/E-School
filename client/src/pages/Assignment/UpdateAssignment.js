@@ -22,7 +22,7 @@ const Update = () => {
     const [Email , setEmail ] = useState('');
     const [Password, setPassword] = useState('');
 
-
+    
     useEffect(()=>{
         axios.get( `http://localhost:3001/students/details/${Student_ID}`).then((response) => {
             setFname(response.data[0].Fname);

@@ -10,4 +10,14 @@ const Header = () => {
   )
 }
 
-export default Header
+export const HeaderTeacher = () => {
+  return (
+    <div className = ""> 
+        <div className = "main-info">
+            <h1>Time TO Teach !!</h1>
+        </div>
+    </div>
+  )
+}
+
+export default Header ;

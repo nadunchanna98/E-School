@@ -39,7 +39,6 @@ router.post("/register", (req,res) =>{
    }
    )
 
-
 });
 
 
@@ -69,7 +68,6 @@ router.get("/details/:id", async (req,res)=>{
     });   
     
 });
-
 
 
 
@@ -135,8 +133,6 @@ router.delete("/delete/:id", (req, res) => {
     });
 
 });
-
-
 
 
 

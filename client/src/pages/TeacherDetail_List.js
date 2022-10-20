@@ -24,7 +24,7 @@ const TeacherDetails = () => {
       
       const handleDelete = (id) => {
 
-        axios.delete(`http://localhost:3001/teachers/delete/${id}`).then((response) => {
+        axios.delete(`http://localhost:3001/teachers/${id}`).then((response) => {
           
           alert("Teacher Deleted Successfully");
           console.log(response.data);

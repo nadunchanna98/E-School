@@ -25,7 +25,9 @@ const loginRouter = require("./routes/Login");
 const studentRouter = require("./routes/StudentDetails");
 const teacherRouter = require("./routes/TeacherDetails");
 const assignmentRouter = require("./routes/AssignmentRoute");
+const subjectRouter  = require("./routes/SubjectRoute");
 //const HomepageRouter = require("./routes/Homepage");
+const studentSubmitedRoute = require("./routes/StudentSubmitedRoute");
 
 
 // api routes
@@ -34,6 +36,9 @@ app.use("/login",loginRouter);
 app.use("/students",studentRouter);
 app.use("/teachers",teacherRouter);
 app.use("/assignment",assignmentRouter);
+app.use("/subjects",subjectRouter);
+app.use("/studentsubmited",studentSubmitedRoute)
+
 //app.use("/",HomepageRouter);
 
 
