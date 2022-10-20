@@ -15,14 +15,14 @@ const Allstdnt_Submitions_of_1tchr = () => {
 
   const navigate = useNavigate();
   const location = useLocation();
-  const Student_ID = location.state.id;
+  const Teacher_ID = location.state.id;
 
-  console.log(Student_ID);
+  console.log(Teacher_ID);
 
     const [SubmitedDetails, setSubmitedDetails] = useState([]);
 
     useEffect(()=>{
-        axios.get(`http://localhost:3001/studentsubmited/details/${Student_ID}`).then((response) => {
+        axios.get(`http://localhost:3001/studentsubmited/detailsof/${Teacher_ID}`).then((response) => {
             setSubmitedDetails(response.data);
         })
     },[]);
@@ -31,13 +31,13 @@ const Allstdnt_Submitions_of_1tchr = () => {
 
 
       const toUpdateDetails = (id) => {
-        navigate("/SubmitDetailsUpdate", { state: { id: id } });   //only for one studet . not created yet
+        navigate("/SubmitDetailsView", { state: { id: id } });   //only for one studet . not created yet
       };
     
 
       const handleDelete = (id) => {
 
-        axios.delete(`http://localhost:3001/studentsubmited/details/${id}`).then((response) => {
+        axios.delete(`http://localhost:3001/studentsubmited/delete/${id}`).then((response) => {
           
           alert("Assignment Deleted Successfully");
           console.log(response.data);
@@ -53,37 +53,43 @@ const Allstdnt_Submitions_of_1tchr = () => {
 
     return (
         <div >
-            {SubmitedDetails.map((value,key)=>(
+            
                 
                     <div className='submitTable'>
 
                         <table>
                                 <tr>
                                     
+                                    <td className='columnName'><h3>Student ID</h3></td>
                                     <td className='columnName'><h3>Subject ID</h3></td>
                                     <td className='columnName'><h3>Assignment No</h3></td>
                                     <td className='columnName'><h3>Uploading Status</h3></td>
-                                    <td className='columnName'><h3>Assignment given Date</h3></td>
+                                    <td className='columnName'><h3>Special Notes</h3></td>
+                                    <td className='columnName'><h3>Submited Date</h3></td>
+                                    <td className='columnName'><h3>Edit</h3></td>
+                                    <td className='columnName'><h3>Delete</h3></td>
+
                                 </tr>
 
-                              
-                                <tr key={key}>
-                                  
-                                    <td className='columnData'>{value.Subject_ID}</td> 
-                                    <td className='columnData'>{value.Assignment_No}</td> 
-                                    <td className='columnData'>{value.Uploading_Status}</td>
-                                    <td className='columnData'>{value.Created_on}</td>
-                              
-                                    <td><button onClick={() => toUpdateDetails(value.Subject_ID)}>Edit</button></td>
-                                    <td><button onClick={() => handleDelete(value.Subject_ID)}>Remove</button></td>
-                                </tr>
+                                {SubmitedDetails.map((value,key)=>(
+                                      <tr key={key}>
+                                          <td className='columnData'>{value.Student_ID}</td> 
+                                          <td className='columnData'>{value.Subject_ID}</td> 
+                                          <td className='columnData'>{value.Assignment_No}</td> 
+                                          <td className='columnData'>{value.Uploading_Status}</td>
+                                          <td className='columnData'>{value.Note}</td>
+                                          <td className='columnData'>{value.Created_on}</td>
+                                    
+                                          <td><button onClick={() => toUpdateDetails(value.Subject_ID)}>Edit</button></td>
+                                          <td><button onClick={() => handleDelete(value.Subject_ID)}>Remove</button></td>
+                                      </tr>
   
-                                
+                                 ))}
                         </table>
                         
                     </div>
            
-           ))}
+  
         </div>
       )
     

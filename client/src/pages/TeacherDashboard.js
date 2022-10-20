@@ -9,9 +9,9 @@ const TeacherDashboard = () => {
   const navigate = useNavigate();
   const location = useLocation();
   
-    //To Teacher given assignments and studens responses
+    //Teacher given assignments and studens responses
     const assignmentDetails = () => {
-      navigate("/allstdnt_Submitions_of_1tchr", { state: { id:'b4fe7718-524d-4f88-8ce5-43914870d7d5'  } });
+      navigate("/allStudentsSubmitionsOfOneTeacher", { state: { id:'T2003'  } });
     };
 
 
@@ -20,10 +20,10 @@ const TeacherDashboard = () => {
     <div>   
      
           <HeaderTeacher/>  
-          <div>
+        <div>
+          <h3>Assignment submition details of Students</h3>
         <button onClick={() => assignmentDetails()}>Edit</button>
-        </div>  
-   
+        </div>
       </div>
 
   )

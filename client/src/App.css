@@ -165,6 +165,64 @@ login {
 }
 
 
+/********************       Main    ***********************/
+
+.main {
+  margin: auto;
+  font-family: 'Comfortaa', cursive;
+}
+
+.main input {
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  border-radius: 5px;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+  font-family: 'Comfortaa', cursive;
+  
+}
+
+.main input:focus {
+  background: #dbdbdb;
+}
+
+.main label {
+  
+}
+
+.main button {
+  font-family: 'Comfortaa', cursive;
+  text-transform: uppercase;
+  outline: 0;
+  background: #4b6cb7;
+  width: 80%;
+  border: 0;
+  border-radius: 5px;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+  margin-top: 20px;
+  
+}
+
+.main button:active {
+  background: #395591;
+}
+
+.main span {
+  font-size: 40px;
+  color: #4b6cb7;
+  margin-bottom: 25px;
+  display: block;
+}
+
 /********************       login    ***********************/
 
 .login {

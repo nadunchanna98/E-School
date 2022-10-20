@@ -8,9 +8,9 @@ import Navbar from './components/layout/navigation/Navbar';
 import Header from './components/layout/Header';
 import SlideShare from './pages/SlideShare';
 
-
-import Login from './pages/Login';
-import Register from './pages/Register';
+import LoginStudent from './pages/LoginStudent';
+import LoginTeacher from './pages/LoginTeacher';
+import Main from './pages/Main';
 import TeacherRegister from './pages/TeacherRegister';
 import StudentRegister from './pages/StudentRegister';
 
@@ -32,6 +32,7 @@ import UpdateTeacher from './pages/UpdateTeacher';
 import AssignmentFormTeacher from './pages/Assignment/AssignmentFormTeacher';
 
 import SubmitedDetailsOneStudent from './pages/student_submited/SubmitedDetailsOneStudent';
+import Allstdnt_Submitions_of_1tchr from './pages/student_submited/Allstdnt_Submitions_of_1tchr';
 
 function App() {
 
@@ -42,8 +43,7 @@ return (
            <Header/>
            <SlideShare/>
 
-          <Link to="/"> Login    </Link>
-          <Link to="/register"> Register    </Link>
+          <Link to="/"> main  </Link>
           <Link to="/assignmentByTeacher"> Assignment    </Link>
           <Link to="/assignmentDetails"> Assignment details    </Link>  {/* //only for teacher id*/ }
           <Link to="/subjectsDetails" > Subjects Details    </Link>
@@ -52,9 +52,10 @@ return (
 
 
           <Routes>
-    
-              <Route path="/" exact element={<Login/>} />
-              <Route path="/register" exact element={<Register/>} />
+
+              <Route path="/" exact element={<Main/>} />
+              <Route path="/LoginTeacher" exact element={<LoginTeacher/>} />
+              <Route path="/LoginStudent" exact element={<LoginStudent/>} />
               <Route path="/register/teacher" exact element={<TeacherRegister/>} />
               <Route path="/register/student" exact element={<StudentRegister/>} />
 
@@ -68,6 +69,7 @@ return (
               <Route path="/update" element={<Update/>}/>
               <Route path="/students" exact element={<StudentDetails/>} />
               <Route path="/submiteddetailsoneStudent" exact element={<SubmitedDetailsOneStudent/>}/>
+              <Route path="/allStudentsSubmitionsOfOneTeacher" exact element={<Allstdnt_Submitions_of_1tchr/>}/>
           
         
               <Route path="/assignmentDetails" exact element={<AssignmentDetails/>} />

@@ -10,7 +10,6 @@ router.get('/', async (req, res) => {
 
 
 
-
 //post route
 router.post("/", (req,res) =>{
 

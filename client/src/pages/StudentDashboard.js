@@ -19,6 +19,7 @@ const StudentDashboard = () => {
     <div>
       TiME TO LEARN
         <div>
+        <h3>My Assignment submition details </h3>
         <button onClick={() => toUpdateDetails()}>Edit</button>
         </div>
     </div>

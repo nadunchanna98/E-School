@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const db = require("../Db");
 
-//get assignment details by id
+//all assignment submition details of one student
 router.get("/details/:id", async (req,res)=>{
 
     const Student_ID = req.params.id;
@@ -18,13 +18,10 @@ router.get("/details/:id", async (req,res)=>{
     
 });
 
-//get assignment details 
-
+//all assignment submition details of all students
 router.get("/details/", async (req,res)=>{
 
-    const Teacher_ID = req.params.id;
-
-    db.query("SELECT * FROM subjects ", (err,result) => {
+    db.query("SELECT * FROM student_submited ", (err,result) => {
     if(err){
         res.send(err);
         console.log(err);  
@@ -36,6 +33,21 @@ router.get("/details/", async (req,res)=>{
 });
 
 
-// });
+//all student submitin details about one teacher
+router.get("/detailsof/:id", async (req,res)=>{
+
+    const Teacher_ID = req.params.id;
+
+    db.query("SELECT * FROM student_submited JOIN subjects ON student_submited.Subject_ID = subjects.Subject_ID  WHERE subjects.Teacher_ID = ? ",[Teacher_ID], (err,result) => {
+    if(err){
+        res.send(err);
+        console.log(err);  
+    }else{
+        res.send(result);              
+    }
+    });   
+    
+});
+
 
 module.exports = router
