@@ -101,20 +101,45 @@ router.put("/update/:id", (req,res) =>{
 );
 
 //delete by id
-router.delete("/delete/:Student_ID", (req,res) =>{
-    const Student_ID = req.body.Student_ID;
+// router.delete("/delete/:Student_ID", (req,res) =>{
+//     const Student_ID = req.body.Student_ID;
     
-    db.query("DELETE FROM student WHERE Student_ID = ?",[Student_ID],(err,result) => {
-        if(err){
-            res.send(err);
-        }else{
+//     db.query("DELETE FROM student WHERE Student_ID = ?",[Student_ID],(err,result) => {
+//         if(err){
+//             res.send(err);
+//         }else{
+//             res.send(result);
+//         }
+//     }
+//     )
+ 
+//  }
+//     );
+
+
+
+router.delete("/delete/:id", (req, res) => {
+    let { ID } = req.params.id;
+
+    let sql = "DELETE FROM student WHERE Student_ID = ?";
+    console.log("id: ", req.params.id);
+
+    db.query(sql,[ID], (err, result) => {
+        if (err) {
+            console.log("error: ", err);
+            res.status(400).send({ message: "error in deleting with id" });
+        } else {
+            console.log("deleted student with id: ", req.params.id);
             res.send(result);
         }
-    }
-    )
- 
- }
-    );
+    });
+
+});
+
+
+
+
+
 
 
 module.exports = router

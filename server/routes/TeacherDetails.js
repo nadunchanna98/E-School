@@ -62,4 +62,22 @@ router.post("/register", (req,res) =>{
 
 
 
+//delete by id
+router.delete("/delete/:id", (req,res) =>{
+    const Teacher_ID = req.body.id;
+    
+    db.query("DELETE FROM teacher WHERE Teacher_ID = ?",[Teacher_ID ],(err,result) => {
+        if(err){
+            res.send(err);
+        }else{
+            res.send(result);
+        }
+    }
+    )
+ 
+ }
+    );
+
+
+
 module.exports = router
