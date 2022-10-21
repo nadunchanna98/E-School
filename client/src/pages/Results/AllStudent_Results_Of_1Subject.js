@@ -2,7 +2,6 @@
 //teacher dashboard
 //student dashboard
 
-
 import React from 'react';
 import axios from "axios";
 import { useEffect,useState } from "react";
@@ -26,8 +25,6 @@ const AllStudent_Results_Of_1Subject = () => {
             setResults(response.data);
         })
     },[]);
-
-
 
 
       const toUpdateDetails = (id) => {

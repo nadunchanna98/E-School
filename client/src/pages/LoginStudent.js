@@ -1,14 +1,17 @@
-import React ,{useState } from 'react';
+import React ,{useState , useEffect } from 'react';
 import axios from "axios";
 import "../App.css";
-
+import {useNavigate} from 'react-router-dom';
 
 function LoginStudent() {
+
+  const navigate = useNavigate();
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loginStatus,setLoginStatus] = useState('ENTER YOUR CREDENTIALS');
 
+const email1 = email;
 
   const handleSubmitStudent =  async (e)=>{
     
@@ -26,11 +29,9 @@ function LoginStudent() {
            
           }
           else{
-            setLoginStatus(response.data[0].email);
+           // setLoginStatus(response.data[0].email);
+            navigate("/studentDashboard" ,{ state: {email : email1 }} );
           }
-
-         
-         
 
         })
         

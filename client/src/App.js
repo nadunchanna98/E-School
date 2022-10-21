@@ -35,6 +35,7 @@ import SubmitedDetailsOneStudent from './pages/student_submited/SubmitedDetailsO
 import Allstdnt_Submitions_of_1tchr from './pages/student_submited/Allstdnt_Submitions_of_1tchr';
 
 import AllStudent_Results_Of_1Subject from './pages/Results/AllStudent_Results_Of_1Subject';
+import ResultsUpdatebyTeachr from './pages/Results/ResultsUpdatebyTeachr';
 
 function App() {
 
@@ -80,7 +81,7 @@ return (
               <Route path="/subjectsDetails" exact element={<SubjectDetails_List/>} />
 
               <Route path="/allStudentaesults0f1Subject" exact element={<AllStudent_Results_Of_1Subject/>} />
-
+              <Route path="/resultsupdatebyt" exact element={<ResultsUpdatebyTeachr/>} />
           </Routes>
           
           

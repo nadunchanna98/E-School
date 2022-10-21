@@ -18,6 +18,7 @@ const TeacherDashboard = () => {
       navigate("/allStudentaesults0f1Subject" ,{ state: { id:'T2003'  } });
     }
 
+   
   return (
 
     <div>   

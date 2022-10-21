@@ -513,3 +513,18 @@ font-size: 20px;
   font-size: 10px;
   color: red;
 }
+
+
+
+/********************       User profile     ***********************/
+
+.gradient-custom {
+  /* fallback for old browsers */
+  background: #f6d365;
+
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to right bottom, #4b6cb7, rgb(33, 151, 172));
+
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to right bottom, rgb(94, 145, 204), rgb(10, 204, 238))
+}

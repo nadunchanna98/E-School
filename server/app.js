@@ -30,6 +30,7 @@ const subjectRouter  = require("./routes/SubjectRoute");
 const studentSubmitedRoute = require("./routes/StudentSubmitedRoute");
 
 
+
 // api routes
 //app.use("/",registerRouter);
 app.use("/login",loginRouter);
@@ -39,6 +40,7 @@ app.use("/assignment",assignmentRouter);
 app.use("/subjects",subjectRouter);
 app.use("/studentsubmited",studentSubmitedRoute)
 app.use("/result",ResultsRoute);
+
 //app.use("/",HomepageRouter);
 
 

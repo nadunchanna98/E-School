@@ -1,10 +1,12 @@
 import React ,{useState } from 'react';
 import axios from "axios";
 import "../App.css";
-
+import {useNavigate} from 'react-router-dom';
 
 function LoginTeacher() {
 
+  const navigate = useNavigate();
+   
 
 
   const [email, setEmail] = useState('');
@@ -31,7 +33,7 @@ function LoginTeacher() {
           else{
             setLoginStatus(response.data[0].email);
           }
-          
+          navigate("/teacherDashboard");
           
         })
         

@@ -40,7 +40,7 @@ if (email && password) {
 
             // Redirect to home page
            
-            res.send({message : "logged in"});
+            res.send(results);
 
         } else {
             res.send({message : 'Incorrect email and/or Password!'});
@@ -68,7 +68,6 @@ if (email && password) {
     
     db.query('SELECT * FROM teacher WHERE Email = ? AND Password = ?', [email, password], (error, results) => {
        
-       
         if (error) throw error;
         if (results.length > 0) {
 
@@ -76,7 +75,8 @@ if (email && password) {
             req.session.loggedin = true;
             req.session.email = email;
            
-            res.send({message : "logged in"});
+            res.send({results})
+            
 
         } else {
             res.send({message : 'Incorrect email and/or Password!'});
