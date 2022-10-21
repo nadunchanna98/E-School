@@ -77,9 +77,12 @@ function TeacherRegister() {
   <form   onSubmit={Register} >
 
     <div className="header-wraper">
+      
       <div className="Registration" >
 
-        <h1 className='Topic' >Registration</h1>
+        <h1 className='Topic' >Teacher Registration</h1>
+
+        
                 <div className="form-group"></div>
 
                 

@@ -8,8 +8,6 @@ const AssignmentFormTeacher = () => {
 
   const [listOfStudents, setStudents] = useState([]);
 
-  
-
 
     const [Chapter_No , setChapter_No ] = useState('');
     const [Assignment_No, setAssignment_No ] = useState('');
@@ -54,7 +52,7 @@ const AssignmentFormTeacher = () => {
       <div className="header">
         <div className="assignment" >
   
-          <h1 className='Topic' >Assignment</h1>
+          <h1 className='Topic' >Create New Assignment</h1>
           <h3 className='Topic' >Subject</h3>
                   <div className="form-group"></div>
 

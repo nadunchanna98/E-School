@@ -43,17 +43,7 @@ return (
     <div className="App">
         <Router>
         <Navbar/>
-           <Header/>
-           <SlideShare/>
-
-          <Link to="/"> main  </Link>
-          <Link to="/assignmentByTeacher"> Assignment    </Link>
-          <Link to="/assignmentDetails"> Assignment details    </Link>  {/* //only for teacher id*/ }
-          <Link to="/subjectsDetails" > Subjects Details    </Link>
-          <Link to="/studentDashboard" > Student Dashboard    </Link>
-          <Link to="/teacherDashboard" > Teacher Dashboard    </Link>
-
-
+    
           <Routes>
 
               <Route path="/" exact element={<Main/>} />

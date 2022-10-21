@@ -14,11 +14,11 @@ const Navbar = () => {
     <ul className="navbar-nav ms-auto">
 
       <li className="nav-item active">
-        <a className="nav-link" href="/home">Home </a>
+        <a className="nav-link" href="/">Home </a>
       </li>
 
       <li className="nav-item">
-        <a className="nav-link" href="#">FAQs</a>
+        <a className="nav-link" href="/subjectsDetails">All Subjects</a>
       </li>
 
       {/* <li className="nav-item">
@@ -39,15 +39,13 @@ const Navbar = () => {
         </a>
         <div className="dropdown-menu" aria-labelledby="navbarDropdown">
 
-          <a className="dropdown-item" href="#">My Profile</a>
-          <a className="dropdown-item" href="#">Assignments</a>
-          <a className="dropdown-item" href="/students">Students</a>
-          <a className="dropdown-item" href="/teachers">Teachers</a>
-          <a className="dropdown-item" href="/">Login</a>
-          <a className="dropdown-item" href="#">About</a>
+          <a className="dropdown-item" href="/students">All Students</a>
+          <a className="dropdown-item" href="/teachers">All Teachers</a>
+          <a className="dropdown-item" href="/LoginStudent">Student Login</a>
+          <a className="dropdown-item" href="/LoginTeacher">Teacher Login </a>
 
           <div className="dropdown-divider"></div>
-          <a className="dropdown-item" href="#">Logout</a>
+          <a className="dropdown-item" href="/">Logout</a>
         </div>
       </li>
      

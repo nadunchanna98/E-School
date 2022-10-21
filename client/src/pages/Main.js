@@ -2,6 +2,10 @@ import React from 'react';
 import "../App.css";
 import {useNavigate} from 'react-router-dom';
 
+
+import Header from '../components/layout/Header';
+import SlideShare from '../pages/SlideShare';
+
 function Main() {
 
   const navigate = useNavigate();
@@ -17,8 +21,11 @@ function Main() {
 
   return (
    
+    <div>
     <div className="App">
 
+          <Header/>
+          <SlideShare/>     
       <div className="main" >
        
       <button onClick={handleSubmitTeacher }> Login As a Teacher </button > 
@@ -26,7 +33,7 @@ function Main() {
       </div>
 
     </div> 
- 
+    </div>
   
   );
 }

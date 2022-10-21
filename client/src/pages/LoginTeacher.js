@@ -58,10 +58,10 @@ function LoginTeacher() {
    
     
   <form onSubmit={handleSubmitTeacher}   >
-    <div >
+    <div className='header-wraper'>
       <div className="login" >
 
-        <h1>Login</h1>
+        <h1 >Let's Teach Something</h1>
 
               <div className='loginform'>
 
@@ -78,7 +78,7 @@ function LoginTeacher() {
              
 
             </div>
-            <h1>{loginStatus}</h1>
+            <h3 className='status'>{loginStatus}</h3>
           </div>
        
     </div>  

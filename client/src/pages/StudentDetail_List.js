@@ -3,7 +3,7 @@ import axios from "axios";
 import { useEffect,useState } from "react";
 import "../App.css";
 import {useNavigate} from 'react-router-dom';
-
+import SlideShare from '../pages/SlideShare';
 
 const StudentDetail_List = () => {
 
@@ -42,9 +42,17 @@ const StudentDetail_List = () => {
 
 
     return (
-        <div >
+        <div className='header-wraper'>
+
+
+            <div className="welocme">
+                    <h1>All Details About Students</h1>
+             </div>
+
                 
                     <div className='studentTable'>
+
+  
 
                         <table>
                                 <tr>

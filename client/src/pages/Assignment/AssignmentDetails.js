@@ -43,7 +43,7 @@ const AssignmentDetails = () => {
       
 
     return (
-        <div >
+        <div className='header-wraper' >
             
                   <table>
                           <tr>

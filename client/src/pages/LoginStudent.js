@@ -54,10 +54,10 @@ const email1 = email;
    
     
   <form onSubmit={handleSubmitStudent}   >
-    <div >
+    <div className='header-wraper' >
       <div className="login" >
 
-        <h1>Login</h1>
+        <h1>Let's Learn Something</h1>
 
               <div className='loginform'>
 
@@ -75,7 +75,7 @@ const email1 = email;
              
 
             </div>
-            <h1>{loginStatus}</h1>
+            <h3 className='status'>{loginStatus}</h3>
           </div>
        
     </div>  

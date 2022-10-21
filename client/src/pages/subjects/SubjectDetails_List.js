@@ -42,7 +42,7 @@ const SubjectDetails_List = () => {
 
 
     return (
-        <div >
+        <div className='header-wraper' >
                 
                     <div className='subjectsTable'>
 

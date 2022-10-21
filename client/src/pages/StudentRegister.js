@@ -79,7 +79,7 @@ function StudentRegister() {
     <div className="header-wraper">
       <div className="Registration" >
 
-        <h1 className='Topic' >Registration</h1>
+        <h1 className='Topic' >Student Registration</h1>
                 <div className="form-group"></div>
 
                 

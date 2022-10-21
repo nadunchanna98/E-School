@@ -49,6 +49,8 @@ const TeacherDashboard = () => {
 },[]);
 
 
+
+
     //Teacher given assignments and studens responses
     const assignmentDetails = () => {
       navigate("/allStudentsSubmitionsOfOneTeacher", { state: { id:Teacher_ID  } });
@@ -62,19 +64,37 @@ const TeacherDashboard = () => {
       navigate("/allStudentsSubmitionsOfOneTeacher" ,{ state: { id:Teacher_ID  } });
     }
 
-   
+    const  subjectsDetails = () => {
+      navigate("/subjectsDetails");
+    }
+
+    const  assignmentByTeacher = () => {
+      navigate("/assignmentByTeacher");
+    }
+
+
+  
+
   return (
 
-    <section className="vh-100" style={{ backgroundColor: '#f4f5f7' }}>
-      <MDBContainer className="py-5 h-100">
-        <MDBRow className="justify-content-center align-items-center h-100">
-          <MDBCol lg="6" className="mb-4 mb-lg-0">
+    <section className="vh-1000" style={{ backgroundColor: '#f4f5f7' }}>
+
+      <div className="welocme">
+        <h1>Welocme To The Teacher Dashboard</h1>
+      </div>
+
+    
+      
+      
+      <MDBContainer className="py-5 h-1000">
+        <MDBRow className="justify-content-center align-items-center h-400">
+          <MDBCol lg="6" className="mb-5 mb-lg-0">
             <MDBCard className="mb-3" style={{ borderRadius: '.5rem' }}>
               <MDBRow className="g-0">
                 <MDBCol md="4" className="gradient-custom text-center text-white"
                   style={{ borderTopLeftRadius: '.5rem', borderBottomLeftRadius: '.5rem' }}>
                   <MDBCardImage src="https://www.freepnglogos.com/uploads/teacher-png/teacher-teachers-icon-flatastic-iconset-custom-icon-design-36.png"
-                    alt="Avatar" className="my-5" style={{ width: '80px' }} fluid />
+                    alt="Avatar" className="my-5" style={{ width: '400px' }} fluid />
 
                   <MDBTypography tag="h5">{Fname+" "+Lname}</MDBTypography>
 
@@ -119,18 +139,28 @@ const TeacherDashboard = () => {
                       </MDBCol>
                     </MDBRow>
 
-                    <div className="d-flex justify-content-start">
-                      
-                            <button onClick={() =>assignmentDetails()}>Students submitions</button>
-                            <button onClick={() => resultsDetails()}>Assignment results</button>
-                            <button onClick={() => viewAllSubmitions()}>Assignment results</button>
-                    </div>
+  
+   
+               
                   </MDBCardBody>
                 </MDBCol>
               </MDBRow>
             </MDBCard>
           </MDBCol>
         </MDBRow>
+
+        
+        <MDBCol>
+                    <div className="d-flexx">
+        
+        <button  onClick={() =>assignmentByTeacher()}>Create A New Assignment </button>
+        <button onClick={() =>assignmentDetails()}>Students submitions</button>
+        <button onClick={() => resultsDetails()}>Assignment results</button>
+        <button onClick={() => viewAllSubmitions()}>View All Submitions </button>
+        <button onClick={() => subjectsDetails()}>Details About All Subjects </button>
+        
+</div>
+                    </MDBCol>
       </MDBContainer>
     </section>
 
