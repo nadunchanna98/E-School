@@ -10,18 +10,6 @@ router.post("/student", (req,res) =>{
     const password = req.body.password;
 
 
-//    db.query(
-//     "SELECT * FROM user WHERE email = ? AND password = ?",
-//    (err,result) => {
-//        if(err){
-//             console.log(err);
-//             console.log({message : "Wrong email or password !"} );
-//        }else{
-//            res.send({message : "logged in"});
-//        }
-//    }
-//    )
-
 // Ensure the input fields exists and are not empty
 if (email && password) {
 
@@ -37,8 +25,6 @@ if (email && password) {
             // Authenticate the user
             req.session.loggedin = true;
             req.session.email = email;
-
-            // Redirect to home page
            
             res.send(results);
 
@@ -75,7 +61,7 @@ if (email && password) {
             req.session.loggedin = true;
             req.session.email = email;
            
-            res.send({results})
+            res.send(results);
             
 
         } else {

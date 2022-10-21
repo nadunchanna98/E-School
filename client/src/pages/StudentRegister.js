@@ -9,9 +9,9 @@ function StudentRegister() {
   const [Fname , setFname ] = useState('');
   const [Lname , setLname ] = useState('');
   const [Gender , setGender ] = useState('');
-  const [Phone_NO , setPhoneNO ] = useState('');
+  const [Phone_NO , setPhoneNO ] = useState();
   const [Grade, setGrade  ] = useState('');
-  const [Bdate, setBdate  ] = useState('');
+  const [Bdate, setBdate  ] = useState();
   const [Address, setAddress  ] = useState('');
   const [Email , setEmail ] = useState('');
   const [Password, setPassword] = useState('');

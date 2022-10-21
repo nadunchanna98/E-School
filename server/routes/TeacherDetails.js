@@ -30,6 +30,24 @@ router.get("/details/:id", async (req,res)=>{
     
 });
 
+//get student details by email
+router.get("/details/email/:email", async (req,res)=>{
+    const Email = req.params.email;
+    db.query("SELECT * FROM teacher WHERE Email = ?", Email, (err,result) => {
+    if(err){
+        res.send(err);
+        console.log(err);  
+    }else{
+        res.send(result);              
+    }
+    });   
+    
+});
+
+
+
+
+
 
 
 //teacher registation

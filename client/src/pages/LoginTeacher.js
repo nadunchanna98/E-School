@@ -7,12 +7,11 @@ function LoginTeacher() {
 
   const navigate = useNavigate();
    
-
-
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loginStatus,setLoginStatus] = useState('ENTER YOUR CREDENTIALS');
 
+  const email1 = email;
 
   const handleSubmitTeacher =  async (e) => {
     e.preventDefault();
@@ -31,9 +30,11 @@ function LoginTeacher() {
             
           }
           else{
-            setLoginStatus(response.data[0].email);
+            //setLoginStatus(response.data[0].email);
+
+            navigate("/teacherDashboard" ,{ state: {email : email1 }} );
           }
-          navigate("/teacherDashboard");
+          
           
         })
         

@@ -6,7 +6,7 @@ import "../App.css";
 import axios from "axios";
 import { useEffect } from "react";
 import { MDBCol, MDBContainer, MDBRow, MDBCard, MDBCardText, MDBCardBody, MDBCardImage, MDBTypography, MDBIcon } from 'mdb-react-ui-kit';
-
+import Time from 'react-time-format';
 
 const StudentDashboard = () => {
 
@@ -14,14 +14,14 @@ const StudentDashboard = () => {
   const location = useLocation();
   const email = location.state.email;
  
-  const [apiData, setApiData] = useState(null);
-
+  
+  const [Student_ID,setStudent_ID] = useState('');
   const [Fname , setFname ] = useState('');
   const [Lname , setLname ] = useState('');
   const [Gender , setGender ] = useState('');
-  const [PhoneNO , setPhoneNO ] = useState('');
+  const [PhoneNO , setPhoneNO ] = useState();
   const [Grade, setGrade  ] = useState('');
-  const [Bdate, setBdate  ] = useState('');
+  const [Bdate, setBdate  ] = useState();
   const [Address, setAddress  ] = useState('');
   const [Email , setEmail ] = useState('');
   const [Password, setPassword] = useState('');
@@ -31,26 +31,29 @@ const StudentDashboard = () => {
       axios.get( `http://localhost:3001/students/details/email/${email}`).then((response,) => {
 
     console.log(response)
+    
+          setStudent_ID(response.data[0].Student_ID)
           setFname(response.data[0].Fname);
           setLname(response.data[0].Lname);
           setGender(response.data[0].Gender);
           setPhoneNO(response.data[0].PhoneNO);
           setGrade(response.data[0].Grade);
-          setBdate(response.data.Bdate);
+          setBdate(response.data[0].Bdate);
           setAddress(response.data[0].Address);
           setEmail(response.data[0].Email);
-          console.log(response.data[0].Fname);
+
+          console.log(response.data[0].Student_ID);
       })
   },[]);
   
 
   //student id sent to get submited details 
   const toUpdateDetails = () => {
-    navigate("/SubmitedDetailsOneStudent", { state: { id:'b4fe7718-524d-4f88-8ce5-43914870d7d5'  } });
+    navigate("/SubmitedDetailsOneStudent", { state: { id:Student_ID  } });
   };
 
-       const toUpdateStudent = (id) => {
-        navigate("/Update", { state: { id: id } });
+       const toUpdateStudent = () => {
+        navigate("/Update", { state: { id: Student_ID } });
       };
     
 
@@ -74,11 +77,13 @@ const StudentDashboard = () => {
                   <MDBCardBody className="p-4">
                     <MDBTypography tag="h6">Account Information</MDBTypography>
                     <hr className="mt-0 mb-4" />
+                   
                     <MDBRow className="pt-1">
                       <MDBCol size="6" className="mb-3">
                         <MDBTypography tag="h6">Email</MDBTypography>
                         <MDBCardText className="text-muted">{Email}</MDBCardText>
                       </MDBCol>
+                      
                       <MDBCol size="6" className="mb-3">
                         <MDBTypography tag="h6">Phone</MDBTypography>
                         <MDBCardText className="text-muted">{PhoneNO}</MDBCardText>
@@ -90,7 +95,10 @@ const StudentDashboard = () => {
                     <MDBRow className="pt-1">
                       <MDBCol size="6" className="mb-3">
                         <MDBTypography tag="h6">Birth Date</MDBTypography>
-                        <MDBCardText className="text-muted">{Bdate}</MDBCardText>
+                        <MDBCardText className="text-muted">
+                        <Time value={Bdate} format="hh:mm:ss" style={{color:'red'}} />
+                    
+                          </MDBCardText>
                       </MDBCol>
                       <MDBCol size="6" className="mb-3">
                         <MDBTypography tag="h6">Gender</MDBTypography>
@@ -99,10 +107,10 @@ const StudentDashboard = () => {
                     </MDBRow>
 
                     <div className="d-flex justify-content-start">
-                      <tr>
-                            <td><button onClick={() => toUpdateDetails({Student_ID})}>View My Submitions</button></td>
-                            <td><button onClick={() => toUpdateStudent({Student_ID})}>Edit Personal Details</button></td>
-                       </tr>
+                      
+                            <td><button onClick={() => toUpdateDetails()}>View My Submitions</button></td>
+                            <td><button onClick={() => toUpdateStudent()}>Edit Personal Details</button></td>
+                       
                     </div>
                   </MDBCardBody>
                 </MDBCol>

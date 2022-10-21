@@ -10,7 +10,7 @@ function TeacherRegister() {
   const [Fname , setFname ] = useState('');
   const [Lname , setLname ] = useState('');
   const [Gender , setGender ] = useState('');
-  const [PhoneNO , setPhoneNO ] = useState('');
+  const [PhoneNO , setPhoneNO ] = useState();
   const [Grade, setGrade  ] = useState('');
   const [SubjectID, setSubjectID  ] = useState('');
   const [Email , setEmail ] = useState('');
