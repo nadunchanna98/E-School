@@ -34,6 +34,8 @@ import AssignmentFormTeacher from './pages/Assignment/AssignmentFormTeacher';
 import SubmitedDetailsOneStudent from './pages/student_submited/SubmitedDetailsOneStudent';
 import Allstdnt_Submitions_of_1tchr from './pages/student_submited/Allstdnt_Submitions_of_1tchr';
 
+import AllStudent_Results_Of_1Subject from './pages/Results/AllStudent_Results_Of_1Subject';
+
 function App() {
 
 return (
@@ -76,6 +78,8 @@ return (
               <Route path="/assignmentByTeacher" exact element={<AssignmentFormTeacher/>} />
 
               <Route path="/subjectsDetails" exact element={<SubjectDetails_List/>} />
+
+              <Route path="/allStudentaesults0f1Subject" exact element={<AllStudent_Results_Of_1Subject/>} />
 
           </Routes>
           

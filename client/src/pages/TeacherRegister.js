@@ -29,8 +29,8 @@ function TeacherRegister() {
         Lname: Lname,
         Gender: Gender,
         PhoneNO: PhoneNO,
+        SubjectID: "S"+ Grade + SubjectID,
         Grade: Grade,
-        SubjectID: SubjectID,
         Email: Email,
         Password: Password,
     }
@@ -112,31 +112,17 @@ function TeacherRegister() {
                     <option value="3">Grade 3</option>
                     <option value="4">Grade 4</option>
                     <option value="5">Grade 5</option>
-                    <option value="6">Grade 6</option>
-                    <option value="7">Grade 7</option>
-                    <option value="8">Grade 8</option>
-                    <option value="9">Grade 9</option>
-                    <option value="10">Grade 10</option>
-                    <option value="11">Grade 11</option>
                     
                 </select>
 
                 <label>Subject</label>
                 <select name="SubjectID"  required value={SubjectID}  onChange={(e) => setSubjectID(e.target.value)}>
                     <option value="">Select Subject</option>
-                    <option  value="1001">Mathematics</option>
-                    <option value="1002">Science</option>
-                    <option value="1003">English</option>
-                    <option value="1004">Sinhala</option>
-                    <option value="1005">Tamil</option>
-                    <option value="1006">History</option>
-                    <option value="1007">Geography</option>
-                    <option value="1008">Buddhism</option>
-                    <option value="1009">Music</option>
-                    <option value="1010">Drama</option>
-                    <option value="1011">Art</option>
-                    <option value="1012">Dancing</option>
-                    
+                    <option  value="001">Mathematics</option>
+                    <option value="002">Science</option>
+                    <option value="003">English</option>
+                    <option value="004">Sinhala</option>
+                    <option value="005">Tamil</option>       
                 </select>
                 
                                         

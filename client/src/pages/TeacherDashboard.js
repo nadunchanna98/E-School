@@ -14,6 +14,9 @@ const TeacherDashboard = () => {
       navigate("/allStudentsSubmitionsOfOneTeacher", { state: { id:'T2003'  } });
     };
 
+    const  resultsDetails = () => {
+      navigate("/allStudentaesults0f1Subject" ,{ state: { id:'T2003'  } });
+    }
 
   return (
 
@@ -24,6 +27,13 @@ const TeacherDashboard = () => {
           <h3>Assignment submition details of Students</h3>
         <button onClick={() => assignmentDetails()}>Edit</button>
         </div>
+
+        <div>
+          <h3>Assignment results</h3>
+        <button onClick={() => resultsDetails()}>Edit</button>
+        </div>
+
+
       </div>
 
   )

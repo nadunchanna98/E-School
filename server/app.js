@@ -20,7 +20,7 @@ app.use(express.static(path.join(__dirname, 'static')));
 app.use(cors());
 
 //Routers 
-const registerRouter = require("./routes/Register");
+const ResultsRoute = require("./routes/ResultRoute");
 const loginRouter = require("./routes/Login");
 const studentRouter = require("./routes/StudentDetails");
 const teacherRouter = require("./routes/TeacherDetails");
@@ -38,7 +38,7 @@ app.use("/teachers",teacherRouter);
 app.use("/assignment",assignmentRouter);
 app.use("/subjects",subjectRouter);
 app.use("/studentsubmited",studentSubmitedRoute)
-
+app.use("/result",ResultsRoute);
 //app.use("/",HomepageRouter);
 
 

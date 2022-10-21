@@ -117,7 +117,7 @@ router.put("/update/:id", (req,res) =>{
 
 
 router.delete("/delete/:id", (req, res) => {
-    let { ID } = req.params.id;
+    let  ID = req.params.id;
 
     let sql = "DELETE FROM student WHERE Student_ID = ?";
     console.log("id: ", req.params.id);
