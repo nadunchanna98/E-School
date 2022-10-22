@@ -1,38 +1,41 @@
-import React ,{useState , useEffect } from 'react';
+import React ,{useState } from 'react';
 import axios from "axios";
-import "../App.css";
+import "../../App.css";
 import {useNavigate} from 'react-router-dom';
 
-function LoginStudent() {
+function LoginTeacher() {
 
   const navigate = useNavigate();
-
+   
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loginStatus,setLoginStatus] = useState('ENTER YOUR CREDENTIALS');
 
-const email1 = email;
+  const email1 = email;
 
-  const handleSubmitStudent =  async (e)=>{
-    
+  const handleSubmitTeacher =  async (e) => {
     e.preventDefault();
 
        try {
-        await axios.post('http://localhost:3001/login/student', {  
+
+        await axios.post('http://localhost:3001/login/teacher', {  
           email: email,
           password: password,
+          
         })
         .then((response) => {
 
           if(response.data.message){
             setLoginStatus(response.data.message);
-           
+            
           }
           else{
-           // setLoginStatus(response.data[0].email);
-            navigate("/studentDashboard" ,{ state: {email : email1 }} );
-          }
+            //setLoginStatus(response.data[0].email);
 
+            navigate("/teacherDashboard" ,{ state: {email : email1 }} );
+          }
+          
+          
         })
         
     } catch (error) {
@@ -49,15 +52,16 @@ const email1 = email;
   
   }
 
+  
 
   return (
    
     
-  <form onSubmit={handleSubmitStudent}   >
-    <div className='header-wraper' >
+  <form onSubmit={handleSubmitTeacher}   >
+    <div className='header-wraper'>
       <div className="login" >
 
-        <h1>Let's Learn Something</h1>
+        <h1 >Let's Teach Something</h1>
 
               <div className='loginform'>
 
@@ -71,7 +75,6 @@ const email1 = email;
                                   />
 
                         <button   type="submit" >Login</button> 
-        
              
 
             </div>
@@ -84,4 +87,4 @@ const email1 = email;
   );
 }
 
-export default LoginStudent;
+export default LoginTeacher;

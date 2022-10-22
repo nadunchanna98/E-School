@@ -30,6 +30,8 @@ router.get("/details/:id", async (req,res)=>{
     
 });
 
+
+
 //get student details by email
 router.get("/details/email/:email", async (req,res)=>{
     const Email = req.params.email;
@@ -43,9 +45,6 @@ router.get("/details/email/:email", async (req,res)=>{
     });   
     
 });
-
-
-
 
 
 
@@ -74,7 +73,6 @@ router.post("/register", (req,res) =>{
        }
    }
    )
-
 
 });
 

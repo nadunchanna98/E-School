@@ -3,7 +3,7 @@ import axios from "axios";
 import { useEffect,useState } from "react";
 import "../../App.css";
 import {useNavigate} from 'react-router-dom';
-
+import Time from 'react-time-format';
 
 const SubjectDetails_List = () => {
 

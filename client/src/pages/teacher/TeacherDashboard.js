@@ -3,7 +3,7 @@ import React from 'react'
 //import SlideShare from './SlideShare'
 import { useLocation ,useNavigate } from "react-router-dom";
 import  { useState } from 'react';
-import "../App.css";
+import "../../App.css";
 import axios from "axios";
 import { useEffect } from "react";
 import { MDBCol, MDBContainer, MDBRow, MDBCard, MDBCardText, MDBCardBody, MDBCardImage, MDBTypography, MDBIcon } from 'mdb-react-ui-kit';

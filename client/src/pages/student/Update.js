@@ -1,9 +1,11 @@
 import React from 'react';
 import axios from "axios";
 import { useEffect,useState } from "react";
-import "../App.css";
+import "../../App.css";
 import { useLocation } from "react-router-dom";
 import {useNavigate} from 'react-router-dom';
+import Time from 'react-time-format';
+import moment from "moment";
 
 const Update = () => {
 
@@ -11,13 +13,15 @@ const Update = () => {
     const location = useLocation();
     const Student_ID = location.state.id;
 
+   // console.log(Student_ID); --ok
+
 
     const [Fname , setFname ] = useState('');
     const [Lname , setLname ] = useState('');
     const [Gender , setGender ] = useState('');
-    const [PhoneNO , setPhoneNO ] = useState('');
+    const [Phone_NO , setPhone_NO ] = useState();
     const [Grade, setGrade  ] = useState('');
-    const [Bdate, setBdate  ] = useState('');
+    const [Bdate, setBdate  ] = useState();
     const [Address, setAddress  ] = useState('');
     const [Email , setEmail ] = useState('');
     const [Password, setPassword] = useState('');
@@ -28,9 +32,9 @@ const Update = () => {
             setFname(response.data[0].Fname);
             setLname(response.data[0].Lname);
             setGender(response.data[0].Gender);
-            setPhoneNO(response.data.PhoneNO);
+            setPhone_NO(response.data[0].Phone_NO);
             setGrade(response.data[0].Grade);
-            setBdate(response.data.Bdate);
+            setBdate(response.data[0].Bdate);
             setAddress(response.data[0].Address);
             setEmail(response.data[0].Email);
 
@@ -43,19 +47,22 @@ const Update = () => {
     const Register = async (e) => {
         e.preventDefault();
 
+       // console.log(Fname);  --ok
 
         const updateStudent = {  
             Student_ID: Student_ID,
             Fname: Fname,
             Lname: Lname,
             Gender: Gender,
-            PhoneNO: PhoneNO,
+            Phone_NO: Phone_NO,
             Grade: Grade,
-            Bdate: Bdate,
+            Bdate: moment.utc(Bdate).format('MM/DD/YY'),
             Address: Address,
             Email: Email,
             Password: Password,
         }
+
+     //   console.log(updateStudent);  ---ok
     
         try {
             await axios.put(`http://localhost:3001/students/update/${Student_ID}`,updateStudent).then
@@ -99,8 +106,8 @@ const Update = () => {
                 />
                 
                 <label>Phone Number</label>
-                <input type="text" placeholder="0701111111" name="PhoneNO" required
-                value={PhoneNO} onChange={(e) => setPhoneNO(e.target.value)}
+                <input type="text" placeholder="0701111111" name="Phone_NO" required
+                value={Phone_NO} onChange={(e) => setPhone_NO(e.target.value)}
                 />
 
                 <label>Grade</label>
@@ -111,17 +118,12 @@ const Update = () => {
                     <option value="3">Grade 3</option>
                     <option value="4">Grade 4</option>
                     <option value="5">Grade 5</option>
-                    <option value="6">Grade 6</option>
-                    <option value="7">Grade 7</option>
-                    <option value="8">Grade 8</option>
-                    <option value="9">Grade 9</option>
-                    <option value="10">Grade 10</option>
-                    <option value="11">Grade 11</option>
+                  
                     
                 </select>
 
                 <label>Birth Day</label>
-                <input type="date"  name="Bdate" required
+                <input type="date"  name="Bdate"
                 value={Bdate} onChange={(e) => setBdate(e.target.value)}
                 />
 

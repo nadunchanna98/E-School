@@ -1,11 +1,11 @@
 import React from 'react';
 import axios from "axios";
 import { useEffect,useState } from "react";
-import "../App.css";
+import "../../App.css";
 import {useNavigate} from 'react-router-dom';
-import SlideShare from '../pages/SlideShare';
+import SlideShare from '../SlideShare';
 
-const TeacherDetails = () => {
+const TeacherDetail_List_onlyCanView = () => {
 
     const [listOfTeacher, setTeacher] = useState([]);
 
@@ -15,28 +15,6 @@ const TeacherDetails = () => {
         })
     },[]);
 
-    const navigate = useNavigate();
-
-    const toUpdateTeacher = (id) => {
-        navigate("/updateteacher", { state: { id: id } });
-      };
-
-      
-      const handleDelete = (id) => {
-
-        axios.delete(`http://localhost:3001/teachers/${id}`).then((response) => {
-          
-          alert("Teacher Deleted Successfully");
-          console.log(response.data);
-        }
-        ).catch((err) => {
-          console.log(err);
-          alert("Teacher Not Deleted");
-        })
-        ;
-      };
-    
-
 
 
     return (
@@ -44,11 +22,11 @@ const TeacherDetails = () => {
 
           <div className="welocme">
                     <h1>All Details About Teachers</h1>
+                    <SlideShare/>
              </div>
 
 
                     <div className='TeacherTable'>
-
 
                         <table>
                                 <tr>
@@ -71,9 +49,7 @@ const TeacherDetails = () => {
                                     <td className='columnData' >{value.Subject_ID}</td>
                                     <td className='columnData'>{value.Email}</td>
 
-                                    <td><button onClick={() => toUpdateTeacher(value.Student_ID)}>Edit</button></td>
-                                    <td><button onClick={() => handleDelete(value.Student_ID)}>Remove</button></td>
-                                </tr>
+                                 </tr>
                                  ))}
 
                         </table>
@@ -85,6 +61,6 @@ const TeacherDetails = () => {
     
     }
 
-export default TeacherDetails
+export default TeacherDetail_List_onlyCanView
 
 

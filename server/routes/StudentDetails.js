@@ -87,6 +87,7 @@ router.get("/details/email/:email", async (req,res)=>{
 
 //update student by id
 router.put("/update/:id", (req,res) =>{
+    //console.log(req.params.id);  --ok
     const Student_ID = req.params.id;
     const Fname = req.body.Fname;
     const Lname = req.body.Lname;

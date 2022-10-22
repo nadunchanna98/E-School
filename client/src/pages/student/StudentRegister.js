@@ -1,54 +1,56 @@
 import React from 'react';
 import axios from "axios";
 import {useState } from "react";
-import "../App.css";
+import "../../App.css";
 import { v4 as uuid } from 'uuid';
+import moment from "moment";
 
-
-function TeacherRegister() {
+function StudentRegister() {
 
   const [Fname , setFname ] = useState('');
   const [Lname , setLname ] = useState('');
   const [Gender , setGender ] = useState('');
-  const [PhoneNO , setPhoneNO ] = useState();
+  const [Phone_NO , setPhoneNO ] = useState();
   const [Grade, setGrade  ] = useState('');
-  const [SubjectID, setSubjectID  ] = useState('');
+  const [Bdate, setBdate  ] = useState();
+  const [Address, setAddress  ] = useState('');
   const [Email , setEmail ] = useState('');
   const [Password, setPassword] = useState('');
 
 
 
-  const Register = async (e) => {
+  const Register =  (e) => {
     e.preventDefault();
+
+    console.log(Fname)
 
     var err = false;
 
-    const newTeacher = {  
-        Teacher_ID: uuid(),
+    const newStudent = {  
+        Student_ID: uuid(),
         Fname: Fname,
         Lname: Lname,
         Gender: Gender,
-        PhoneNO: PhoneNO,
-        SubjectID: "S"+ Grade + SubjectID,
+        Phone_NO: Phone_NO,
         Grade: Grade,
+        Bdate:moment.utc(Bdate).format('MM/DD/YY'),
+        Address: Address,
         Email: Email,
         Password: Password,
     }
     
     try {
-        await axios.post('http://localhost:3001/teachers/register', newTeacher); 
-        
+         axios.post('http://localhost:3001/students/register', newStudent);    
+
     } catch (error) {
 
    console.log(error);
 
              err = true;
 
-            if( SubjectID === '' ){
-                alert("Please Select The Subject ");
-            }
-            else if( Grade === '' ){
+           if( Grade === '' ){
                 alert("Please Select The Grade ");
+                
             }
             else{
                 alert("Unsuccessful Registration");
@@ -57,14 +59,14 @@ function TeacherRegister() {
     
         if(err === false)
         {  alert("Successful Registration");
-      }
+        }
        
-    
-    
+  
     setFname("");
     setLname("");
     setGender("");
-    setSubjectID("");
+    setAddress("");
+    setBdate("");
     setPhoneNO("");
     setGrade("");
     setEmail("");
@@ -73,20 +75,15 @@ function TeacherRegister() {
   
   return (
    
-
   <form   onSubmit={Register} >
 
     <div className="header-wraper">
-      
       <div className="Registration" >
 
-        <h1 className='Topic' >Teacher Registration</h1>
-
-        
+        <h1 className='Topic' >Student Registration</h1>
                 <div className="form-group"></div>
 
                 
-
                  <label>First Name</label>
                 <input type="text" placeholder="Ruvindya"  name="Fname" required  
                 value={Fname}  onChange={(e) => setFname(e.target.value)} 
@@ -103,8 +100,8 @@ function TeacherRegister() {
                 />
                 
                 <label>Phone Number</label>
-                <input type="text" placeholder="0701111111" name="PhoneNO" required
-                value={PhoneNO} onChange={(e) => setPhoneNO(e.target.value)}
+                <input type="text" placeholder="0701111111" name="Phone_NO" required
+                value={Phone_NO} onChange={(e) => setPhoneNO(e.target.value)}
                 />
 
                 <label>Grade</label>
@@ -115,18 +112,17 @@ function TeacherRegister() {
                     <option value="3">Grade 3</option>
                     <option value="4">Grade 4</option>
                     <option value="5">Grade 5</option>
-                    
                 </select>
 
-                <label>Subject</label>
-                <select name="SubjectID"  required value={SubjectID}  onChange={(e) => setSubjectID(e.target.value)}>
-                    <option value="">Select Subject</option>
-                    <option  value="001">Mathematics</option>
-                    <option value="002">Science</option>
-                    <option value="003">English</option>
-                    <option value="004">Sinhala</option>
-                    <option value="005">Tamil</option>       
-                </select>
+                <label>Birth Day</label>
+                <input type="date"  name="Bdate" required
+                value={Bdate} onChange={(e) => setBdate(e.target.value)}
+                />
+
+                <label>Home Address</label>
+                <input type="text" placeholder="234/2 , Nuwaraeliya , Srilanka" name="Address" required
+                value={Address} onChange={(e) => setAddress(e.target.value)}
+                />
                 
                                         
                 <label>Email</label>
@@ -139,7 +135,7 @@ function TeacherRegister() {
                 value={Password} onChange={(e) => setPassword(e.target.value)}
                 />
 
-        <button   type="submit">Register</button>
+        <button type="submit">Register</button>
       </div>
 
     </div> 
@@ -148,4 +144,4 @@ function TeacherRegister() {
   );
 }
 
-export default TeacherRegister;
+export default StudentRegister;
