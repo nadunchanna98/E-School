@@ -7,6 +7,7 @@ import {useNavigate} from 'react-router-dom';
 import Time from 'react-time-format';
 import moment from "moment";
 
+
 const Update = () => {
 
     const navigate = useNavigate();
@@ -56,7 +57,7 @@ const Update = () => {
             Gender: Gender,
             Phone_NO: Phone_NO,
             Grade: Grade,
-            Bdate: moment.utc(Bdate).format('MM/DD/YY'),
+            Bdate: moment.utc(Bdate).format('MM/DD/YY'),   //format date to MM/DD/YY from iso format
             Address: Address,
             Email: Email,
             Password: Password,

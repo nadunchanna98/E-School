@@ -6,9 +6,6 @@ import  { useState } from 'react';
 
 const AssignmentFormTeacher = () => {
 
-  const [listOfStudents, setStudents] = useState([]);
-
-
     const [Chapter_No , setChapter_No ] = useState('');
     const [Assignment_No, setAssignment_No ] = useState('');
     const [Subject_ID, setSubject_ID ] = useState('');
@@ -116,7 +113,8 @@ const AssignmentFormTeacher = () => {
                             label="Profile Image(s)"
                             multiple
                             value={Doc}
-                            onChange={(e) => setDoc(e.target.value)}
+                            updateFilesCb={setDoc}
+                          //  onChange={(e) => setDoc(e.target.value)}
                             required
                             />
                             

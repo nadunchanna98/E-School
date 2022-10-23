@@ -7,6 +7,7 @@ import axios from "axios";
 import { useEffect } from "react";
 import { MDBCol, MDBContainer, MDBRow, MDBCard, MDBCardText, MDBCardBody, MDBCardImage, MDBTypography, MDBIcon } from 'mdb-react-ui-kit';
 import Time from 'react-time-format';
+import StudentSubmitton from '../student_submited/StudentSubmitton';
 
 
 
@@ -50,14 +51,20 @@ const StudentDashboard = () => {
   
 
   //student id sent to get submited details 
-  const toUpdateDetails = () => {
+  const ViewMySubmitions = () => {
     navigate("/SubmitedDetailsOneStudent", { state: { id:Student_ID  } });
   };
 
-       const toUpdateStudent = () => {
+       const toUpdateDetails = () => {
         navigate("/Update", { state: { id: Student_ID } });
       };
     
+      //view assignment need to submit
+      const  viewAssignments = () => {
+        navigate("/allAssignmentOfOneStudent" ,{ state: { Student_ID :Student_ID } });
+      }
+
+
 
   return (
     
@@ -106,13 +113,14 @@ const StudentDashboard = () => {
                         <MDBTypography tag="h6">Gender</MDBTypography>
                         <MDBCardText className="text-muted">{Gender}</MDBCardText>
                       </MDBCol>
+
                     </MDBRow>
 
                     <div className="d-flex justify-content-start">
                       
-                            <td><button onClick={() => toUpdateDetails()}>View My Submitions</button></td>
-                            <td><button onClick={() => toUpdateStudent()}>Edit Personal Details</button></td>
-                       
+                            <td><button  onClick={() =>ViewMySubmitions()}>View My Submitions</button></td>
+                            <td><button onClick={() => toUpdateDetails()}>Edit Personal Details</button></td>
+                            
                     </div>
                   </MDBCardBody>
                 </MDBCol>
@@ -120,6 +128,12 @@ const StudentDashboard = () => {
             </MDBCard>
           </MDBCol>
         </MDBRow>
+                     <MDBCol>
+                             <div className="d-flexx">
+                                   <button onClick={() => viewAssignments()}>NEED to Submit </button>
+                                  {/* <button  onClick={() =>Studentsubmitton()}>Submit the assignment </button> */}
+                              </div>
+                    </MDBCol>
       </MDBContainer>
     </section>
   );

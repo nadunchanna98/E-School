@@ -18,6 +18,25 @@ router.get("/details/:id", async (req,res)=>{
     
 });
 
+
+//get assignment details by student id
+router.get("/details/student/:id", async (req,res)=>{
+
+    const Student_ID = req.params.id;
+
+    db.query("SELECT Assignment_No , assignment.Subject_ID , Chapter_No , Note , DueDate , DueTime , TotalMarks , Doc , Created_on FROM assignment JOIN subjects ON assignment.Subject_ID = subjects.Subject_ID JOIN student ON subjects.Grade = student.Grade  WHERE Student_ID = ?", [Student_ID], (err,result) => {
+    if(err){
+        res.send(err);
+        console.log(err);  
+    }else{
+        res.send(result);              
+    }
+    });   
+    
+});
+
+
+
 //get assignment details 
 router.get("/details/", async (req,res)=>{
 

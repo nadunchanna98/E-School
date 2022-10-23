@@ -4,6 +4,8 @@ import { useEffect,useState } from "react";
 import "../../App.css";
 import {useNavigate} from 'react-router-dom';
 import SlideShare from '../SlideShare';
+import { confirmAlert } from 'react-confirm-alert'; // Import 
+import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
 
 const TeacherDetails = () => {
 
@@ -15,6 +17,8 @@ const TeacherDetails = () => {
         })
     },[]);
 
+    console.log()
+
     const navigate = useNavigate();
 
     const toUpdateTeacher = (id) => {
@@ -24,9 +28,10 @@ const TeacherDetails = () => {
       
       const handleDelete = (id) => {
 
-        axios.delete(`http://localhost:3001/teachers/${id}`).then((response) => {
+        axios.delete(`http://localhost:3001/teachers/delete/${id}`).then((response) => {
           
           alert("Teacher Deleted Successfully");
+          window.location.reload(false);     //refresh the page
           console.log(response.data);
         }
         ).catch((err) => {
@@ -36,6 +41,25 @@ const TeacherDetails = () => {
         ;
       };
     
+      const confirmDelete = (id) => {
+        confirmAlert({
+          title: 'Confirm to Delete',
+          message: 'Are you sure to do this.',
+          buttons : [
+            {
+              className: 'confirmAlert',
+              label: 'Yes',
+              style: {backgroundColor: 'red'},
+              onClick: () => handleDelete(id)
+            },
+            {
+              label: 'No',
+            }
+          ]
+        });
+      };
+
+
 
 
 
@@ -71,8 +95,8 @@ const TeacherDetails = () => {
                                     <td className='columnData' >{value.Subject_ID}</td>
                                     <td className='columnData'>{value.Email}</td>
 
-                                    <td><button onClick={() => toUpdateTeacher(value.Student_ID)}>Edit</button></td>
-                                    <td><button onClick={() => handleDelete(value.Student_ID)}>Remove</button></td>
+                                    <td><button onClick={() => toUpdateTeacher(value.Teacher_ID)}>Edit</button></td>
+                                    <td><button onClick={() => confirmDelete(value.Teacher_ID)}>Remove</button></td>
                                 </tr>
                                  ))}
 

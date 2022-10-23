@@ -5,6 +5,9 @@ import "../../App.css";
 import {useNavigate} from 'react-router-dom';
 import SlideShare from '../SlideShare';
 import Time from 'react-time-format';
+import { confirmAlert } from 'react-confirm-alert'; // Import 
+import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
+
 
 const StudentDetail_List = () => {
 
@@ -31,6 +34,7 @@ const StudentDetail_List = () => {
         axios.delete(`http://localhost:3001/students/delete/${id}`).then((response) => {
           
           alert("Student Deleted Successfully");
+          window.location.reload(false);     //refresh the page
           console.log(response.data);
         }
         ).catch((err) => {
@@ -39,8 +43,27 @@ const StudentDetail_List = () => {
         })
         ;
       };
-      
 
+//DELERE CONFIRMATION ALERT BOX 
+      const confirmDelete = (id) => {
+        confirmAlert({
+          title: 'Confirm to Delete',
+          message: 'Are you sure to do this.',
+          buttons : [
+            {
+              className: 'confirmAlert',
+              label: 'Yes',
+              style: {backgroundColor: 'red'},
+              onClick: () => handleDelete(id)
+            },
+            {
+              label: 'No',
+            }
+          ]
+        });
+      };
+
+            
 
     return (
         <div className='header-wraper'>
@@ -85,7 +108,7 @@ const StudentDetail_List = () => {
                                     <td className='columnData'>{value.Email}</td>
 
                                     <td><button onClick={() => toUpdateStudent(value.Student_ID)}>Edit</button></td>
-                                    <td><button onClick={() => handleDelete(value.Student_ID)}>Remove</button></td>
+                                    <td><button  onClick={() => confirmDelete(value.Student_ID)}>Remove</button></td>
                                 </tr>
   
                                  ))}

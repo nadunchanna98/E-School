@@ -98,5 +98,31 @@ router.delete("/delete/:id", (req,res) =>{
     );
 
 
+//update teacher by id
+router.put("/update/:id", (req,res) =>{
+
+    const Teacher_ID = req.params.id;
+    const Fname = req.body.Fname;
+    const Lname = req.body.Lname;
+    const Gender = req.body.Gender;
+    const Phone_NO = req.body.Phone_NO;
+    const Grade = req.body.Grade;
+    const Subject_ID = req.body.Subject_ID;
+    const Email = req.body.Email;
+    const Password = req.body.Password;
+
+   db.query("UPDATE teacher SET Subject_ID = ?, Fname = ?, Lname = ?, Grade = ?, Phone_NO = ?, Gender = ?, Email = ?, Password = ? WHERE Teacher_ID = ?",
+   [Subject_ID,Fname,Lname,Grade,Phone_NO,Gender,Email,Password,Teacher_ID],
+   (err,result) => {
+       if(err){
+           console.log(err);
+           res.send(err);
+       }else{
+           res.send(result);
+       }
+   }
+   )
+});
+
 
 module.exports = router

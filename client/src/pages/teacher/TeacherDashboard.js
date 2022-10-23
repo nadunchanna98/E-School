@@ -98,8 +98,8 @@ const TeacherDashboard = () => {
 
                   <MDBTypography tag="h5">{Fname+" "+Lname}</MDBTypography>
 
-                  <MDBCardText>{"Subject ID" + Subject_ID}</MDBCardText>
-                  <MDBCardText>{"Teach Grade " + Grade}</MDBCardText>
+                  <MDBCardText>{"Subject ID  : " + Subject_ID}</MDBCardText>
+              
 
                   <MDBIcon far icon="edit mb-5" />
                 </MDBCol>

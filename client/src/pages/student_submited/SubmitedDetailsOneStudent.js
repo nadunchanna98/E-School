@@ -56,11 +56,9 @@ const SubmitedDetailsOneStudent = () => {
                     <div className='submitTable'>
                    
                         <table>
-                       
-
-                                <tr>
-                                    
-                                <td className='columnName'><h3>Student ID</h3></td>
+                      
+                            <tr> 
+                                    <td className='columnName'><h3>Student ID</h3></td>
                                     <td className='columnName'><h3>Subject ID</h3></td>
                                     <td className='columnName'><h3>Assignment No</h3></td>
                                     <td className='columnName'><h3>Uploading Status</h3></td>
@@ -68,22 +66,21 @@ const SubmitedDetailsOneStudent = () => {
                                     <td className='columnName'><h3>Submited Date</h3></td>
                                     <td className='columnName'><h3>Edit</h3></td>
                                     <td className='columnName'><h3>Delete</h3></td>
-                                </tr>
+                             </tr>
 
-                                {SubmitedDetails.map((value,key)=>(
-                                <tr key={key}>
-                                  
-                                  <td className='columnData'>{value.Student_ID}</td> 
-                                    <td className='columnData'>{value.Subject_ID}</td> 
-                                    <td className='columnData'>{value.Assignment_No}</td> 
-                                    <td className='columnData'>{value.Uploading_Status}</td>
-                                    <td className='columnData'>{value.Note}</td>
-                                    <td className='columnData'>{value.Created_on}</td>
+                                 {SubmitedDetails.map((value,key)=>(
+                                 <tr key={key}>
+                                    
+                                     <td className='columnData'>{value.Subject_ID}</td> 
+                                     <td className='columnData'>{value.Assignment_No}</td> 
+                                     <td className='columnData'>{value.Uploading_Status}</td>
+                                     <td className='columnData'>{value.Note}</td>
+                                     <td className='columnData'>{value.Created_on}</td>
                               
-                                    <td><button onClick={() => toUpdateDetails(value.Subject_ID)}>Edit</button></td>
-                                    <td><button onClick={() => handleDelete(value.Subject_ID)}>Remove</button></td>
-                                </tr>
-                                ))}
+                                     <td><button onClick={() => toUpdateDetails(value.Subject_ID)}>Edit</button></td>
+                                     <td><button onClick={() => handleDelete(value.Subject_ID)}>Remove</button></td>
+                                 </tr>
+                                 ))}
                                   
                         </table>
                         

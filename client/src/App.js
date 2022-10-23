@@ -31,9 +31,12 @@ import UpdateTeacher from './pages/teacher/UpdateTeacher';
 
 
 import AssignmentFormTeacher from './pages/Assignment/AssignmentFormTeacher';
+import All_Assignment_1student from './pages/Assignment/All_Assignment_1student';
+
 
 import SubmitedDetailsOneStudent from './pages/student_submited/SubmitedDetailsOneStudent';
 import Allstdnt_Submitions_of_1tchr from './pages/student_submited/Allstdnt_Submitions_of_1tchr';
+import StudentSubmitton from './pages/student_submited/StudentSubmitton';
 
 import AllStudent_Results_Of_1Subject from './pages/Results/AllStudent_Results_Of_1Subject';
 import ResultsUpdatebyTeachr from './pages/Results/ResultsUpdatebyTeachr';
@@ -57,7 +60,6 @@ return (
               <Route path="/teacherDashboard" exact element={<TeacherDashboard/>} />
               <Route path="/teachers" exact element={<TeacherDetail_List/>} />
               <Route path="/teacherDetaillistonlyCanView" exact element={<TeacherDetail_List_onlyCanView/>} />
-              
               <Route path="/updateteacher" element={<UpdateTeacher/>}/>
 
 
@@ -69,10 +71,11 @@ return (
               <Route path="/allStudentsSubmitionsOfOneTeacher" exact element={<Allstdnt_Submitions_of_1tchr/>}/>
               <Route path="/studentDetaillistonlyCanView" exact element={<StudentDetail_List_onlyCanView/>}/>
              
-          
+          <Route path="/studentSubmit" exact element={<StudentSubmitton/>}/>  
         
               <Route path="/assignmentDetails" exact element={<AssignmentDetails/>} />
               <Route path="/assignmentByTeacher" exact element={<AssignmentFormTeacher/>} />
+              <Route path="/allAssignmentOfOneStudent" exact element={<All_Assignment_1student/>} />
 
               <Route path="/subjectsDetails" exact element={<SubjectDetails_List/>} />
 
@@ -97,6 +100,8 @@ export default App;
 //for get input use library formik
 //for vallidation -> npm i yup
 //npm i react-use-file-upload   
+//npm i moment  - for date and time 
+
 
 //npm install react-bootstrap bootstrap
 //npm install uuidv4 - for create unique id -see  teacher  register 
@@ -106,3 +111,5 @@ export default App;
 //update teacher page not showing
 //delete by id not working
 
+//window.location.reload(false);  refresh the page
+ 
