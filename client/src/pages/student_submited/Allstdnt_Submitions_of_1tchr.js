@@ -27,7 +27,7 @@ const Allstdnt_Submitions_of_1tchr = () => {
         })
     },[]);
 
-
+    console.log(SubmitedDetails);
 
 
       const toUpdateDetails = (id) => {

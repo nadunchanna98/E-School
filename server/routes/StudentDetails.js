@@ -83,6 +83,20 @@ router.get("/details/email/:email", async (req,res)=>{
     
 });
 
+//get student names by ID
+router.get("/names/:id", async (req,res)=>{
+    const Student_ID = req.params.id;
+    db.query("SELECT Fname,Lname FROM student WHERE Student_ID = ?", Student_ID, (err,result) => {
+    if(err){
+        res.send(err);
+        console.log(err);  
+    }else{
+        res.send(result);              
+    }
+    });   
+    
+});
+
 
 
 //update student by id

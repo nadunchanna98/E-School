@@ -22,7 +22,7 @@ const StudentDashboard = () => {
   const [Fname , setFname ] = useState('');
   const [Lname , setLname ] = useState('');
   const [Gender , setGender ] = useState('');
-  const [PhoneNO , setPhoneNO ] = useState();
+  const [Phone_NO , setPhone_NO ] = useState();
   const [Grade, setGrade  ] = useState('');
   const [Bdate, setBdate  ] = useState();
   const [Address, setAddress  ] = useState('');
@@ -39,7 +39,7 @@ const StudentDashboard = () => {
           setFname(response.data[0].Fname);
           setLname(response.data[0].Lname);
           setGender(response.data[0].Gender);
-          setPhoneNO(response.data[0].PhoneNO);
+          setPhone_NO(response.data[0].Phone_NO);
           setGrade(response.data[0].Grade);
           setBdate(response.data[0].Bdate);
           setAddress(response.data[0].Address);
@@ -64,6 +64,11 @@ const StudentDashboard = () => {
         navigate("/allAssignmentOfOneStudent" ,{ state: { Student_ID :Student_ID } });
       }
 
+      //all assignmens results
+      const  allmyResults= () => {
+        navigate("/oneStudentALLresults" ,{ state: { Student_ID : Student_ID } });
+      }
+      
 
 
   return (
@@ -95,7 +100,7 @@ const StudentDashboard = () => {
                       
                       <MDBCol size="6" className="mb-3">
                         <MDBTypography tag="h6">Phone</MDBTypography>
-                        <MDBCardText className="text-muted">{PhoneNO}</MDBCardText>
+                        <MDBCardText className="text-muted">{Phone_NO}</MDBCardText>
                       </MDBCol>
                     </MDBRow>
 
@@ -105,7 +110,7 @@ const StudentDashboard = () => {
                       <MDBCol size="6" className="mb-3">
                         <MDBTypography tag="h6">Birth Date</MDBTypography>
                         <MDBCardText className="text-muted">
-                        <Time value={Bdate} format="hh:mm:ss" style={{color:'red'}} />
+                        <Time value={Bdate} format="YYYY-MM-DD"  />
                     
                           </MDBCardText>
                       </MDBCol>
@@ -130,8 +135,8 @@ const StudentDashboard = () => {
         </MDBRow>
                      <MDBCol>
                              <div className="d-flexx">
-                                   <button onClick={() => viewAssignments()}>NEED to Submit </button>
-                                  {/* <button  onClick={() =>Studentsubmitton()}>Submit the assignment </button> */}
+                                   <button onClick={() => viewAssignments()}>Need to Submit </button>
+                                  <button  onClick={() => allmyResults()}>View My Results</button> 
                               </div>
                     </MDBCol>
       </MDBContainer>

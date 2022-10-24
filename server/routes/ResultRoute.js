@@ -5,21 +5,39 @@ const db = require("../Db");
 
 
 //all student submitin details about one teacher
-router.get("/detailsoft/:id", async (req,res)=>{
+router.get("/byteacher/:id", async (req,res)=>{
 
     const Teacher_ID = req.params.id;
 
-    db.query("SELECT Student_ID,teacher.Subject_ID,Assignment_No,Result,Note FROM results JOIN teacher ON results.Subject_ID = teacher.Subject_ID  WHERE teacher.Teacher_ID = ? ",[Teacher_ID], (err,result) => {
+    db.query("SELECT Student_ID,teacher.Subject_ID,Assignment_No,Result,Note FROM results JOIN teacher ON results.Subject_ID = teacher.Subject_ID  WHERE teacher.Teacher_ID = ? ",[Teacher_ID],
+    (err,result) => {
     if(err){
         res.send(err);
         console.log(err);  
     }else{
         res.send(result);              
     }
-    });   
+    }); 
     
 });
 
+
+//one student results about all subjects
+router.get("/bystudent/:id", async (req,res)=>{
+
+    const Student_ID = req.params.id;
+
+    db.query("SELECT Subject_ID,Assignment_No,Result,Note FROM results WHERE Student_ID= ? ",[Student_ID],
+    (err,result) => {
+    if(err){
+        res.send(err);
+        console.log(err);  
+    }else{
+        res.send(result);              
+    }
+    }); 
+    
+});
 
 // //post route
 // router.post("/detailsoft", (req,res) =>{

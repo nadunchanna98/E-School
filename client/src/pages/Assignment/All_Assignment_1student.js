@@ -6,7 +6,6 @@ import {useNavigate} from 'react-router-dom';
 import Time from 'react-time-format';
 import { useLocation } from "react-router-dom";
 
-
 const All_Assignment_1student = () => {
 
     const navigate = useNavigate();
@@ -57,14 +56,12 @@ const All_Assignment_1student = () => {
                                 <Time value={value.DueDate} format="YYYY-MM-DD" style={{color:'red'}}/>
                                 </td>
 
-                              <td className='columnData' >
-                                  <Time value={value.DueTime} format="hh:mm:ss" style={{color:'red'}} />
-                              </td>
+                                <td className='columnData' style={{color:'red'}}>11.59 PM</td>
 
                               <td className='columnData' >
                                   <Time value={value.Created_on} format="YYYY-MM-DD hh:mm:ss"  />
                               </td>
-                              <td><button onClick={() => SubmitAssignment(value.Subject_ID)}>Edit</button></td>
+                              <td><button onClick={() => SubmitAssignment(value.Subject_ID)}>Submit Now</button></td>
 
                           </tr>
                           ))}

@@ -7,6 +7,7 @@ import Time from 'react-time-format';
 
 const AssignmentDetails = () => {
 
+
     const [Assignments, setAssignments] = useState([]);
 
     // useEffect(()=>{
@@ -71,9 +72,7 @@ const AssignmentDetails = () => {
                                 <Time value={value.DueDate} format="YYYY-MM-DD" style={{color:'red'}}/>
                                 </td>
 
-                              <td className='columnData' >
-                                  <Time value={value.DueTime} format="hh:mm:ss" style={{color:'red'}} />
-                              </td>
+                                <td className='columnData' style={{color:'red'}}>11.59 PM</td>
 
                               <td className='columnData' >
                                   <Time value={value.Created_on} format="YYYY-MM-DD hh:mm:ss"  />

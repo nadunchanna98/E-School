@@ -22,10 +22,12 @@ const SubmitedDetailsOneStudent = () => {
     useEffect(()=>{
         axios.get(`http://localhost:3001/studentsubmited/details/${Student_ID}`).then((response) => {
             setSubmitedDetails(response.data);
+            
         })
     },[]);
 
 
+    console.log(SubmitedDetails);
 
 
       const toUpdateDetails = (id) => {
@@ -58,7 +60,7 @@ const SubmitedDetailsOneStudent = () => {
                         <table>
                       
                             <tr> 
-                                    <td className='columnName'><h3>Student ID</h3></td>
+                                
                                     <td className='columnName'><h3>Subject ID</h3></td>
                                     <td className='columnName'><h3>Assignment No</h3></td>
                                     <td className='columnName'><h3>Uploading Status</h3></td>
@@ -77,7 +79,7 @@ const SubmitedDetailsOneStudent = () => {
                                      <td className='columnData'>{value.Note}</td>
                                      <td className='columnData'>{value.Created_on}</td>
                               
-                                     <td><button onClick={() => toUpdateDetails(value.Subject_ID)}>Edit</button></td>
+                                     <td><button onClick={() => toUpdateDetails(value.Subject_ID)}>Edit Submition</button></td>
                                      <td><button onClick={() => handleDelete(value.Subject_ID)}>Remove</button></td>
                                  </tr>
                                  ))}

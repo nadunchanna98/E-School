@@ -40,6 +40,7 @@ import StudentSubmitton from './pages/student_submited/StudentSubmitton';
 
 import AllStudent_Results_Of_1Subject from './pages/Results/AllStudent_Results_Of_1Subject';
 import ResultsUpdatebyTeachr from './pages/Results/ResultsUpdatebyTeachr';
+import OneStudentALLresults from './pages/Results/OneStudentALLresults';
 
 function App() {
 
@@ -81,6 +82,7 @@ return (
 
               <Route path="/allStudentaesults0f1Subject" exact element={<AllStudent_Results_Of_1Subject/>} />
               <Route path="/resultsupdatebyt" exact element={<ResultsUpdatebyTeachr/>} />
+              <Route path="/oneStudentALLresults" exact element={<OneStudentALLresults/>} />
           </Routes>
           
           

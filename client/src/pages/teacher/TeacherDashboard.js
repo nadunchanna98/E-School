@@ -7,7 +7,6 @@ import "../../App.css";
 import axios from "axios";
 import { useEffect } from "react";
 import { MDBCol, MDBContainer, MDBRow, MDBCard, MDBCardText, MDBCardBody, MDBCardImage, MDBTypography, MDBIcon } from 'mdb-react-ui-kit';
-import Time from 'react-time-format';
 
 const TeacherDashboard = () => {
 
@@ -21,7 +20,7 @@ const TeacherDashboard = () => {
   const [Fname , setFname ] = useState('');
   const [Lname , setLname ] = useState('');
   const [Gender , setGender ] = useState('');
-  const [PhoneNO , setPhoneNO ] = useState();
+  const [Phone_NO , setPhone_NO ] = useState();
   const [Grade, setGrade  ] = useState('');
   const [Subject_ID, setSubject_ID  ] = useState('');
   const [Email , setEmail ] = useState('');
@@ -39,7 +38,7 @@ const TeacherDashboard = () => {
   setFname(response.data[0].Fname);
   setLname(response.data[0].Lname);
   setGender(response.data[0].Gender);
-  setPhoneNO(response.data[0].Phone_NO);
+  setPhone_NO(response.data[0].Phone_NO);
   setSubject_ID(response.data[0].Subject_ID);
   setGrade(response.data[0].Grade);
   setEmail(response.data[0].Email);  
@@ -51,13 +50,9 @@ const TeacherDashboard = () => {
 
 
 
-    //Teacher given assignments and studens responses
-    const assignmentDetails = () => {
-      navigate("/allStudentsSubmitionsOfOneTeacher", { state: { id:Teacher_ID  } });
-    };
-
+ 
     const  resultsDetails = () => {
-      navigate("/allStudentaesults0f1Subject" ,{ state: { id:Teacher_ID  } });
+      navigate("/allStudentaesults0f1Subject" ,{ state: { id:Teacher_ID  } });  //page - AllStudent_Results_Of_1Subject
     }
 
     const  viewAllSubmitions = () => {
@@ -130,7 +125,7 @@ const TeacherDashboard = () => {
 
                         <MDBCardText className="text-muted">
 
-                        <MDBCardText className="text-muted">{PhoneNO}</MDBCardText>
+                        <MDBCardText className="text-muted">{Phone_NO}</MDBCardText>
                           </MDBCardText>
                       </MDBCol>
                       <MDBCol size="6" className="mb-3">
@@ -154,7 +149,6 @@ const TeacherDashboard = () => {
                     <div className="d-flexx">
         
         <button  onClick={() =>assignmentByTeacher()}>Create A New Assignment </button>
-        <button onClick={() =>assignmentDetails()}>Students submitions</button>
         <button onClick={() => resultsDetails()}>Assignment results</button>
         <button onClick={() => viewAllSubmitions()}>View All Submitions </button>
         <button onClick={() => subjectsDetails()}>Details About All Subjects </button>

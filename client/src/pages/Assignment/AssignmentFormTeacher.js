@@ -115,7 +115,7 @@ const AssignmentFormTeacher = () => {
                             value={Doc}
                             updateFilesCb={setDoc}
                           //  onChange={(e) => setDoc(e.target.value)}
-                            required
+                            
                             />
                             
                     
