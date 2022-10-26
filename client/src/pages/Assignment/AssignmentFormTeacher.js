@@ -2,7 +2,7 @@ import React from 'react'
 import axios from "axios";
 import FileUpload from './file-upload/file-upload.component';
 import  { useState } from 'react';
-
+import moment from "moment";
 
 const AssignmentFormTeacher = () => {
 
@@ -25,7 +25,7 @@ const AssignmentFormTeacher = () => {
         Subject_ID : Subject_ID,
         Note : Note,
         DueTime : DueTime,
-        DueDate : DueDate,
+        DueDate :moment.utc(DueDate).format('YY-MM-DD'),
         TotalMarks : TotalMarks,
         Doc : Doc,
       }
@@ -113,7 +113,7 @@ const AssignmentFormTeacher = () => {
                             label="Profile Image(s)"
                             multiple
                             value={Doc}
-                            updateFilesCb={setDoc}
+                           // updateFilesCb={setDoc}
                           //  onChange={(e) => setDoc(e.target.value)}
                             
                             />

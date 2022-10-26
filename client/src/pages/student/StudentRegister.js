@@ -33,12 +33,14 @@ function StudentRegister() {
         Gender: Gender,
         Phone_NO: Phone_NO,
         Grade: Grade,
-        Bdate:moment.utc(Bdate).format('MM/DD/YY'),
+        Bdate:moment.utc(Bdate).format('YY-MM-DD'),
         Address: Address,
         Email: Email,
         Password: Password,
     }
     
+    console.log(newStudent)
+
     try {
          axios.post('http://localhost:3001/students/register', newStudent);    
 

@@ -23,7 +23,7 @@ const StudentDetail_List_onlyCanView = () => {
 
             <div className="welocme">
                     <h1>All Details About Students</h1>
-                    <SlideShare />
+                  
              </div>
 
                 

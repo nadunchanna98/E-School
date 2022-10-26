@@ -7,6 +7,9 @@ import "../../App.css";
 import axios from "axios";
 import { useEffect } from "react";
 import { MDBCol, MDBContainer, MDBRow, MDBCard, MDBCardText, MDBCardBody, MDBCardImage, MDBTypography, MDBIcon } from 'mdb-react-ui-kit';
+import { confirmAlert } from 'react-confirm-alert'; // Import 
+import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
+
 
 const TeacherDashboard = () => {
 
@@ -67,7 +70,40 @@ const TeacherDashboard = () => {
       navigate("/assignmentByTeacher");
     }
 
+  
 
+    const handleDelete = (Teacher_ID) => {
+
+      axios.delete(`http://localhost:3001/teachers/delete/${Teacher_ID}`).then((response) => {
+        
+        alert("Teacher Deleted Successfully");
+        console.log(response.data);
+        navigate("/");
+      }
+      ).catch((err) => {
+        console.log(err);
+        alert("Teacher Not Deleted");
+      })
+      ;
+    };
+
+    const confirmDelete = () => {
+      confirmAlert({
+        title: 'Confirm to Delete',
+        message: 'Are you sure to do this.',
+        buttons : [
+          {
+            className: 'confirmAlert',
+            label: 'Yes',
+            style: {backgroundColor: 'red'},
+            onClick: () => handleDelete(Teacher_ID)
+          },
+          {
+            label: 'No',
+          }
+        ]
+      });
+    };
   
 
   return (
@@ -152,6 +188,7 @@ const TeacherDashboard = () => {
         <button onClick={() => resultsDetails()}>Assignment results</button>
         <button onClick={() => viewAllSubmitions()}>View All Submitions </button>
         <button onClick={() => subjectsDetails()}>Details About All Subjects </button>
+        <button onClick={() => confirmDelete()}>Delete my Account </button>
         
 </div>
                     </MDBCol>

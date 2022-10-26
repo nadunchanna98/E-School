@@ -22,7 +22,7 @@ const TeacherDetail_List_onlyCanView = () => {
 
           <div className="welocme">
                     <h1>All Details About Teachers</h1>
-                    <SlideShare/>
+                    
              </div>
 
 
@@ -36,8 +36,7 @@ const TeacherDetail_List_onlyCanView = () => {
                                     <td className='columnName'><h3>Phone number</h3></td>
                                     <td className='columnName'><h3>Subject</h3></td>
                                     <td className='columnName'><h3>email</h3></td>
-                                    <td className='columnName'><h3>Remove</h3></td>
-                                    <td className='columnName'><h3>Edit</h3></td>
+                                   
                                 </tr>
 
                                 {listOfTeacher.map((value,key)=>(

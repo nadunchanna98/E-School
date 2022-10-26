@@ -38,9 +38,10 @@ const Navbar = () => {
           Dropdown
         </a>
         <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-
-          <a className="dropdown-item" href="/students">All Students</a>
-          <a className="dropdown-item" href="/teachers">All Teachers</a>
+          {/* <a className="dropdown-item" href="/students">All Students</a> */}
+          <a className="dropdown-item" href="/studentDetaillistonlyCanView">All Students</a>
+          {/* <a className="dropdown-item" href="/teachers">All Teachers</a> */}
+          <a className="dropdown-item" href="/teacherDetaillistonlyCanView">All Teachers </a>
           <a className="dropdown-item" href="/LoginStudent">Student Login</a>
           <a className="dropdown-item" href="/LoginTeacher">Teacher Login </a>
 

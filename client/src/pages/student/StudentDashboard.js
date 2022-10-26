@@ -8,6 +8,8 @@ import { useEffect } from "react";
 import { MDBCol, MDBContainer, MDBRow, MDBCard, MDBCardText, MDBCardBody, MDBCardImage, MDBTypography, MDBIcon } from 'mdb-react-ui-kit';
 import Time from 'react-time-format';
 import StudentSubmitton from '../student_submited/StudentSubmitton';
+import { confirmAlert } from 'react-confirm-alert'; // Import 
+import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
 
 
 
@@ -69,6 +71,39 @@ const StudentDashboard = () => {
         navigate("/oneStudentALLresults" ,{ state: { Student_ID : Student_ID } });
       }
       
+      const handleDelete = () => {
+
+        axios.delete(`http://localhost:3001/students/delete/${Student_ID}`).then((response) => {
+          
+          alert("Student Deleted Successfully");
+          navigate("/");     
+          console.log(response.data);
+        }
+        ).catch((err) => {
+          console.log(err);
+          alert("Student Not Deleted");
+        })
+        ;
+      };
+
+//DELERE CONFIRMATION ALERT BOX 
+      const confirmDelete = (Student_ID) => {
+        confirmAlert({
+          title: 'Confirm to Delete',
+          message: 'Are you sure to do this.',
+          buttons : [
+            {
+              className: 'confirmAlert',
+              label: 'Yes',
+              style: {backgroundColor: 'red'},
+              onClick: () => handleDelete(Student_ID)
+            },
+            {
+              label: 'No',
+            }
+          ]
+        });
+      };
 
 
   return (
@@ -136,7 +171,8 @@ const StudentDashboard = () => {
                      <MDBCol>
                              <div className="d-flexx">
                                    <button onClick={() => viewAssignments()}>Need to Submit </button>
-                                  <button  onClick={() => allmyResults()}>View My Results</button> 
+                                  <button  onClick={() => allmyResults()}>View My Results</button>
+                                  <button onClick={() => confirmDelete()}>Delete my Account </button> 
                               </div>
                     </MDBCol>
       </MDBContainer>
