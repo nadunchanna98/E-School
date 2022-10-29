@@ -52,6 +52,7 @@ router.get("/details/email/:email", async (req,res)=>{
 //teacher registation
 router.post("/register", (req,res) =>{
 
+    const Role = req.body.Role;
     const Teacher_ID = req.body.Teacher_ID;
     const Fname = req.body.Fname;
     const Lname = req.body.Lname;
@@ -62,17 +63,38 @@ router.post("/register", (req,res) =>{
     const Email = req.body.Email;
     const Password = req.body.Password;
 
-   db.query("INSERT INTO teacher(Teacher_ID,Subject_ID,Fname,Lname,Grade,Phone_NO,Gender,Email,Password) VALUES (?,?,?,?,?,?,?,?,?)",
-   [Teacher_ID,Subject_ID,Fname,Lname,Grade,PhoneNO,Gender,Email,Password],
-   (err,result) => {
-       if(err){
-           console.log(err);
-           res.send(err);
-       }else{
-           res.send("Values inserted");
-       }
-   }
-   )
+    if(Role == "Teacher"){
+
+        db.query("INSERT INTO teacher(Teacher_ID,Subject_ID,Fname,Lname,Grade,Phone_NO,Gender,Email,Password) VALUES (?,?,?,?,?,?,?,?,?)",
+        [Teacher_ID,Subject_ID,Fname,Lname,Grade,PhoneNO,Gender,Email,Password],
+        (err,result) => {
+            if(err){
+                console.log(err);
+                res.send(err);
+            }else{
+                res.send("Values inserted");
+            }
+        }
+        )
+
+
+    }else{
+
+        db.query("INSERT INTO adminrole(IsAdmin,Teacher_ID,Subject_ID,Fname,Lname,Grade,Phone_NO,Gender,Email,Password) VALUES (?,?,?,?,?,?,?,?,?,?)",
+        [Role,Teacher_ID,Subject_ID,Fname,Lname,Grade,PhoneNO,Gender,Email,Password],
+        (err,result) => {
+            if(err){
+                console.log(err);
+                res.send(err);
+            }else{
+                res.send("Values inserted");
+            }
+        }
+        )
+
+
+    }
+ 
 
 });
 

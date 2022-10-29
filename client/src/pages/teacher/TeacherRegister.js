@@ -7,6 +7,7 @@ import { v4 as uuid } from 'uuid';
 
 function TeacherRegister() {
 
+  const [Role , setRole] = useState('');
   const [Fname , setFname ] = useState('');
   const [Lname , setLname ] = useState('');
   const [Gender , setGender ] = useState('');
@@ -21,7 +22,9 @@ function TeacherRegister() {
 
     var err = false;
 
-    const newTeacher = {  
+    const newTeacher = {
+      
+        Role : Role,
         Teacher_ID: uuid(),
         Fname: Fname,
         Lname: Lname,
@@ -58,7 +61,7 @@ function TeacherRegister() {
       }
        
     
-    
+    setRole('');
     setFname("");
     setLname("");
     setGender("");
@@ -83,7 +86,13 @@ function TeacherRegister() {
         
                 <div className="form-group"></div>
 
-                
+                <label>Your Role</label>
+                <select name="Role"  required value={Role}  onChange={(e) => setRole(e.target.value)}>
+                    <option value="">Select Role</option>
+                    <option value="Admin">Admin</option>
+                    <option value="Teacher">Teacher</option>    
+                </select>
+
 
                  <label>First Name</label>
                 <input type="text" placeholder="Ruvindya"  name="Fname" required  

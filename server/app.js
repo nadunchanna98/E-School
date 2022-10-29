@@ -54,6 +54,7 @@ app.listen(3001, () => {
 
 //npm install express-session --save
 
-
+/*when implement the user table in database make another 
+attribute called role and make it as a string and give it a value of student or teacher or admin */
 
 
