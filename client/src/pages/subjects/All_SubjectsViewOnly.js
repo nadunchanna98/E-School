@@ -3,9 +3,8 @@ import axios from "axios";
 import { useEffect,useState } from "react";
 import "../../App.css";
 import {useNavigate} from 'react-router-dom';
-import Time from 'react-time-format';
 
-const SubjectDetails_List = () => {
+const All_SubjectsViewOnly = () => {
 
     const [SubjectDetails, setSubjectDetails] = useState([]);
 
@@ -15,33 +14,13 @@ const SubjectDetails_List = () => {
         })
     },[]);
 
-
-      const navigate = useNavigate();
-    
-      const toUpdateDetails= (id) => {
-        // navigate("/SubjectDetailsUpdate", { state: { id: id } }); // not created yet
-        navigate("/updateteacher", { state: { id: id } });
-      };
-    
-
-      const handleDelete = (id) => {
-
-        axios.delete(`http://localhost:3001/subjects/delete/${id}`).then((response) => {
-          
-          alert("Subject Deleted Successfully");
-          console.log(response.data);
-        }
-        ).catch((err) => {
-          console.log(err);
-          alert("No access to delete Subject");
-        })
-        ;
-      };
-      
+    const navigate = useNavigate();
 
 
-    return (
-        <div className='header-wraper' >
+
+
+  return (
+     <div className='header-wraper' >
                 
                     <div className='subjectsTable'>
 
@@ -53,8 +32,7 @@ const SubjectDetails_List = () => {
                                     <td className='columnName'><h3>Grade</h3></td>
                                     <td className='columnName'><h3>Total Chapters</h3></td>
                                     <td className='columnName'><h3>Total Assignments</h3></td>
-                                    <td className='columnName'><h3>Edit Details</h3></td>
-                                    <td className='columnName'><h3>Remove Details</h3></td>
+                              
 
                                 </tr>
 
@@ -67,9 +45,7 @@ const SubjectDetails_List = () => {
                                     <td className='columnData'>{value.Total_Chapters}</td>
                                     <td className='columnData'>{value.Total_Assignments}</td>
                               
-                                    <td><button onClick={() => toUpdateDetails(value.Teacher_ID)}>Edit</button></td>
-                                    <td><button onClick={() => handleDelete(value.Subject_ID)}>Remove</button></td>
-                                </tr>
+                                 </tr>
   
                                  ))}
                         </table>
@@ -78,11 +54,7 @@ const SubjectDetails_List = () => {
            
 
         </div>
-      )
-    
-    }
+  )
+}
 
-export default SubjectDetails_List
-
-
-//
+export default All_SubjectsViewOnly

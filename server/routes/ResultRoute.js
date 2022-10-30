@@ -39,6 +39,24 @@ router.get("/bystudent/:id", async (req,res)=>{
     
 });
 
+
+//all student results about all subjects
+router.get("/alldetails", async (req,res)=>{
+
+    const Student_ID = req.params.id;
+
+    db.query("SELECT student.Fname,student.Lname,Subject_ID,Assignment_No,Result,Note FROM results JOIN student ON student.Student_ID = results.Student_ID ",
+    (err,result) => {
+    if(err){
+        res.send(err);
+        console.log(err);  
+    }else{
+        res.send(result);              
+    }
+    }); 
+    
+});
+
 // //post route
 // router.post("/detailsoft", (req,res) =>{
 

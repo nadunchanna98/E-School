@@ -10,106 +10,101 @@ import { MDBCol, MDBContainer, MDBRow, MDBCard, MDBCardText, MDBCardBody, MDBCar
 import { confirmAlert } from 'react-confirm-alert'; // Import 
 import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
 
+const AdminDashboard = () => {
 
-const TeacherDashboard = () => {
+    const navigate = useNavigate();
+    const location = useLocation();
+    const email = location.state.email;
 
-  const navigate = useNavigate();
-  const location = useLocation();
-  const email = location.state.email;
+    const [Teacher_ID,setTeacher_ID] = useState('');
+    const [Fname , setFname ] = useState('');
+    const [Lname , setLname ] = useState('');
+    const [Gender , setGender ] = useState('');
+    const [Phone_NO , setPhone_NO ] = useState();
+    const [Grade, setGrade  ] = useState('');
+    const [Subject_ID, setSubject_ID  ] = useState('');
+    const [Email , setEmail ] = useState('');
+    //const [Password, setPassword] = useState('');
 
-  console.log(email)
+    useEffect(()=>{
+        axios.get( `http://localhost:3001/admin/details/email/${email}`).then((response,) => {
+    
+      console.log(response)
+      
+      console.log(response);
+    
+      setTeacher_ID(response.data[0].Teacher_ID)
+      setFname(response.data[0].Fname);
+      setLname(response.data[0].Lname);
+      setGender(response.data[0].Gender);
+      setPhone_NO(response.data[0].Phone_NO);
+      setSubject_ID(response.data[0].Subject_ID);
+      setGrade(response.data[0].Grade);
+      setEmail(response.data[0].Email);  
+    
+            console.log(response.data[0].Teacher_ID);
+        })
+    },[]);
 
-
-  const [Teacher_ID,setTeacher_ID] = useState('');
-  const [Fname , setFname ] = useState('');
-  const [Lname , setLname ] = useState('');
-  const [Gender , setGender ] = useState('');
-  const [Phone_NO , setPhone_NO ] = useState();
-  const [Grade, setGrade  ] = useState('');
-  const [Subject_ID, setSubject_ID  ] = useState('');
-  const [Email , setEmail ] = useState('');
-  //const [Password, setPassword] = useState('');
-
-  
-  useEffect(()=>{
-    axios.get( `http://localhost:3001/teachers/details/email/${email}`).then((response,) => {
-
-  console.log(response)
-  
-  console.log(response);
-
-  setTeacher_ID(response.data[0].Teacher_ID)
-  setFname(response.data[0].Fname);
-  setLname(response.data[0].Lname);
-  setGender(response.data[0].Gender);
-  setPhone_NO(response.data[0].Phone_NO);
-  setSubject_ID(response.data[0].Subject_ID);
-  setGrade(response.data[0].Grade);
-  setEmail(response.data[0].Email);  
-
-        console.log(response.data[0].Teacher_ID);
-    })
-},[]);
-
- 
     const  resultsDetails = () => {
-      navigate("/allStudentaesults0f1Subject" ,{ state: { id:Teacher_ID  } });  //page - AllStudent_Results_Of_1Subject
-    }
-
-    const  viewAllSubmitions = () => {
-      navigate("/allStudentsSubmitionsOfOneTeacher" ,{ state: { id:Teacher_ID  } });
-    }
-
-    const  subjectsDetails = () => {
-      navigate("/allSubjectsViewOnly");
-    }
-
-    const  assignmentByTeacher = () => {
-      navigate("/assignmentByTeacher");
-    }
-
-  
-
-    const handleDelete = (Teacher_ID) => {
-
-      axios.delete(`http://localhost:3001/teachers/delete/${Teacher_ID}`).then((response) => {
-        
-        alert("Teacher Deleted Successfully");
-        console.log(response.data);
-        navigate("/");
+        navigate("/allStudentaesults0f1Subject" ,{ state: { id:Teacher_ID  } });  //page - AllStudent_Results_Of_1Subject
       }
-      ).catch((err) => {
-        console.log(err);
-        alert("Teacher Not Deleted");
-      })
-      ;
-    };
-
-    const confirmDelete = () => {
-      confirmAlert({
-        title: 'Confirm to Delete',
-        message: 'Are you sure to do this.',
-        buttons : [
-          {
-            className: 'confirmAlert',
-            label: 'Yes',
-            style: {backgroundColor: 'red'},
-            onClick: () => handleDelete(Teacher_ID)
-          },
-          {
-            label: 'No',
-          }
-        ]
-      });
-    };
   
+      const  viewAllSubmitions = () => {
+        navigate("/allStudentsSubmitionsOfOneTeacher" ,{ state: { id:Teacher_ID  } });
+      }
+  
+      const  subjectsDetails = () => {
+        navigate("/subjectsDetails");
+      }
+  
+      const  assignmentByTeacher = () => {
+        navigate("/assignmentByTeacher");
+      }
+  
+    
+  
+      const handleDelete = (Teacher_ID) => {
+  
+        axios.delete(`http://localhost:3001/admin/delete/${Teacher_ID}`).then((response) => {
+          
+          alert("Admin account Deleted Successfully");
+          console.log(response.data);
+          navigate("/");
+        }
+        ).catch((err) => {
+          console.log(err);
+          alert("Admin account Not Deleted");
+        })
+        ;
+      };
+  
+      const confirmDelete = () => {
+        confirmAlert({
+          title: 'Confirm to Delete',
+          message: 'Are you sure to do this.',
+          buttons : [
+            {
+              className: 'confirmAlert',
+              label: 'Yes',
+              style: {backgroundColor: 'red'},
+              onClick: () => handleDelete(Teacher_ID)
+            },
+            {
+              label: 'No',
+            }
+          ]
+        });
+      };
+
+
+
 
   return (
-
     <section className="vh-1000" style={{ backgroundColor: '#f4f5f7' }}>
 
       <div className="welocme">
-        <h1>Welocme To The Teacher Dashboard</h1>
+        <h1>Welocme To The Admin Dashboard</h1>
       </div>
 
     
@@ -168,8 +163,6 @@ const TeacherDashboard = () => {
                       </MDBCol>
                     </MDBRow>
 
-  
-   
                
                   </MDBCardBody>
                 </MDBCol>
@@ -182,20 +175,21 @@ const TeacherDashboard = () => {
         <MDBCol>
                     <div className="d-flexx">
         
-        <button  onClick={() =>assignmentByTeacher()}>Create A New Assignment </button>
-        <button onClick={() => resultsDetails()}>Assignment results</button>
-        <button onClick={() => viewAllSubmitions()}>View All Submitions </button>
-        <button onClick={() => navigate("/allstudentsOneTeacher", { state: { id: Teacher_ID } })}>My Class Students</button>
-        {/* <button onClick={() => subjectsDetails()}>Details About All Subjects </button> */}
-        <button onClick={() => navigate("/updateteacher", { state: { id: Teacher_ID } })} >update My details</button>
-        <button  style={{color:'red'}} onClick={() => confirmDelete()}>Delete my Account </button>
-        
+        {/* <button  onClick={() =>assignmentByTeacher()}>Create A New Assignment </button> */}
+        {/* <button onClick={() => resultsDetails()}>Assignment results</button> */}
+        {/* <button onClick={() => viewAllSubmitions()}>View All Submitions </button> */}
+        <button onClick={() => subjectsDetails()}>Details About All Subjects </button>
+        <button onClick={() => navigate("/teachers")}> All Teachers</button>
+        <button onClick={() => navigate("/students")}>All Students</button>
+        <button onClick={() => navigate("/assignmentDetails")}>All Assignments</button>
+        <button onClick={() => navigate("/allResults")}>Student results</button>
+        <button onClick={() => navigate("/")}>Log Out</button>
+        <button  style={{color:'red'}}   onClick={() => confirmDelete()}>Delete my Admin Account </button>
 </div>
                     </MDBCol>
       </MDBContainer>
     </section>
-
-  );
+  )
 }
 
-export default TeacherDashboard
+export default AdminDashboard

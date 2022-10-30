@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const db = require("../Db");
 
+
+
 //get all teacher details 
 router.get("/details", async (req,res)=>{
     db.query("SELECT * FROM teacher", (err,result) => {

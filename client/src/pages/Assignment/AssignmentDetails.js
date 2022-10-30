@@ -63,7 +63,7 @@ const AssignmentDetails = () => {
 
                           {Assignments.map((value,key)=>(
                           <tr key={key}>
-                            <td className='columnData'>{value.Assignment_No} {value.Lname}</td> 
+                            <td className='columnData'>{value.Assignment_No} </td> 
                               <td className='columnData' >{value.Subject_ID}</td>
                               <td className='columnData' >{value.Chapter_No}</td>
                               <td className='columnData' >{value.Note}</td>

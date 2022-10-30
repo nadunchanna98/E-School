@@ -1,4 +1,4 @@
-import React ,{useState } from 'react';
+import React ,{useState ,useEffect } from 'react';
 import axios from "axios";
 import "../../App.css";
 import {useNavigate} from 'react-router-dom';
@@ -6,10 +6,21 @@ import {useNavigate} from 'react-router-dom';
 function LoginTeacher() {
 
   const navigate = useNavigate();
-   
+
+  var isAdmin = 0;
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loginStatus,setLoginStatus] = useState('ENTER YOUR CREDENTIALS');
+  const [listOfEmails, setEmails] = useState([]);
+
+  useEffect(()=>{
+      axios.get("http://localhost:3001/admin/getemail").then((response) => {
+        setEmails(response.data);
+      })
+  },[]);
+
+  console.log(listOfEmails);
+  
 
   const email1 = email;
 
@@ -18,7 +29,35 @@ function LoginTeacher() {
 
        try {
 
-        await axios.post('http://localhost:3001/login/teacher', {  
+
+        {listOfEmails.map((val )=>{
+
+          if(val.Email === email){
+           isAdmin = 1;
+           console.log("admin");
+          }
+        })}
+
+
+          if(isAdmin === 1)
+          {
+
+            axios.post("http://localhost:3001/login/admin",{
+              email: email,
+              password: password,
+            }).then((response) => {
+              if(response.data.message){
+                setLoginStatus(response.data.message);
+              }else{
+                navigate("/adminDashboard",{ state: {email : email1 }});
+              }
+            })
+
+
+
+          }else{
+
+            await axios.post('http://localhost:3001/login/teacher', {  
           email: email,
           password: password,
           
@@ -37,14 +76,22 @@ function LoginTeacher() {
           
           
         })
+
+            
+           }
+
+
+
+
+     
         
     } catch (error) {
-        if(error.response.data.message){
-          setLoginStatus(error.response.data.message);
-        }
-        else{
-          setLoginStatus(error.response.data[0].email);
-        }
+        // if(error.response.data.message){
+        //   setLoginStatus(error.response.data.message);
+        // }
+        // else{
+        //   setLoginStatus(error.response.data[0].email);
+        // }
 
 
    console.log(error);

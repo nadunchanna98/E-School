@@ -69,6 +69,21 @@ router.get("/details/:id", async (req,res)=>{
     
 });
 
+//get student details by id
+router.get("/details/oneteacher/:id", async (req,res)=>{
+    const Teacher_ID = req.params.id;
+    db.query("SELECT student.Fname,student.Lname,student.Grade ,student.Gender,student.Phone_NO ,student.Bdate ,student.Address,student.Email FROM student JOIN subjects ON subjects.Grade = student.Grade JOIN teacher ON teacher.Subject_ID = subjects.Subject_ID WHERE teacher.Teacher_ID = ?",
+     Teacher_ID, (err,result) => {
+    if(err){
+        res.send(err);
+        console.log(err);  
+    }else{
+        res.send(result);              
+    }
+    });   
+    
+});
+
 //get student details by email
 router.get("/details/email/:email", async (req,res)=>{
     const Email = req.params.email;

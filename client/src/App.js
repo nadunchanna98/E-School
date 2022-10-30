@@ -25,6 +25,8 @@ import TeacherDetail_List from './pages/teacher/TeacherDetail_List';
 import SubjectDetails_List from './pages/subjects/SubjectDetails_List';
 import StudentDetail_List_onlyCanView from './pages/student/StudentDetail_List_onlyCanView';
 import TeacherDetail_List_onlyCanView from './pages/teacher/TeacherDetail_List_onlyCanView';
+import All_SubjectsViewOnly from './pages/subjects/All_SubjectsViewOnly';
+import AllStudentsOneTeacher from './pages/student/AllStudentsOneTeacher';
 
 import Update from './pages/student/Update'; 
 import UpdateTeacher from './pages/teacher/UpdateTeacher';
@@ -41,6 +43,9 @@ import StudentSubmitton from './pages/student_submited/StudentSubmitton';
 import AllStudent_Results_Of_1Subject from './pages/Results/AllStudent_Results_Of_1Subject';
 import ResultsUpdatebyTeachr from './pages/Results/ResultsUpdatebyTeachr';
 import OneStudentALLresults from './pages/Results/OneStudentALLresults';
+import AllResults from './pages/Results/AllResults';
+
+import AdminDashboard from './pages/admin/AdminDashboard';
 
 function App() {
 
@@ -67,22 +72,28 @@ return (
               <Route path="/studentDashboard" exact element={<StudentDashboard/>} />
               <Route path="/update" element={<Update/>}/>
               <Route path="/students" exact element={<StudentDetails/>} />
+              <Route path="/allstudentsOneTeacher" exact element={<AllStudentsOneTeacher/>} />
 
               <Route path="/submiteddetailsoneStudent" exact element={<SubmitedDetailsOneStudent/>}/>
               <Route path="/allStudentsSubmitionsOfOneTeacher" exact element={<Allstdnt_Submitions_of_1tchr/>}/>
               <Route path="/studentDetaillistonlyCanView" exact element={<StudentDetail_List_onlyCanView/>}/>
              
-          <Route path="/studentSubmit" exact element={<StudentSubmitton/>}/>  
+              <Route path="/studentSubmit" exact element={<StudentSubmitton/>}/>  
         
               <Route path="/assignmentDetails" exact element={<AssignmentDetails/>} />
               <Route path="/assignmentByTeacher" exact element={<AssignmentFormTeacher/>} />
               <Route path="/allAssignmentOfOneStudent" exact element={<All_Assignment_1student/>} />
 
               <Route path="/subjectsDetails" exact element={<SubjectDetails_List/>} />
+              <Route path="/allSubjectsViewOnly" exact element={<All_SubjectsViewOnly/>} />
 
               <Route path="/allStudentaesults0f1Subject" exact element={<AllStudent_Results_Of_1Subject/>} />
               <Route path="/resultsupdatebyt" exact element={<ResultsUpdatebyTeachr/>} />
               <Route path="/oneStudentALLresults" exact element={<OneStudentALLresults/>} />
+
+              <Route path="/adminDashboard" exact element={<AdminDashboard/>} />
+              <Route path="/allResults" exact element={<AllResults/>} />
+
           </Routes>
           
           

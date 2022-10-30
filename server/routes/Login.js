@@ -42,6 +42,44 @@ if (email && password) {
 });
 
 
+//login as admin
+router.post("/admin", (req,res) =>{
+
+    const email = req.body.email;
+    const password = req.body.password;
+
+
+if (email && password) {
+
+    db.query('SELECT * FROM adminrole WHERE Email = ? AND Password = ?', [email, password], (error, results) => {
+       
+        if (error) throw error;
+
+        if (results.length > 0) {
+
+            req.session.loggedin = true;
+            req.session.email = email;
+           
+            res.send(results);
+
+        } else {
+            res.send({message : 'Incorrect email and/or Password!'});
+        }			
+        res.end();
+    });
+} else {
+    res.send({message : 'Please enter email and Password!'});
+    res.end();
+}
+
+
+});
+
+
+
+
+
+
 //login as Teacher
 router.post("/teacher", (req,res) =>{
 
@@ -54,33 +92,6 @@ if (email && password) {
  const isAdmim = false;
  const adminResults = "";
 
-//  db.query('SELECT * FROM adminrole WHERE Email = ? AND Password = ?', [email, password], (error, results) => {
-//      if(error){
-//          console.log(err);  
-         
-//      }else{
-           
-//         console.log(results);  
-//         isAdmim = true; 
-//         adminResults = results;       
-//      }
-//      });   
-     
-
-
-
-
-    // //check admin login
-    // if(isAdmim){
-    //     console.log("admin login");
-    //     res.send(adminResults);
-
-    // }else{
-
-    
-
-
-    // }
 
     db.query('SELECT * FROM teacher WHERE Email = ? AND Password = ?', [email, password], (error, results) => {
        

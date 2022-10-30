@@ -172,7 +172,7 @@ const StudentDashboard = () => {
                              <div className="d-flexx">
                                    <button onClick={() => viewAssignments()}>Need to Submit </button>
                                   <button  onClick={() => allmyResults()}>View My Results</button>
-                                  <button onClick={() => confirmDelete()}>Delete my Account </button> 
+                                  {/* <button onClick={() => confirmDelete()}>Delete my Account </button>  */}
                               </div>
                     </MDBCol>
       </MDBContainer>

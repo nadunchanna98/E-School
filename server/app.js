@@ -40,6 +40,7 @@ app.use("/assignment",assignmentRouter);
 app.use("/subjects",subjectRouter);
 app.use("/studentsubmited",studentSubmitedRoute)
 app.use("/result",ResultsRoute);
+app.use("/admin",require("./routes/AdminRoute"));
 
 //app.use("/",HomepageRouter);
 
