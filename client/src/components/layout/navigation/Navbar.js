@@ -17,6 +17,10 @@ const Navbar = () => {
         <a className="nav-link" href="/">Home </a>
       </li>
 
+      <li className="nav-item active ">
+        <a className="nav-link" href="/register/student/form">Register</a>
+      </li>
+
        <li className="nav-item">
         <a className="nav-link" href="/allSubjectsViewOnly">All Subjects</a>
       </li> 

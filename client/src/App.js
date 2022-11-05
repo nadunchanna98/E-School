@@ -13,6 +13,7 @@ import LoginTeacher from './pages/teacher/LoginTeacher';
 import Main from './pages/Main';
 import TeacherRegister from './pages/teacher/TeacherRegister';
 import StudentRegister from './pages/student/StudentRegister';
+import StudentRegisterForm from './pages/student/StudentRegisterForm';
 
 
 import TeacherDashboard from './pages/teacher/TeacherDashboard';
@@ -61,6 +62,7 @@ return (
               <Route path="/LoginStudent" exact element={<LoginStudent/>} />
               <Route path="/register/teacher" exact element={<TeacherRegister/>} />
               <Route path="/register/student" exact element={<StudentRegister/>} />
+              <Route path="/register/student/form" exact element={<StudentRegisterForm/>} />
 
 
               <Route path="/teacherDashboard" exact element={<TeacherDashboard/>} />

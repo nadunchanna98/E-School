@@ -117,7 +117,7 @@ const AdminDashboard = () => {
               <MDBRow className="g-0">
                 <MDBCol md="4" className="gradient-custom text-center text-white"
                   style={{ borderTopLeftRadius: '.5rem', borderBottomLeftRadius: '.5rem' }}>
-                  <MDBCardImage src="https://www.freepnglogos.com/uploads/teacher-png/teacher-teachers-icon-flatastic-iconset-custom-icon-design-36.png"
+                  <MDBCardImage src="https://marketplace.magento.com/media/catalog/product/4/a/4acb_rsz_admin-logo_1.png"
                     alt="Avatar" className="my-5" style={{ width: '400px' }} fluid />
 
                   <MDBTypography tag="h5">{Fname+" "+Lname}</MDBTypography>

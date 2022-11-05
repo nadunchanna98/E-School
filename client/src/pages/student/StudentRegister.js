@@ -128,7 +128,7 @@ function StudentRegister() {
                 
                                         
                 <label>Email</label>
-                <input type="text" placeholder="Enter Email" name="Email" required  
+                <input type="text" placeholder="ruvisachi@gmail.com" name="Email" required  
                 value={Email}  onChange={(e) => setEmail(e.target.value)} 
                 />
                 

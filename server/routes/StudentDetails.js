@@ -9,6 +9,19 @@ router.get('/', async (req, res) => {
 	res.sendFile(path.join(__dirname ));
 });
 
+//Student registation chech email 
+router.get("/registerchech/:Email", async (req,res)=>{
+    const Email = req.params.Email;
+    db.query("SELECT * FROM student WHERE Email = ?",Email, (err,result) => {
+ if(err){
+     res.send(err);
+     console.log(err);  
+ }else{
+     res.send(result);              
+ }
+ });   
+ 
+});
 
 //Student registation
 router.post("/register", (req,res) =>{
@@ -54,6 +67,8 @@ router.get("/details", async (req,res)=>{
     });   
     
 });
+
+
 
 //get student details by id
 router.get("/details/:id", async (req,res)=>{
