@@ -33,21 +33,31 @@ function StudentRegisterForm() {
     //   .max(20, 'Username must not exceed 20 characters'),
 
     email: Yup.string().required('Email is required').email('Email is invalid')
-         .test('Unique Email', 'Email already in use', // <- key, message
-            function (value) {
-                return new Promise((resolve, reject) => {
-                    axios.get(`http://localhost:3001/students/registerchech/${value}`)
-                        .then((res) => {
-                            resolve(true)
-                        })
-                        .catch((error) => {
-                            if (error.response.data.content === "The email has already been taken.") {
-                                resolve(false);
-                            }
-                        })
-                })
+         .test('Unique Email', 'Email already in use',
+         
+            async (value) => {
+                const response = await axios.get(`http://localhost:3001/students/registerchech/${value}`);
+                return response.data.length === 0;
             }
-        ),
+       
+         
+        //  // <- key, message
+        //     function (value) {
+        //         return new Promise((resolve, reject) => {
+        //             axios.get(`http://localhost:3001/students/registerchech/${value}`)
+        //                 .then((res) => {
+        //                     resolve(false)
+        //                     console.log("Email already in use")
+        //                 })
+        //                 .catch((error) => {
+        //                     if (error.response.data.content === "The email has already been taken.") {
+        //                         resolve(true);
+        //                         console.log("Email available")
+        //                     }
+        //                 })
+        //         })
+        //     }
+         ),
 
     password: Yup.string()
       .required('Password is required')
