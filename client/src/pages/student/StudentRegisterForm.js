@@ -39,24 +39,6 @@ function StudentRegisterForm() {
                 const response = await axios.get(`http://localhost:3001/students/registerchech/${value}`);
                 return response.data.length === 0;
             }
-       
-         
-        //  // <- key, message
-        //     function (value) {
-        //         return new Promise((resolve, reject) => {
-        //             axios.get(`http://localhost:3001/students/registerchech/${value}`)
-        //                 .then((res) => {
-        //                     resolve(false)
-        //                     console.log("Email already in use")
-        //                 })
-        //                 .catch((error) => {
-        //                     if (error.response.data.content === "The email has already been taken.") {
-        //                         resolve(true);
-        //                         console.log("Email available")
-        //                     }
-        //                 })
-        //         })
-        //     }
          ),
 
     password: Yup.string()
@@ -414,7 +396,3 @@ function StudentRegisterForm() {
 
 export default StudentRegisterForm;
 
-
-//https://stackoverflow.com/questions/65039849/validate-if-username-already-exists-while-typing-using-formik-and-yup
-
-//check if user already exists react yup form

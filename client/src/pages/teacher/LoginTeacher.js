@@ -123,6 +123,9 @@ function LoginTeacher() {
 
                         <button   type="submit" >Login</button> 
              
+                        <h5>Don't have an account? <a href="/register/teacher">Sign Up</a></h5>
+                       
+                       <h5>Forget <a href="/forgetPasswordTeacher">password?</a></h5>
 
             </div>
             <h3 className='status'>{loginStatus}</h3>

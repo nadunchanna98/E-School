@@ -70,8 +70,15 @@ const email1 = email;
                                   value={password} onChange={(e) => setPassword(e.target.value)}
                                   />
 
+
                         <button   type="submit" >Login</button> 
         
+
+                       <h5>Don't have an account? <a href="/register/student">Sign Up</a></h5>
+                       
+                        <h5>Forget <a href="/forgetPasswordStudent">password?</a></h5>
+
+
              
 
             </div>

@@ -14,6 +14,9 @@ import Main from './pages/Main';
 import TeacherRegister from './pages/teacher/TeacherRegister';
 import StudentRegister from './pages/student/StudentRegister';
 import StudentRegisterForm from './pages/student/StudentRegisterForm';
+import ForgetPasswordTeacher from './pages/teacher/ForgetPasswordTeacher';
+
+import ForgetPasswordStudent from './pages/student/ForgetPasswordStudent';
 
 
 import TeacherDashboard from './pages/teacher/TeacherDashboard';
@@ -69,12 +72,14 @@ return (
               <Route path="/teachers" exact element={<TeacherDetail_List/>} />
               <Route path="/teacherDetaillistonlyCanView" exact element={<TeacherDetail_List_onlyCanView/>} />
               <Route path="/updateteacher" element={<UpdateTeacher/>}/>
+              <Route path="/forgetPasswordTeacher" exact element={<ForgetPasswordTeacher/>} />
 
 
               <Route path="/studentDashboard" exact element={<StudentDashboard/>} />
               <Route path="/update" element={<Update/>}/>
               <Route path="/students" exact element={<StudentDetails/>} />
               <Route path="/allstudentsOneTeacher" exact element={<AllStudentsOneTeacher/>} />
+              <Route path="/forgetPasswordStudent" exact element={<ForgetPasswordStudent/>} />
 
               <Route path="/submiteddetailsoneStudent" exact element={<SubmitedDetailsOneStudent/>}/>
               <Route path="/allStudentsSubmitionsOfOneTeacher" exact element={<Allstdnt_Submitions_of_1tchr/>}/>
