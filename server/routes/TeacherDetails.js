@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const db = require("../Db");
-
+const bcript = require('bcrypt'); //for hashing password
 
 
 //get all teacher details 
@@ -34,7 +34,7 @@ router.get("/details/:id", async (req,res)=>{
 
 
 
-//get student details by email
+//get teacher details by email
 router.get("/details/email/:email", async (req,res)=>{
     const Email = req.params.email;
     db.query("SELECT * FROM teacher WHERE Email = ?", Email, (err,result) => {
@@ -54,6 +54,8 @@ router.get("/details/email/:email", async (req,res)=>{
 //teacher registation
 router.post("/register", (req,res) =>{
 
+    const encryptedPassword =  bcript.hashSync(req.body.Password, 10);
+
     const Role = req.body.Role;
     const Teacher_ID = req.body.Teacher_ID;
     const Fname = req.body.Fname;
@@ -63,7 +65,7 @@ router.post("/register", (req,res) =>{
     const Grade = req.body.Grade;
     const Subject_ID = req.body.SubjectID;
     const Email = req.body.Email;
-    const Password = req.body.Password;
+    const Password = encryptedPassword;
 
     if(Role == "Teacher"){
 

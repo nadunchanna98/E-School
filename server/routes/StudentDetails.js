@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const db = require("../Db");
-
+const bcript = require('bcrypt'); //for hashing password
 
 const path = require('path');
 
@@ -9,7 +9,25 @@ router.get('/', async (req, res) => {
 	res.sendFile(path.join(__dirname ));
 });
 
-//Student registation chech email 
+
+//forget password, checked the email address before send the email to reset the password
+router.get("/forgetpasword/:Email", async (req,res)=>{
+    const Email = req.params.Email;
+    db.query("SELECT * FROM student WHERE Email = ?",Email, (err,result) => {
+ if(err){
+     res.send(err);
+     console.log(err);  
+ }else{
+
+
+     res.send(result);              
+ }
+ });   
+ 
+});
+
+
+//Student registation check email 
 router.get("/registerchech/:Email", async (req,res)=>{
     const Email = req.params.Email;
     db.query("SELECT * FROM student WHERE Email = ?",Email, (err,result) => {
@@ -24,7 +42,9 @@ router.get("/registerchech/:Email", async (req,res)=>{
 });
 
 //Student registation
-router.post("/register", (req,res) =>{
+router.post("/register",async (req,res) =>{
+
+    const  encryptedPassword =  bcript.hashSync(req.body.Password, 10);
 
     const Student_ID = req.body.Student_ID;
     const Fname = req.body.Fname;
@@ -35,7 +55,7 @@ router.post("/register", (req,res) =>{
     const Address = req.body.Address;
     const Bdate = req.body.Bdate;
     const Email = req.body.Email;
-    const Password = req.body.Password;
+    const Password = encryptedPassword;
 
    db.query("INSERT INTO student(Student_ID,Address,Bdate ,Fname,Lname,Grade,Phone_NO,Gender,Email,Password) VALUES (?,?,?,?,?,?,?,?,?,?)",
    [Student_ID,Address,Bdate ,Fname,Lname,Grade,Phone_NO,Gender,Email,Password],
