@@ -228,6 +228,22 @@ login {
 
 /********************       login    ***********************/
 
+.error{
+  color: rgb(233, 38, 38);
+  font-size: 15px;
+  margin: 0 0 10px 10px;
+  text-align: center;
+}
+
+.status{
+  color: rgb(0, 0, 0);
+  font-size: 30px;
+  margin-top: 20px;
+  text-align: center;
+
+}
+
+
 .login {
   margin: auto;
   font-family: 'Comfortaa', cursive;
@@ -242,7 +258,6 @@ login {
   border-radius: 10px;
   max-width: 360px;
   margin: 0 auto 30px;
-  margin-top: 100px;
   padding: 5px;
   text-align: center;
 }

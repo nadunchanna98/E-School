@@ -1,7 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const db = require("../Db");
+const jwt = require('jsonwebtoken');
 
+const JWT_SECRET = 'secretkey';     //for jwt token
 
 //login as student
 router.post("/student", (req,res) =>{
@@ -44,22 +46,18 @@ if (email && password) {
 
 //login as admin
 router.post("/admin", (req,res) =>{
-
     const email = req.body.email;
     const password = req.body.password;
-
 
 if (email && password) {
 
     db.query('SELECT * FROM adminrole WHERE Email = ? AND Password = ?', [email, password], (error, results) => {
        
         if (error) throw error;
-
         if (results.length > 0) {
 
             req.session.loggedin = true;
-            req.session.email = email;
-           
+            req.session.email = email;   
             res.send(results);
 
         } else {
@@ -71,7 +69,6 @@ if (email && password) {
     res.send({message : 'Please enter email and Password!'});
     res.end();
 }
-
 
 });
 
@@ -87,10 +84,16 @@ router.post("/teacher", (req,res) =>{
     const password = req.body.password;
 
 
+
 if (email && password) {
 
  const isAdmim = false;
  const adminResults = "";
+
+//decryption of password 
+
+
+
 
 
     db.query('SELECT * FROM teacher WHERE Email = ? AND Password = ?', [email, password], (error, results) => {

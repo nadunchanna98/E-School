@@ -11,11 +11,11 @@ function Main() {
   const navigate = useNavigate();
 
   const handleSubmitTeacher =  async () =>{
-    navigate("/LoginTeacher");
+    navigate("/TeacherLoginNew");
   }
 
   const handleSubmitStudent =  async () =>{
-     navigate("/LoginStudent");
+     navigate("/StudentLoginNew");
   }
 
 

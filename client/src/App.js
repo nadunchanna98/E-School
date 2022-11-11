@@ -10,6 +10,10 @@ import SlideShare from './pages/SlideShare';
 
 import LoginStudent from './pages/student/LoginStudent';
 import LoginTeacher from './pages/teacher/LoginTeacher';
+import StudentLoginNew from './pages/student/StudentLoginNew';
+import TeacherloginNew from './pages/teacher/TeacherloginNew';
+
+
 import Main from './pages/Main';
 import TeacherRegister from './pages/teacher/TeacherRegister';
 import StudentRegister from './pages/student/StudentRegister';
@@ -38,7 +42,7 @@ import UpdateTeacher from './pages/teacher/UpdateTeacher';
 
 import AssignmentFormTeacher from './pages/Assignment/AssignmentFormTeacher';
 import All_Assignment_1student from './pages/Assignment/All_Assignment_1student';
-
+import FileUploadTeacher from './pages/Assignment/FileUploadTeacher';
 
 import SubmitedDetailsOneStudent from './pages/student_submited/SubmitedDetailsOneStudent';
 import Allstdnt_Submitions_of_1tchr from './pages/student_submited/Allstdnt_Submitions_of_1tchr';
@@ -63,6 +67,7 @@ return (
               <Route path="/" exact element={<Main/>} />
               <Route path="/LoginTeacher" exact element={<LoginTeacher/>} />
               <Route path="/LoginStudent" exact element={<LoginStudent/>} />
+              <Route path="/TeacherLoginNew" exact element={<TeacherloginNew/>} />
               <Route path="/register/teacher" exact element={<TeacherRegister/>} />
               <Route path="/register/student" exact element={<StudentRegister/>} />
               <Route path="/register/student/form" exact element={<StudentRegisterForm/>} />
@@ -80,6 +85,7 @@ return (
               <Route path="/students" exact element={<StudentDetails/>} />
               <Route path="/allstudentsOneTeacher" exact element={<AllStudentsOneTeacher/>} />
               <Route path="/forgetPasswordStudent" exact element={<ForgetPasswordStudent/>} />
+              <Route path="/studentLoginNew" exact element={<StudentLoginNew/>} />
 
               <Route path="/submiteddetailsoneStudent" exact element={<SubmitedDetailsOneStudent/>}/>
               <Route path="/allStudentsSubmitionsOfOneTeacher" exact element={<Allstdnt_Submitions_of_1tchr/>}/>
@@ -90,6 +96,7 @@ return (
               <Route path="/assignmentDetails" exact element={<AssignmentDetails/>} />
               <Route path="/assignmentByTeacher" exact element={<AssignmentFormTeacher/>} />
               <Route path="/allAssignmentOfOneStudent" exact element={<All_Assignment_1student/>} />
+              <Route path="/fileUploadTeacher" exact element={<FileUploadTeacher/>} />
 
               <Route path="/subjectsDetails" exact element={<SubjectDetails_List/>} />
               <Route path="/allSubjectsViewOnly" exact element={<All_SubjectsViewOnly/>} />

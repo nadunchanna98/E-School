@@ -1,4 +1,5 @@
-import React, { useRef, useState } from "react";
+import axios from "axios";
+import React, { useRef, useState ,Link } from "react";
 import {
   FileUploadContainer,
   FormField,
@@ -13,13 +14,22 @@ import {
   InputLabel
 } from "./file-upload.styles";
 
+import Form from "../AssignmentFormTeacher";
+
+
 const KILO_BYTES_PER_BYTE = 1000;
 const DEFAULT_MAX_FILE_SIZE_IN_BYTES = 500000;
+
+
 
 const convertNestedObjectToArray = (nestedObj) =>
   Object.keys(nestedObj).map((key) => nestedObj[key]);
 
 const convertBytesToKB = (bytes) => Math.round(bytes / KILO_BYTES_PER_BYTE);
+
+
+
+
 
 const FileUpload = ({
   label,
@@ -53,10 +63,27 @@ const FileUpload = ({
 
   const handleNewFileUpload = (e) => {
     const { files: newFiles } = e.target;
+
+
     if (newFiles.length) {
+
+    
       let updatedFiles = addNewFiles(newFiles);
+
       setFiles(updatedFiles);
       callUpdateFilesCb(updatedFiles);
+
+
+        Form(updatedFiles);
+       
+
+      // axios.post('http://localhost:3001/assignment/insert/upload', updatedFiles)
+      // .then(res => {
+      //   console.log(res.data);
+      // }
+      // )
+      
+
     }
   };
 

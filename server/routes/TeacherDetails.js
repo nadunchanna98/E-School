@@ -54,7 +54,7 @@ router.get("/details/email/:email", async (req,res)=>{
 //teacher registation
 router.post("/register", (req,res) =>{
 
-    const encryptedPassword =  bcript.hashSync(req.body.Password, 10);
+    //const encryptedPassword =  bcript.hashSync(req.body.Password, 10);
 
     const Role = req.body.Role;
     const Teacher_ID = req.body.Teacher_ID;
@@ -65,7 +65,8 @@ router.post("/register", (req,res) =>{
     const Grade = req.body.Grade;
     const Subject_ID = req.body.SubjectID;
     const Email = req.body.Email;
-    const Password = encryptedPassword;
+    const Password = req.body.Password;
+    //const Password = encryptedPassword;
 
     if(Role == "Teacher"){
 

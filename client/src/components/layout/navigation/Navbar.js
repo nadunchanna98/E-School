@@ -29,6 +29,8 @@ const Navbar = () => {
         <a className="nav-link" href="/register/student">Register As a Student</a>
       </li>
 
+      
+
       <li className="nav-item">
         <a className="nav-link" href="/register/teacher">Register As a Teacher</a>
       </li>
@@ -42,8 +44,10 @@ const Navbar = () => {
           <a className="dropdown-item" href="/studentDetaillistonlyCanView">All Students</a>
           {/* <a className="dropdown-item" href="/teachers">All Teachers</a> */}
           <a className="dropdown-item" href="/teacherDetaillistonlyCanView">All Teachers </a>
-          <a className="dropdown-item" href="/LoginStudent">Student Login</a>
-          <a className="dropdown-item" href="/LoginTeacher">Teacher Login </a>
+          {/* <a className="dropdown-item" href="/LoginStudent">Student Login</a> */}
+          <a className="dropdown-item" href="/studentLoginNew">Student Login</a>
+          <a className="dropdown-item" href="/TeacherLoginNew">Teacher Login </a>
+          
 
           <div className="dropdown-divider"></div>
           <a className="dropdown-item" href="/">Logout</a>

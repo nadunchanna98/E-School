@@ -61,3 +61,6 @@ attribute called role and make it as a string and give it a value of student or 
 
 //for password size increse in db because when the password is too long after hashed
 //ex :- '$2b$10$RR87H66PDKwzhANHaGI/uOJpV78h.fvLM.3Ol045YoNV.8z8Z70dS'
+
+// npm i bcrypt for hashing password
+// npm i jsonwebtoken for token generation

@@ -3,8 +3,14 @@ import axios from "axios";
 import FileUpload from './file-upload/file-upload.component';
 import  { useState } from 'react';
 import moment from "moment";
+import { useLocation ,useNavigate } from "react-router-dom";
 
 const AssignmentFormTeacher = () => {
+
+  const navigate = useNavigate();
+  const location = useLocation();
+  //const { state } = this.props.location
+  //const   updatedFiles = state.updatedFiles;
 
     const [Chapter_No , setChapter_No ] = useState('');
     const [Assignment_No, setAssignment_No ] = useState('');
@@ -16,8 +22,14 @@ const AssignmentFormTeacher = () => {
     const [Doc, setDoc ] = useState('');
     
     
+
+
     const Application =  (e) => {
+
       e.preventDefault();
+
+      
+
   
       const newApplication = {
         Chapter_No : Chapter_No, 
@@ -28,7 +40,12 @@ const AssignmentFormTeacher = () => {
         DueDate :moment.utc(DueDate).format('YY-MM-DD'),
         TotalMarks : TotalMarks,
         Doc : Doc,
+        
+
       }
+
+
+      //navigate("/fileUploadTeacher", { state: { newApplication:newApplication  } });
 
       try {
          axios.post(`http://localhost:3001/assignment/insert/${Subject_ID}`, newApplication)
@@ -109,17 +126,23 @@ const AssignmentFormTeacher = () => {
                   <label>File</label>
 
                    <FileUpload
-                            accept=".jpg,.png,.jpeg .pdf"
+                            accept=".jpg,.png,.jpeg, .pdf"
                             label="Profile Image(s)"
                             multiple
-                            value={Doc}
-                           // updateFilesCb={setDoc}
-                          //  onChange={(e) => setDoc(e.target.value)}
-                            
+                   
+                            setFiles={setDoc}
+                            files={Doc}
                             />
-                            
-                    
 
+                  <input
+                    accept = ".jpg,.png,.jpeg, .pdf"
+                    type="file"
+                    multiple="multiple" 
+                    value={Doc}  onChange={(e) => setDoc(e.target.value)}
+                    
+                  />
+                            
+                
           <button className='uplpadbtn'  type="submit">Upload the Assignment</button>
         </div>
   

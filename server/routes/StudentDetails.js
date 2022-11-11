@@ -3,6 +3,8 @@ const router = express.Router();
 const db = require("../Db");
 const bcript = require('bcrypt'); //for hashing password
 
+
+
 const path = require('path');
 
 router.get('/', async (req, res) => {
@@ -44,7 +46,7 @@ router.get("/registerchech/:Email", async (req,res)=>{
 //Student registation
 router.post("/register",async (req,res) =>{
 
-    const  encryptedPassword =  bcript.hashSync(req.body.Password, 10);
+   // const  encryptedPassword =  bcript.hashSync(req.body.Password, 10);
 
     const Student_ID = req.body.Student_ID;
     const Fname = req.body.Fname;
@@ -55,7 +57,8 @@ router.post("/register",async (req,res) =>{
     const Address = req.body.Address;
     const Bdate = req.body.Bdate;
     const Email = req.body.Email;
-    const Password = encryptedPassword;
+    const Password = req.body.Password;
+    //const Password =  encryptedPassword;
 
    db.query("INSERT INTO student(Student_ID,Address,Bdate ,Fname,Lname,Grade,Phone_NO,Gender,Email,Password) VALUES (?,?,?,?,?,?,?,?,?,?)",
    [Student_ID,Address,Bdate ,Fname,Lname,Grade,Phone_NO,Gender,Email,Password],
