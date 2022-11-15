@@ -68,7 +68,10 @@ const TeacherDashboard = () => {
       navigate("/assignmentByTeacher");
     }
 
-  
+    const  ViewAssignment = () => {
+      navigate("/assignmentsViewTeacherByID" ,{ state: { id:Teacher_ID  } });
+    }
+    
 
     const handleDelete = (Teacher_ID) => {
 
@@ -183,6 +186,7 @@ const TeacherDashboard = () => {
                     <div className="d-flexx">
         
         <button  onClick={() =>assignmentByTeacher()}>Create A New Assignment </button>
+        <button  onClick={() =>ViewAssignment()}>View Assignment</button>
         <button onClick={() => resultsDetails()}>Assignment results</button>
         <button onClick={() => viewAllSubmitions()}>View All Submitions </button>
         <button onClick={() => navigate("/allstudentsOneTeacher", { state: { id: Teacher_ID } })}>My Class Students</button>

@@ -35,6 +35,40 @@ router.get("/details/student/:id", async (req,res)=>{
     
 });
 
+//get assignment details by Teacher id
+router.get("/details/teacherbyid/:id", async (req,res)=>{
+
+    const Teacher_ID = req.params.id;
+
+    db.query("SELECT Assignment_No , assignment.Subject_ID , Chapter_No , Note , DueDate , DueTime , TotalMarks , Doc , Created_on FROM assignment JOIN subjects ON assignment.Subject_ID = subjects.Subject_ID  WHERE Teacher_ID = ?", [Teacher_ID], (err,result) => {
+    if(err){
+        res.send(err);
+        console.log(err);  
+    }else{
+        res.send(result);              
+    }
+    });   
+    
+});
+
+
+//not working 
+
+//delete assignment details by Teacher id
+router.get("/delete/teacherbyid/:id", async (req,res)=>{
+
+    const Teacher_ID = req.params.id;
+
+    db.query("DELETE FROM assignment JOIN subjects ON assignment.Subject_ID = subjects.Subject_ID  WHERE Teacher_ID = ?", [Teacher_ID], (err,result) => {
+    if(err){
+        res.send(err);
+        console.log(err);  
+    }else{
+        res.send(result);              
+    }
+    });   
+    
+});
 
 
 //get assignment details 

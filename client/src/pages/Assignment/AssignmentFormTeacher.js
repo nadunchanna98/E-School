@@ -27,10 +27,12 @@ const AssignmentFormTeacher = () => {
     const Application =  (e) => {
 
       e.preventDefault();
-
-      
-
   
+      console.log(Doc); 
+
+      const formData = new FormData();
+      formData.append('Doc', Doc)
+
       const newApplication = {
         Chapter_No : Chapter_No, 
         Assignment_No : Assignment_No,
@@ -41,7 +43,6 @@ const AssignmentFormTeacher = () => {
         TotalMarks : TotalMarks,
         Doc : Doc,
         
-
       }
 
 
@@ -130,7 +131,7 @@ const AssignmentFormTeacher = () => {
                             label="Profile Image(s)"
                             multiple
                    
-                            setFiles={setDoc}
+                            // setFiles={setDoc}
                             files={Doc}
                             />
 
@@ -138,8 +139,8 @@ const AssignmentFormTeacher = () => {
                     accept = ".jpg,.png,.jpeg, .pdf"
                     type="file"
                     multiple="multiple" 
-                    value={Doc}  onChange={(e) => setDoc(e.target.value)}
-                    
+                      onChange={(e) => setDoc(e.target.files[0])}
+                      
                   />
                             
                 
