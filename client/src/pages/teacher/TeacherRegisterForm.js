@@ -6,31 +6,25 @@ import axios from "axios";
 import { v4 as uuid } from 'uuid';
 import moment from "moment";
 
-function StudentRegisterForm() {
+function TeacherRegisterForm() {
 
     const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/
 
   const validationSchema = Yup.object().shape({
 
 
+    Role: Yup.string().required('Role is Required'),
     Fname: Yup.string().required('First name is required'),
     Lname: Yup.string().required('Lname name is required'),
     Gender: Yup.string().required('Gender is required'),
+   SubjectID: Yup.string().required('Subject is required'),
+
 
     Phone_NO: Yup.string().matches(phoneRegExp, 'Phone number is not valid')
     .required('Phone number is required'),
 
     Grade: Yup.string().required('Grade is required'),
-    Bdate: Yup.date().required('Birth date is required'),
 
-    Address: Yup.string().required('Address is required')
-            .min(10, 'Address must be at least 10 characters')
-            .max(100, 'Address must be at most 100 characters'),
-
-    // username: Yup.string()
-    //   .required('Username is required')
-    //   .min(6, 'Username must be at least 6 characters')
-    //   .max(20, 'Username must not exceed 20 characters'),
 
     email: Yup.string().required('Email is required').email('Email is invalid')
          .test('Unique Email', 'Email already in use',
@@ -202,48 +196,28 @@ function StudentRegisterForm() {
 
  {/* //Phone_NO */}
         <div className="form-group">
-          <label htmlFor="Phone_NO"> Phone Number </label>
+          <label htmlFor="PhoneNO"> Phone Number </label>
           <input
-            name="Phone_NO"
+            name="PhoneNO"
             type="text"
             placeholder="077840112" 
             className={
               'form-control' +
-              (formik.errors.Phone_NO && formik.touched.Phone_NO
+              (formik.errors.PhoneNO && formik.touched.PhoneNO
                 ? ' is-invalid'
                 : '')
             }
             onChange={formik.handleChange}
-            value={formik.values.Phone_NO}
+            value={formik.values.PhoneNO}
           />
           <div className="invalid-feedback">
-            {formik.errors.Phone_NO && formik.touched.Phone_NO
-              ? formik.errors.Phone_NO
+            {formik.errors.PhoneNO && formik.touched.PhoneNO
+              ? formik.errors.PhoneNO
               : null}
           </div>
         </div>
 
 
-{/* //Address */}
-        <div className="form-group">
-          <label htmlFor="Address"> Home Address </label>
-          <input
-            name="Address"
-            type="text"
-            placeholder="234/2 , Nuwaraeliya , Srilanka" 
-            className={
-              'form-control' +
-              (formik.errors.Address && formik.touched.Address
-                ? ' is-invalid'
-                : '')
-            }
-            onChange={formik.handleChange}
-            value={formik.values.Address}
-          />
-          <div className="invalid-feedback">
-            {formik.errors.Address && formik.touched.Address? formik.errors.Address : null}
-          </div>
-        </div>
 
  {/* //Grade */}
         <div className="form-group">
@@ -263,29 +237,23 @@ function StudentRegisterForm() {
              </div>   
         </div>
 
-{/* //Bdate */}
-        <div className="form-group">
-          <label htmlFor="Bdate"> Birth Day </label>
-          <input
-            
-            name="Bdate"
-            type="date"
-            className={
-              'form-control' +
-              (formik.errors.Bdate && formik.touched.Bdate
-                ? ' is-invalid'
-                : '')
-            }
-            onChange={formik.handleChange}
-            value={formik.values.Bdate}
-          />
-          <div className="invalid-feedback">
-            {formik.errors.Bdate && formik.touched.Bdate
-              ? formik.errors.Bdate
-              : null}
-          </div>
-        </div>
+ {/* //Subject */}
+ <div className="form-group">
+          <label htmlFor="SubjectID"> Subject</label>
+          
+            <select  name="SubjectID" placeholder='Select Subject' className="form-control" onChange={formik.handleChange} value={formik.values.SubjectID}>
+                    <option value="">Select Subject</option>
+                    <option  value="001">Mathematics</option>
+                    <option value="002">Science</option>
+                    <option value="003">English</option>
+                    <option value="004">Sinhala</option>
+                    <option value="005">Tamil</option> 
+            </select>
 
+            <div div className="invalid-feedback">
+            {formik.errors.SubjectID && formik.touched.SubjectID ? formik.errors.SubjectID : null}
+             </div>   
+        </div>
 
 
    {/* //email      */}
@@ -412,5 +380,5 @@ function StudentRegisterForm() {
   );
 }
 
-export default StudentRegisterForm;
+export default TeacherRegisterForm;
 

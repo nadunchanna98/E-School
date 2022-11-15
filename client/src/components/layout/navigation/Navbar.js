@@ -17,22 +17,19 @@ const Navbar = () => {
         <a className="nav-link" href="/">Home </a>
       </li>
 
-      <li className="nav-item active ">
-        <a className="nav-link" href="/register/student/form">Register</a>
-      </li>
 
        <li className="nav-item">
         <a className="nav-link" href="/allSubjectsViewOnly">All Subjects</a>
       </li> 
 
       <li className="nav-item">
-        <a className="nav-link" href="/register/student">Register As a Student</a>
+        <a className="nav-link" href="/register/student/form">Register As a Student</a>
       </li>
 
       
 
       <li className="nav-item">
-        <a className="nav-link" href="/register/teacher">Register As a Teacher</a>
+        <a className="nav-link" href="/register/teacher/form">Register As a Teacher</a>
       </li>
 
       <li className="nav-item dropdown">

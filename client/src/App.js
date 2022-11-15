@@ -18,6 +18,7 @@ import Main from './pages/Main';
 import TeacherRegister from './pages/teacher/TeacherRegister';
 import StudentRegister from './pages/student/StudentRegister';
 import StudentRegisterForm from './pages/student/StudentRegisterForm';
+import TeacherRegisterForm from './pages/teacher/TeacherRegisterForm';
 import ForgetPasswordTeacher from './pages/teacher/ForgetPasswordTeacher';
 
 import ForgetPasswordStudent from './pages/student/ForgetPasswordStudent';
@@ -72,6 +73,7 @@ return (
               <Route path="/register/teacher" exact element={<TeacherRegister/>} />
               <Route path="/register/student" exact element={<StudentRegister/>} />
               <Route path="/register/student/form" exact element={<StudentRegisterForm/>} />
+              <Route path="/register/teacher/form" exact element={<TeacherRegisterForm/>} />
 
 
               <Route path="/teacherDashboard" exact element={<TeacherDashboard/>} />
