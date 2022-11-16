@@ -61,7 +61,7 @@ console.log(Subject_ID)
             (response => {
                 console.log(response);
             });
-            navigate('/teachers');
+            navigate("/TeacherLoginNew");
         } catch (error) {
             console.log(error);
         }

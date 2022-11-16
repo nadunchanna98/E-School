@@ -5,6 +5,8 @@ import "../../App.css";
 import {useNavigate} from 'react-router-dom';
 import Time from 'react-time-format';
 import { useLocation } from "react-router-dom";
+import {BiCloudUpload} from "react-icons/bi"; 
+
 
 const All_Assignment_1student = () => {
 
@@ -61,7 +63,7 @@ const All_Assignment_1student = () => {
                               <td className='columnData' >
                                   <Time value={value.Created_on} format="YYYY-MM-DD hh:mm:ss"  />
                               </td>
-                              <td><button onClick={() => SubmitAssignment(value.Subject_ID)}>Submit Now</button></td>
+                              <td><button onClick={() => SubmitAssignment(value.Subject_ID)}> <BiCloudUpload /> </button></td>
 
                           </tr>
                           ))}

@@ -70,7 +70,7 @@ const Update = () => {
             (response => {
                 console.log(response);}
                 ); 
-                navigate("/students");
+                navigate("/studentLoginNew");
         } catch (error) {
                  console.log(error);
         }

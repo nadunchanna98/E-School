@@ -3,6 +3,8 @@ import { BrowserRouter as Router,Routes,Route, Link} from "react-router-dom";
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+import StuSubjctInfoAndRegInfo from './pages/student/StuSubjctInfoAndRegInfo';
+
 
 import Navbar from './components/layout/navigation/Navbar';
 import Header from './components/layout/Header';
@@ -111,6 +113,8 @@ return (
 
               <Route path="/adminDashboard" exact element={<AdminDashboard/>} />
               <Route path="/allResults" exact element={<AllResults/>} />
+
+              <Route path="/StuSubjctInfoAndRegInfo" exact element={<StuSubjctInfoAndRegInfo/>} />
 
           </Routes>
           

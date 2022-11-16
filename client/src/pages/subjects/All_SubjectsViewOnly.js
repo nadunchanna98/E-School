@@ -27,7 +27,7 @@ const All_SubjectsViewOnly = () => {
                         <table>
                                 <tr>
                                     <td className='columnName'><h3>Subject ID</h3></td>
-                                    <td className='columnName'><h3>Teacher ID</h3></td>
+                                    <td className='columnName'><h3>Teacher Name</h3></td>
                                     <td className='columnName'><h3>Subject Name</h3></td>
                                     <td className='columnName'><h3>Grade</h3></td>
                                     <td className='columnName'><h3>Total Chapters</h3></td>

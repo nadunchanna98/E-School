@@ -66,6 +66,10 @@ const StudentDashboard = () => {
         navigate("/allAssignmentOfOneStudent" ,{ state: { Student_ID :Student_ID } });
       }
 
+      const  newfun = () => {
+        navigate("/StuSubjctInfoAndRegInfo" ,{ state: { Student_ID :Student_ID } });
+      }
+
       //all assignmens results
       const  allmyResults= () => {
         navigate("/oneStudentALLresults" ,{ state: { Student_ID : Student_ID } });
@@ -172,6 +176,7 @@ const StudentDashboard = () => {
                              <div className="d-flexx">
                                    <button onClick={() => viewAssignments()}>Need to Submit </button>
                                   <button  onClick={() => allmyResults()}>View My Results</button>
+                                  <button  onClick={() => newfun()}>Register Details with Subject Details</button>
                                   {/* <button onClick={() => confirmDelete()}>Delete my Account </button>  */}
                               </div>
                     </MDBCol>

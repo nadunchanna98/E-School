@@ -4,10 +4,11 @@ import * as Yup from 'yup';
 import '../../App.css';
 import axios from "axios";
 import { v4 as uuid } from 'uuid';
-import moment from "moment";
+import { useNavigate } from "react-router-dom";
 
 function TeacherRegisterForm() {
 
+    const navigate = useNavigate();
     const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/
 
   const validationSchema = Yup.object().shape({
@@ -28,9 +29,11 @@ function TeacherRegisterForm() {
 
     email: Yup.string().required('Email is required').email('Email is invalid')
          .test('Unique Email', 'Email already in use',
+
+         
          
             async (value) => {
-                const response = await axios.get(`http://localhost:3001/students/registerchech/${value}`);
+                const response = await axios.get(`http://localhost:3001/teachers/registerchech/${value}`);
                 return response.data.length === 0;
             }
          ),
@@ -68,16 +71,18 @@ function TeacherRegisterForm() {
 
     onSubmit: (data) => {
 
+        console.log(data.Fname);
+
         const newData = {
 
-            Role : data.Role,
             Teacher_ID: uuid(),
+            Role : data.Role,
             Fname: data.Fname,
             Lname: data.Lname,
             Gender: data.Gender,
             PhoneNO: data.PhoneNO,
-            Grade: data.Grade,
             SubjectID: "S"+ data.Grade + data.SubjectID,
+            Grade: data.Grade,
             Email: data.email,
             Password: data.password,
         }
@@ -86,6 +91,7 @@ function TeacherRegisterForm() {
         axios.post('http://localhost:3001/teachers/register',newData).then((response) => {
             console.log("Registaton success ")
             alert("Registaton success ")
+        
             formik.handleReset();
 
         }).catch((error) => {
@@ -108,10 +114,14 @@ function TeacherRegisterForm() {
 
       <h1 className='Topic-n' >Teacher Registration</h1>
 
+
   {/* //Role       */}
+
   <div className="form-group-n">
+    
           <label htmlFor="Role">Your Role</label>
-          <select name="Gender" className="form-control" onChange={formik.handleChange} value={formik.values.Role}>
+
+          <select name="Role" className="form-control" onChange={formik.handleChange} value={formik.values.Role}>
                     <option value="">Select Role</option>
                     <option value="Admin">Admin</option>
                     <option value="Teacher">Teacher</option>

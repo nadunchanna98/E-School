@@ -48,6 +48,20 @@ router.get("/details/email/:email", async (req,res)=>{
     
 });
 
+//Teacher registation check email 
+router.get("/registerchech/:Email", async (req,res)=>{
+    const Email = req.params.Email;
+    db.query("SELECT * FROM teacher WHERE Email = ?",Email, (err,result) => {
+ if(err){
+     res.send(err);
+     console.log(err);  
+ }else{
+     res.send(result);              
+ }
+ });   
+ 
+});
+
 
 
 
