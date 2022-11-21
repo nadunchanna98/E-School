@@ -79,22 +79,10 @@ if (email && password) {
 
 //login as Teacher
 router.post("/teacher", (req,res) =>{
-
     const email = req.body.email;
     const password = req.body.password;
 
-
-
 if (email && password) {
-
- const isAdmim = false;
- const adminResults = "";
-
-//decryption of password 
-
-
-
-
 
     db.query('SELECT * FROM teacher WHERE Email = ? AND Password = ?', [email, password], (error, results) => {
        
@@ -104,22 +92,18 @@ if (email && password) {
             // Authenticate the user
             req.session.loggedin = true;
             req.session.email = email;
-           
-            res.send(results);
-            
+            res.send(results);    
 
         } else {
             res.send({message : 'Incorrect email and/or Password!'});
         }			
         res.end();
     });
-
-
+    
 } else {
     res.send({message : 'Please enter email and Password!'});
     res.end();
 }
-
 
 });
 

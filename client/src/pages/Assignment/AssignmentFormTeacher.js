@@ -134,14 +134,14 @@ const AssignmentFormTeacher = () => {
                             // setFiles={setDoc}
                             files={Doc}
                             />
-
+{/* 
                   <input
                     accept = ".jpg,.png,.jpeg, .pdf"
                     type="file"
                     multiple="multiple" 
                       onChange={(e) => setDoc(e.target.files[0])}
                       
-                  />
+                  /> */}
                             
                 
           <button className='uplpadbtn'  type="submit">Upload the Assignment</button>

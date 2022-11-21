@@ -23,7 +23,6 @@ function Main() {
    
     <div>
     <div className="App">
-
           <Header/>
           <SlideShare/>     
       <div className="main" >

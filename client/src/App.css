@@ -299,6 +299,7 @@ login {
   transition: all 0.3 ease;
   cursor: pointer;
   margin-top: 20px;
+  margin-bottom: 20px;
   
 }
 
@@ -313,9 +314,6 @@ login {
   display: block;
 }
 
-.login h1{
- 
-}
 
 /********************        Registaion new    ***********************/
 
@@ -808,3 +806,36 @@ font-size: 20px;
 
 
 }
+
+
+
+/********************       footer    ***********************/
+
+.footer {
+  background: #27292c;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  margin-top: 5px;
+}
+
+.footer p {
+  margin: 0;
+}
+
+.footer a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+.contact {
+  color: #fff;
+  padding: 5px;
+  text-align: center;
+}
+
+

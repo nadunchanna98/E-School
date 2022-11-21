@@ -219,8 +219,10 @@ router.delete("/delete/:Student_ID", (req, res) => {
 
 
 //get student details and subject details
+
 router.get("/moredetails/:id", async (req,res)=>{
     const Student_ID = req.params.id;
+    
     db.query("SELECT * FROM student JOIN subjects ON subjects.Grade = student.Grade WHERE Student_ID = ?", Student_ID, (err,result) => {
     if(err){
         res.send(err);

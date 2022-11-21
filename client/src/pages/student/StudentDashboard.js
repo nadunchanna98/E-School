@@ -10,6 +10,7 @@ import Time from 'react-time-format';
 import StudentSubmitton from '../student_submited/StudentSubmitton';
 import { confirmAlert } from 'react-confirm-alert'; // Import 
 import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
+import Layout from '../../components/layout/Layout';
 
 
 
@@ -111,6 +112,8 @@ const StudentDashboard = () => {
 
 
   return (
+
+    <div>
     
     <section className="vh-100" style={{ backgroundColor: '#f4f5f7' }}>
       <MDBContainer className="py-5 h-100">
@@ -182,6 +185,8 @@ const StudentDashboard = () => {
                     </MDBCol>
       </MDBContainer>
     </section>
+
+    </div>
   );
   
 }

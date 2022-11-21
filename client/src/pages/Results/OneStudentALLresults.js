@@ -10,7 +10,6 @@ import { useLocation } from "react-router-dom";
 import {useNavigate} from 'react-router-dom';
 
 
-
 const OneStudentALLresults = () => {
 
   const navigate = useNavigate();
@@ -43,7 +42,7 @@ const OneStudentALLresults = () => {
 
                         <table>
                                 <tr>
-                                
+                                    <td className='columnName'><h3>Student name</h3></td>
                                     <td className='columnName'><h3>Subject ID</h3></td>
                                     <td className='columnName'><h3>Assignment No</h3></td>
                                     <td className='columnName'><h3>Results</h3></td>
@@ -54,6 +53,8 @@ const OneStudentALLresults = () => {
 
                                 {results.map((value,key)=>(
                                       <tr key={key}>
+
+                                          <td className='columnData'>{value.Fname} {value.Lname}</td>
                                           <td className='columnData'>
                                               
                                               {value.Subject_ID}
@@ -61,11 +62,8 @@ const OneStudentALLresults = () => {
                                           </td> 
                             
                                           <td className='columnData'>{value.Assignment_No}</td> 
-                                       
                                           <td className='columnData'>{value.Result}</td>
                                           <td className='columnData'>{value.Note}</td>
-                                          
-                                    
                                           <td><button onClick={() => needtoRecheck(value.Subject_ID)}>Send Massage</button></td>
                           
                                       </tr>
