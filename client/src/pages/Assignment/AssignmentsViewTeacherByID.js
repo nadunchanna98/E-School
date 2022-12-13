@@ -65,9 +65,9 @@ const AssignmentsViewTeacherByID = () => {
                           <tr>
                               
                               <td className='columnName'><h3>Assignment Number</h3></td>
-                              <td className='columnName'><h3>Subject ID</h3></td>
+                              {/* <td className='columnName'><h3>Subject ID</h3></td> */}
                               <td className='columnName'><h3>Chapter Number</h3></td>
-                              <td className='columnName'><h3>Special notice</h3></td>
+                              {/* <td className='columnName'><h3>Special notice</h3></td> */}
                               <td className='columnName'><h3>DueDate</h3></td>
                               <td className='columnName'><h3>DueTime</h3></td>
                               <td className='columnName'><h3>Created_on</h3></td>
@@ -80,9 +80,9 @@ const AssignmentsViewTeacherByID = () => {
                           {Assignments.map((value,key)=>(
                           <tr key={key}>
                             <td className='columnData'>{value.Assignment_No} {value.Lname}</td> 
-                              <td className='columnData' >{value.Subject_ID}</td>
+                              {/* <td className='columnData' >{value.Subject_ID}</td> */}
                               <td className='columnData' >{value.Chapter_No}</td>
-                              <td className='columnData' >{value.Note}</td>
+                              {/* <td className='columnData' >{value.Note}</td> */}
 
                               <td className='columnData' >
                                 <Time value={value.DueDate} format="YYYY-MM-DD" style={{color:'red'}}/>

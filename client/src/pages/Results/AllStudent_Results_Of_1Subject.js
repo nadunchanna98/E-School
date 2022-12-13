@@ -21,6 +21,9 @@ const AllStudent_Results_Of_1Subject = () => {
   console.log(Teacher_ID);
 
     const [results, setResults] = useState([]);
+    const [Fname , setFname ] = useState('');
+    const [Lname , setLname ] = useState('');
+    const [name, setName] = useState('');
 
     useEffect(()=>{
         axios.get(`http://localhost:3001/result/byteacher/${Teacher_ID}`).then((response) => {
@@ -31,7 +34,7 @@ const AllStudent_Results_Of_1Subject = () => {
 
      
 
-    console.log(results);
+    // console.log(results);
 
       const toUpdateDetails = (id) => {
         navigate("/resultsupdatebyt", { state: { id: id } });   // not created yet
@@ -46,13 +49,31 @@ const AllStudent_Results_Of_1Subject = () => {
           console.log(response.data);
         }
         ).catch((err) => {
-          console.log(err);
+          // console.log(err);
           alert("Results Not Deleted");
         })
         ;
       };
       
 
+      
+
+// const getName = (id) => {
+//         axios.get( `http://localhost:3001/students/names/${id}`).then((response) => {
+
+        
+//           setName(response.data + " " + response.data[0].Lname);
+          
+//         })
+//         .catch((err) => {
+//           console.log(err);
+//         });
+
+//         return name;
+        
+//       };
+
+    
 
     return (
         <div className='submitDetailsOneStudent'>
@@ -76,11 +97,12 @@ const AllStudent_Results_Of_1Subject = () => {
 
                                 {results.map((value,key)=>(
                                       <tr key={key}>
+
                                           <td className='columnData'>
-                                              
                                               {value.Student_ID}
-                                          
+                                              {/* { (getName(value.Student_ID))  } */}
                                           </td> 
+
                                           <td className='columnData'>{value.Subject_ID}</td> 
                                           <td className='columnData'>{value.Assignment_No}</td> 
                                        

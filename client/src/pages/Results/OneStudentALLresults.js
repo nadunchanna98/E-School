@@ -8,6 +8,7 @@ import { useEffect,useState } from "react";
 import "../../App.css";
 import { useLocation } from "react-router-dom";
 import {useNavigate} from 'react-router-dom';
+import {BsMessenger} from "react-icons/bs"; 
 
 
 const OneStudentALLresults = () => {
@@ -64,7 +65,7 @@ const OneStudentALLresults = () => {
                                           <td className='columnData'>{value.Assignment_No}</td> 
                                           <td className='columnData'>{value.Result}</td>
                                           <td className='columnData'>{value.Note}</td>
-                                          <td><button onClick={() => needtoRecheck(value.Subject_ID)}>Send Massage</button></td>
+                                          <td><button onClick={() => needtoRecheck(value.Subject_ID)}>Send Massage <BsMessenger/></button></td>
                           
                                       </tr>
   

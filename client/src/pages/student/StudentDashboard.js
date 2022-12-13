@@ -11,7 +11,8 @@ import StudentSubmitton from '../student_submited/StudentSubmitton';
 import { confirmAlert } from 'react-confirm-alert'; // Import 
 import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
 import Layout from '../../components/layout/Layout';
-
+import { FaEdit } from "react-icons/fa";
+import { GrView } from "react-icons/gr";
 
 
 const StudentDashboard = () => {
@@ -165,8 +166,8 @@ const StudentDashboard = () => {
 
                     <div className="d-flex justify-content-start">
                       
-                            <td><button  onClick={() =>ViewMySubmitions()}>View My Submitions</button></td>
-                            <td><button onClick={() => toUpdateDetails()}>Edit Personal Details</button></td>
+                            <td><button  onClick={() =>ViewMySubmitions()}>View My Submitions <GrView/> </button></td>
+                            <td><button onClick={() => toUpdateDetails()}>Edit Personal Details <FaEdit size="1.5rem"/></button></td>
                             
                     </div>
                   </MDBCardBody>

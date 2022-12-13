@@ -74,10 +74,8 @@ const confirmDelete = (id) => {
                     <h1>All Details About My Class Students</h1>
              </div>
 
-                
                     <div className='studentTable'>
 
-  
 
                         <table>
                                 <tr>
