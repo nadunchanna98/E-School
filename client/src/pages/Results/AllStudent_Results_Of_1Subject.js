@@ -8,7 +8,8 @@ import { useEffect,useState } from "react";
 import "../../App.css";
 import { useLocation } from "react-router-dom";
 import {useNavigate} from 'react-router-dom';
-
+import { FaEdit } from "react-icons/fa";
+import { RiDeleteBin5Fill } from "react-icons/ri";
 
 
 const AllStudent_Results_Of_1Subject = () => {
@@ -54,7 +55,7 @@ const AllStudent_Results_Of_1Subject = () => {
 
 
     return (
-        <div >
+        <div className='submitDetailsOneStudent'>
             
                 
                     <div className='submitTable'>
@@ -87,8 +88,8 @@ const AllStudent_Results_Of_1Subject = () => {
                                           <td className='columnData'>{value.Note}</td>
                                           
                                     
-                                          <td><button onClick={() => toUpdateDetails(value.Subject_ID)}>Edit</button></td>
-                                          <td><button onClick={() => handleDelete(value.Subject_ID)}>Remove</button></td>
+                                          <td><button onClick={() => toUpdateDetails(value.Subject_ID)}>Edit <FaEdit size="1.5rem"/></button></td>
+                                          <td><button onClick={() => handleDelete(value.Subject_ID)}>Remove <RiDeleteBin5Fill size="1.5rem"/> </button></td>
                                       </tr>
   
                                  ))}

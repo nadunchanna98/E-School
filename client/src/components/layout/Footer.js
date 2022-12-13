@@ -5,6 +5,7 @@ import { Link  } from 'react-router-dom'
 import '../../App.css'  
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { AiFillLinkedin ,AiOutlineGithub } from "react-icons/ai";
 
 const Footer = () => {
   return (
@@ -18,7 +19,8 @@ const Footer = () => {
 
                   
                     <div className="footer-bottom">
-                          &copy; E-School.com | Designed By : <a href="https://www.linkedin.com/in/nadun-channa-3a4a181aa" target="_blank">Nadun Channa</a>
+                        
+                          &copy; E-School.com | Designed By : <a href="https://www.linkedin.com/in/nadun-channa-3a4a181aa" target="_blank">Nadun Channa  <AiFillLinkedin size='2rem' /></a> <a href="https://github.com/nadunchanna98" target="_blank"> <AiOutlineGithub size='2rem' /></a>
                     </div>
                     <br/>
                     <p>

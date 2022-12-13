@@ -6,6 +6,9 @@ import {useNavigate} from 'react-router-dom';
 import SlideShare from '../SlideShare';
 import { confirmAlert } from 'react-confirm-alert'; // Import 
 import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
+import { FaEdit } from "react-icons/fa";
+import { RiDeleteBin5Fill } from "react-icons/ri";
+
 
 const TeacherDetails = () => {
 
@@ -82,8 +85,9 @@ const TeacherDetails = () => {
                                     <td className='columnName'><h3>Phone number</h3></td>
                                     <td className='columnName'><h3>Subject</h3></td>
                                     <td className='columnName'><h3>email</h3></td>
-                                    <td className='columnName'><h3>Remove</h3></td>
                                     <td className='columnName'><h3>Edit</h3></td>
+                                    <td className='columnName'><h3>Remove</h3></td>
+                                    
                                 </tr>
 
                                 {listOfTeacher.map((value,key)=>(
@@ -95,8 +99,8 @@ const TeacherDetails = () => {
                                     <td className='columnData' >{value.Subject_ID}</td>
                                     <td className='columnData'>{value.Email}</td>
 
-                                    <td><button onClick={() => toUpdateTeacher(value.Teacher_ID)}>Edit</button></td>
-                                    <td><button onClick={() => confirmDelete(value.Teacher_ID)}>Remove</button></td>
+                                    <td><button onClick={() => toUpdateTeacher(value.Teacher_ID)}>Edit <FaEdit size="1.5rem"/></button></td>
+                                    <td><button onClick={() => confirmDelete(value.Teacher_ID)}>Remove <RiDeleteBin5Fill size="1.5rem"/> </button></td>
                                 </tr>
                                  ))}
 

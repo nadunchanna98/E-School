@@ -7,7 +7,8 @@ import SlideShare from '../SlideShare';
 import Time from 'react-time-format';
 import { confirmAlert } from 'react-confirm-alert'; // Import 
 import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
-
+import { FaEdit } from "react-icons/fa";
+import { RiDeleteBin5Fill } from "react-icons/ri";
 
 const AllStudentsOneTeacher = () => {
 
@@ -107,8 +108,8 @@ const confirmDelete = (id) => {
                                     <td className='columnData'>{value.Phone_NO}</td>
                                     <td className='columnData'>{value.Email}</td>
 
-                                    <td><button onClick={() => toUpdateStudent(value.Student_ID)}>Edit</button></td>
-                                    <td><button style={{color:'red'}}  onClick={() => confirmDelete(value.Student_ID)}>Remove</button></td>
+                                    <td><button onClick={() => toUpdateStudent(value.Student_ID)}>Edit <FaEdit size="1.5rem"/></button></td>
+                                    <td><button style={{color:'red'}}  onClick={() => confirmDelete(value.Student_ID)}>Remove <RiDeleteBin5Fill size="1.5rem"/></button></td>
                                 </tr>
   
                                  ))}

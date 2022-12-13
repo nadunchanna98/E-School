@@ -4,6 +4,8 @@ import { useEffect,useState } from "react";
 import "../../App.css";
 import {useNavigate} from 'react-router-dom';
 import Time from 'react-time-format';
+import { FaEdit } from "react-icons/fa";
+import { RiDeleteBin5Fill } from "react-icons/ri";
 
 const SubjectDetails_List = () => {
 
@@ -67,8 +69,8 @@ const SubjectDetails_List = () => {
                                     <td className='columnData'>{value.Total_Chapters}</td>
                                     <td className='columnData'>{value.Total_Assignments}</td>
                               
-                                    <td><button onClick={() => toUpdateDetails(value.Teacher_ID)}>Edit</button></td>
-                                    <td><button onClick={() => handleDelete(value.Subject_ID)}>Remove</button></td>
+                                    <td><button onClick={() => toUpdateDetails(value.Teacher_ID)}>Edit <FaEdit size="1.5rem"/></button></td>
+                                    <td><button onClick={() => handleDelete(value.Subject_ID)}>Remove <RiDeleteBin5Fill size="1.5rem"/></button></td>
                                 </tr>
   
                                  ))}

@@ -41,7 +41,7 @@ const All_Assignment_1student = () => {
                               <td className='columnName'><h3>Special notice</h3></td>
                               <td className='columnName'><h3>DueDate</h3></td>
                               <td className='columnName'><h3>DueTime</h3></td>
-                              <td className='columnName'><h3>Created_on</h3></td>
+                              {/* <td className='columnName'><h3>Created_on</h3></td> */}
                               <td className='columnName'><h3>Submit</h3></td>
     
                                    
@@ -60,10 +60,10 @@ const All_Assignment_1student = () => {
 
                                 <td className='columnData' style={{color:'red'}}>11.59 PM</td>
 
-                              <td className='columnData' >
+                              {/* <td className='columnData' >
                                   <Time value={value.Created_on} format="YYYY-MM-DD hh:mm:ss"  />
-                              </td>
-                              <td><button onClick={() => SubmitAssignment(value.Subject_ID)}> <BiCloudUpload /> </button></td>
+                              </td> */}
+                              <td><button onClick={() => SubmitAssignment(value.Subject_ID)}> Upload <BiCloudUpload /> </button></td>
 
                           </tr>
                           ))}

@@ -25,7 +25,7 @@ const AllResults = () => {
 
 
   return (
-    <div >
+    <div className='submitDetailsOneStudent' >
             
                 
     <div className='submitTable'>

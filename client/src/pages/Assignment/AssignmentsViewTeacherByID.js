@@ -5,6 +5,9 @@ import "../../App.css";
 import {useNavigate} from 'react-router-dom';
 import Time from 'react-time-format';
 import { useLocation } from "react-router-dom";
+import { FaEdit } from "react-icons/fa";
+import { RiDeleteBin5Fill } from "react-icons/ri";
+
 
 const AssignmentsViewTeacherByID = () => {
 
@@ -92,8 +95,8 @@ const AssignmentsViewTeacherByID = () => {
                               </td>
                               {/* <td><button onClick={() => deleteAssignment(value.Subject_ID)}>Delete</button></td> */}
 
-                              <td><button onClick={() => toUpdateAssignment(value.Assignment_No)}>Edit</button></td>
-                            <td><button onClick={() => handleDeleteAssignment(value.Assignment_No)}>Remove</button></td>
+                              <td><button onClick={() => toUpdateAssignment(value.Assignment_No)}>Edit <FaEdit size="1.5rem"/></button></td>
+                            <td><button onClick={() => handleDeleteAssignment(value.Assignment_No)}>Remove <RiDeleteBin5Fill size="1.5rem"/></button></td>
 
                           </tr>
                           ))}

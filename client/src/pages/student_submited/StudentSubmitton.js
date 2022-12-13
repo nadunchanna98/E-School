@@ -50,7 +50,7 @@ const StudentSubmitton = () => {
   return (
 
 
-    <div>
+    <div >
         
                     
                     

@@ -9,7 +9,8 @@ import { useEffect,useState } from "react";
 import "../../App.css";
 import { useLocation } from "react-router-dom";
 import {useNavigate} from 'react-router-dom';
-
+import { FaEdit } from "react-icons/fa";
+import { RiDeleteBin5Fill } from "react-icons/ri";
 
 const Allstdnt_Submitions_of_1tchr = () => {
 
@@ -52,7 +53,7 @@ const Allstdnt_Submitions_of_1tchr = () => {
 
 
     return (
-        <div >
+        <div className='submitDetailsOneStudent'>
             
                 
                     <div className='submitTable'>
@@ -80,8 +81,8 @@ const Allstdnt_Submitions_of_1tchr = () => {
                                           <td className='columnData'>{value.Note}</td>
                                           <td className='columnData'>{value.Created_on}</td>
                                     
-                                          <td><button onClick={() => toUpdateDetails(value.Subject_ID)}>Edit</button></td>
-                                          <td><button onClick={() => handleDelete(value.Subject_ID)}>Remove</button></td>
+                                          <td><button onClick={() => toUpdateDetails(value.Subject_ID)}>Edit <FaEdit size="1.5rem"/></button></td>
+                                          <td><button onClick={() => handleDelete(value.Subject_ID)}>Remove <RiDeleteBin5Fill size="1.5rem"/></button></td>
                                       </tr>
   
                                  ))}

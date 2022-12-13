@@ -4,6 +4,8 @@ import { useEffect,useState } from "react";
 import "../../App.css";
 import {useNavigate} from 'react-router-dom';
 import Time from 'react-time-format';
+import { FaEdit } from "react-icons/fa";
+import { RiDeleteBin5Fill } from "react-icons/ri";
 
 const AssignmentDetails = () => {
 
@@ -78,8 +80,8 @@ const AssignmentDetails = () => {
                                   <Time value={value.Created_on} format="YYYY-MM-DD hh:mm:ss"  />
                               </td>
 
-                              <td><button onClick={() => toUpdateAssignment(value.Student_ID)}>Edit</button></td>
-                               <td><button onClick={() => handleDeleteAssignment(value.Student_ID)}>Remove</button></td>
+                              <td><button onClick={() => toUpdateAssignment(value.Student_ID)}>Edit  <FaEdit size="1.5rem"/></button></td>
+                               <td><button onClick={() => handleDeleteAssignment(value.Student_ID)}>Remove  <RiDeleteBin5Fill size="1.5rem"/></button></td>
                                     
                           </tr>
                           ))}
