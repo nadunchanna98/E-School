@@ -38,7 +38,7 @@ router.get("/detailsof/:id", async (req,res)=>{
 
     const Teacher_ID = req.params.id;
 
-    db.query("SELECT * FROM student_submited JOIN subjects ON student_submited.Subject_ID = subjects.Subject_ID  WHERE subjects.Teacher_ID = ? ",[Teacher_ID], (err,result) => {
+    db.query("SELECT * FROM student_submited JOIN subjects ON student_submited.Subject_ID = subjects.Subject_ID JOIN student ON student_submited.Student_ID = Student.Student_ID  WHERE subjects.Teacher_ID = ? ",[Teacher_ID], (err,result) => {
     if(err){
         res.send(err);
         console.log(err);  

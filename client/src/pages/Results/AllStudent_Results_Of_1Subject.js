@@ -21,9 +21,7 @@ const AllStudent_Results_Of_1Subject = () => {
   console.log(Teacher_ID);
 
     const [results, setResults] = useState([]);
-    const [Fname , setFname ] = useState('');
-    const [Lname , setLname ] = useState('');
-    const [name, setName] = useState('');
+
 
     useEffect(()=>{
         axios.get(`http://localhost:3001/result/byteacher/${Teacher_ID}`).then((response) => {
@@ -58,21 +56,6 @@ const AllStudent_Results_Of_1Subject = () => {
 
       
 
-// const getName = (id) => {
-//         axios.get( `http://localhost:3001/students/names/${id}`).then((response) => {
-
-        
-//           setName(response.data + " " + response.data[0].Lname);
-          
-//         })
-//         .catch((err) => {
-//           console.log(err);
-//         });
-
-//         return name;
-        
-//       };
-
     
 
     return (
@@ -84,7 +67,7 @@ const AllStudent_Results_Of_1Subject = () => {
                         <table>
                                 <tr>
                                     
-                                    <td className='columnName'><h3>Student ID</h3></td>
+                                    <td className='columnName'><h3>Student Name</h3></td>
                                     <td className='columnName'><h3>Subject ID</h3></td>
                                     <td className='columnName'><h3>Assignment No</h3></td>
                              
@@ -99,8 +82,7 @@ const AllStudent_Results_Of_1Subject = () => {
                                       <tr key={key}>
 
                                           <td className='columnData'>
-                                              {value.Student_ID}
-                                              {/* { (getName(value.Student_ID))  } */}
+                                              {value.Fname} {value.Lname}
                                           </td> 
 
                                           <td className='columnData'>{value.Subject_ID}</td> 

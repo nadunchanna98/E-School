@@ -9,7 +9,7 @@ router.get("/byteacher/:id", async (req,res)=>{
 
     const Teacher_ID = req.params.id;
 
-    db.query("SELECT Student_ID,teacher.Subject_ID,Assignment_No,Result,Note FROM results JOIN teacher ON results.Subject_ID = teacher.Subject_ID  WHERE teacher.Teacher_ID = ? ",[Teacher_ID],
+    db.query("SELECT student.Student_ID,student.Fname,student.Lname,teacher.Subject_ID,Assignment_No,Result,Note FROM results JOIN teacher ON results.Subject_ID = teacher.Subject_ID JOIN student ON results.Student_ID = Student.Student_ID  WHERE teacher.Teacher_ID = ? ",[Teacher_ID],
     (err,result) => {
     if(err){
         res.send(err);

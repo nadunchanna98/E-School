@@ -61,7 +61,7 @@ const Allstdnt_Submitions_of_1tchr = () => {
                         <table>
                                 <tr>
                                     
-                                    <td className='columnName'><h3>Student ID</h3></td>
+                                    <td className='columnName'><h3>Student Name</h3></td>
                                     <td className='columnName'><h3>Subject ID</h3></td>
                                     <td className='columnName'><h3>Assignment No</h3></td>
                                     <td className='columnName'><h3>Uploading Status</h3></td>
@@ -74,7 +74,7 @@ const Allstdnt_Submitions_of_1tchr = () => {
 
                                 {SubmitedDetails.map((value,key)=>(
                                       <tr key={key}>
-                                          <td className='columnData'>{value.Student_ID}</td> 
+                                          <td className='columnData'>{value.Fname} {value.Lname}</td> 
                                           <td className='columnData'>{value.Subject_ID}</td> 
                                           <td className='columnData'>{value.Assignment_No}</td> 
                                           <td className='columnData'>{value.Uploading_Status}</td>
