@@ -7,7 +7,6 @@ This is a web-application for online School.
 
 ScreenRecord for more understand : 
 
-Uploading E-School.mp4…
 
 
 
@@ -24,6 +23,9 @@ many reasons.
 to learn from a well experienced teacher in a well reputed school, in our 
 education system.
 
+
+
+
 SOLUTION
 
 I am introducing a simple web application which allows teachers 
@@ -38,6 +40,9 @@ uploaded study material.
 • There are only main key features in this system with user friendly interface. Then 
 Teachers and students can access easily.
 • Admin Allow access to update insert and delete the teachers details and subject details.
+
+
+
 
  DATABASE DESIGN
  
