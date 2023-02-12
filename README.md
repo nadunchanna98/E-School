@@ -2,8 +2,15 @@
 
 This is a web-application for online School.
 
-* Front end - Reactjs , Back end - Nodejs
-* Express , Mysql database
+* Frontend - Reactjs , Backend - Nodejs
+* Express & Mysql database
+
+ScreenRecord for more understand : 
+
+Uploading E-School.mp4…
+
+
+
 
 PROBLEM STATEMENT ( 2 main reasons )
 
