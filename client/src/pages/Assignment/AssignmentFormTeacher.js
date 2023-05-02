@@ -61,9 +61,10 @@ const AssignmentFormTeacher = () => {
     
     return (
      
-  
+      <div className="submitDetailsOneStudent">
     <form   onSubmit={Application} >
   
+
       <div className="header">
         <div className="assignment" >
   
@@ -148,7 +149,9 @@ const AssignmentFormTeacher = () => {
         </div>
   
       </div> 
+
       </form>
+      </div> 
     
     );
   }

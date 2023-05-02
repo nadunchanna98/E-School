@@ -14,14 +14,12 @@ import Layout from '../../components/layout/Layout';
 import { FaEdit } from "react-icons/fa";
 import { GrView } from "react-icons/gr";
 
-
 const StudentDashboard = () => {
 
   const navigate = useNavigate();
   const location = useLocation();
   const email = location.state.email;
  
-  
   const [Student_ID,setStudent_ID] = useState('');
   const [Fname , setFname ] = useState('');
   const [Lname , setLname ] = useState('');
